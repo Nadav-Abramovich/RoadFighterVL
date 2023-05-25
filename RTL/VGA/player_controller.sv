@@ -36,19 +36,19 @@ begin
 	end
 	
 	else begin
-	if(frame_start) begin
-		if(plus_is_pressed) begin
-			if((temp_player_state[1] + 11'b100000) < max_x) begin
-				temp_player_state[1] <= temp_player_state[1] + 11'b1;
+		if(frame_start) begin
+			if(plus_is_pressed) begin
+				if((temp_player_state[1] + 11'b100000) < max_x) begin
+					temp_player_state[1] <= temp_player_state[1] + 11'b1;
+				end
 			end
-		end
-		else if (minus_is_pressed) begin
-			if(temp_player_state[1] > min_x) begin
-				temp_player_state[1] <= temp_player_state[1] - 11'b1;
+			else if (minus_is_pressed) begin
+				if(temp_player_state[1] > min_x) begin
+					temp_player_state[1] <= temp_player_state[1] - 11'b1;
+				end
 			end
+			new_player_state <= temp_player_state;
 		end
-		new_player_state <= temp_player_state;
-	end
 	end
 end
 

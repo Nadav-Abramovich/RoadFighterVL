@@ -1,0 +1,7 @@
+Warning (10268): Verilog HDL information at back_ground_draw.sv(52): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/back_ground_draw.sv Line: 52
+Warning (10268): Verilog HDL information at smiley_move.sv(67): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/smiley_move.sv Line: 67
+Warning (10268): Verilog HDL information at lpf.sv(42): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/lpf.sv Line: 42
+Warning (10268): Verilog HDL information at byterec.sv(68): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/byterec.sv Line: 68
+Warning (10268): Verilog HDL information at bitrec.sv(54): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/bitrec.sv Line: 54
+Warning (10268): Verilog HDL information at sprite_storage_debug.sv(23): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage_debug.sv Line: 23
+Warning (10268): Verilog HDL information at background_controller.sv(29): always construct contains both blocking and non-blocking assignments File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/background_controller.sv Line: 29
