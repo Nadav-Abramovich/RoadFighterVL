@@ -203,6 +203,27 @@ begin
 		if(sprite_number==11'b0) begin
 			RGBout <= object_colors[(requested_x-x_offset)/2][(requested_y-y_offset)/2];
 		end
+		// death_0
+		else if(sprite_number==99) begin
+			RGBout <= object_colors[32+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+		end
+		else if(sprite_number==100) begin
+			RGBout <= object_colors[64+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+		end
+		else if(sprite_number==101) begin
+			RGBout <= object_colors[96+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+		end
+		// death_1
+		else if(sprite_number==102) begin
+			RGBout <= object_colors[64-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
+		end
+		else if(sprite_number==103) begin
+			RGBout <= object_colors[96-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
+		end
+		else if(sprite_number==104) begin
+			RGBout <= object_colors[128-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
+		end
+
 		else if(sprite_number==11'b1) begin
 			RGBout <= object_colors[18+((requested_x-x_offset)/2)][57+((requested_y-y_offset)/2)];
 		end
