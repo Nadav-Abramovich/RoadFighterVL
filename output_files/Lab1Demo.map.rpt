@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Thu May 25 18:50:39 2023
+Thu May 25 19:38:12 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 25 18:50:38 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 25 19:38:12 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
@@ -255,13 +255,13 @@ agreement for further details.
 +---------------------------------------------+-------------------------------+
 ; Resource                                    ; Usage                         ;
 +---------------------------------------------+-------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6310                          ;
+; Estimate of Logic utilization (ALMs needed) ; 6311                          ;
 ;                                             ;                               ;
-; Combinational ALUT usage for logic          ; 9216                          ;
+; Combinational ALUT usage for logic          ; 9217                          ;
 ;     -- 7 input functions                    ; 1572                          ;
 ;     -- 6 input functions                    ; 1793                          ;
-;     -- 5 input functions                    ; 4020                          ;
-;     -- 4 input functions                    ; 910                           ;
+;     -- 5 input functions                    ; 4019                          ;
+;     -- 4 input functions                    ; 912                           ;
 ;     -- <=3 input functions                  ; 921                           ;
 ;                                             ;                               ;
 ; Dedicated logic registers                   ; 493                           ;
@@ -275,7 +275,7 @@ agreement for further details.
 ;                                             ;                               ;
 ; Maximum fan-out node                        ; sprite_storage:inst13|Add11~5 ;
 ; Maximum fan-out                             ; 2455                          ;
-; Total fan-out                               ; 49069                         ;
+; Total fan-out                               ; 49072                         ;
 ; Average fan-out                             ; 5.00                          ;
 +---------------------------------------------+-------------------------------+
 
@@ -285,7 +285,7 @@ agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Entity Name                   ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
-; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 9216 (0)            ; 493 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
+; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 9217 (0)            ; 493 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
 ;    |AUDIO:inst18|                                       ; 205 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18                                                                          ; AUDIO                         ; work         ;
 ;       |ToneDecoder:inst4|                               ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|ToneDecoder:inst4                                                        ; ToneDecoder                   ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|addr_counter:inst9                                                       ; addr_counter                  ; work         ;
@@ -311,7 +311,7 @@ agreement for further details.
 ;    |object_table:inst1|                                 ; 198 (70)            ; 107 (105)                 ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1                                                                    ; object_table                  ; work         ;
 ;       |collision_detector:comb_3|                       ; 58 (58)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|collision_detector:comb_3                                          ; collision_detector            ; work         ;
 ;       |collision_detector:comb_4|                       ; 70 (70)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|collision_detector:comb_4                                          ; collision_detector            ; work         ;
-;    |player_controller:inst9|                            ; 117 (117)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
+;    |player_controller:inst9|                            ; 118 (118)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
 ;    |random:inst12|                                      ; 30 (30)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|random:inst12                                                                         ; random                        ; work         ;
 ;    |sprite_storage:inst13|                              ; 8489 (8489)         ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
@@ -1060,38 +1060,38 @@ Encoding Type:  One-Hot
 ; ai_car_controller:inst4|new_car_state[1][2]                      ; 1       ;
 ; object_table:inst1|obj_table[12][8]                              ; 1       ;
 ; object_table:inst1|obj_table[12][9]                              ; 1       ;
-; player_controller:inst9|death_state[9]                           ; 4       ;
 ; player_controller:inst9|death_state[8]                           ; 5       ;
 ; player_controller:inst9|death_state[3]                           ; 4       ;
 ; player_controller:inst9|death_state[2]                           ; 4       ;
 ; player_controller:inst9|death_state[1]                           ; 4       ;
 ; player_controller:inst9|death_state[0]                           ; 4       ;
+; player_controller:inst9|death_state[7]                           ; 5       ;
+; player_controller:inst9|death_state[6]                           ; 5       ;
+; player_controller:inst9|death_state[5]                           ; 5       ;
+; player_controller:inst9|death_state[4]                           ; 5       ;
 ; player_controller:inst9|death_state[13]                          ; 4       ;
 ; player_controller:inst9|death_state[12]                          ; 4       ;
 ; player_controller:inst9|death_state[11]                          ; 4       ;
 ; player_controller:inst9|death_state[10]                          ; 4       ;
-; player_controller:inst9|death_state[20]                          ; 4       ;
+; player_controller:inst9|death_state[9]                           ; 4       ;
+; player_controller:inst9|death_state[15]                          ; 4       ;
 ; player_controller:inst9|death_state[14]                          ; 4       ;
 ; player_controller:inst9|death_state[19]                          ; 4       ;
 ; player_controller:inst9|death_state[18]                          ; 4       ;
 ; player_controller:inst9|death_state[17]                          ; 4       ;
 ; player_controller:inst9|death_state[16]                          ; 4       ;
-; player_controller:inst9|death_state[15]                          ; 4       ;
-; player_controller:inst9|death_state[25]                          ; 4       ;
-; player_controller:inst9|death_state[24]                          ; 4       ;
-; player_controller:inst9|death_state[23]                          ; 4       ;
-; player_controller:inst9|death_state[22]                          ; 4       ;
-; player_controller:inst9|death_state[21]                          ; 4       ;
-; player_controller:inst9|death_state[27]                          ; 4       ;
 ; player_controller:inst9|death_state[26]                          ; 4       ;
-; player_controller:inst9|death_state[5]                           ; 5       ;
-; player_controller:inst9|death_state[4]                           ; 5       ;
-; player_controller:inst9|death_state[7]                           ; 4       ;
-; player_controller:inst9|death_state[6]                           ; 4       ;
+; player_controller:inst9|death_state[21]                          ; 4       ;
+; player_controller:inst9|death_state[20]                          ; 4       ;
 ; player_controller:inst9|death_state[31]                          ; 5       ;
 ; player_controller:inst9|death_state[30]                          ; 4       ;
 ; player_controller:inst9|death_state[29]                          ; 4       ;
 ; player_controller:inst9|death_state[28]                          ; 4       ;
+; player_controller:inst9|death_state[27]                          ; 4       ;
+; player_controller:inst9|death_state[25]                          ; 4       ;
+; player_controller:inst9|death_state[24]                          ; 4       ;
+; player_controller:inst9|death_state[23]                          ; 4       ;
+; player_controller:inst9|death_state[22]                          ; 4       ;
 ; player_controller:inst9|new_player_state[3][5]                   ; 2       ;
 ; player_controller:inst9|temp_player_state[1][2]                  ; 5       ;
 ; ai_car_controller:inst4|temp_car_state[2][2]                     ; 3       ;
@@ -1563,7 +1563,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 26                          ;
 ;     plain             ; 33                          ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 9223                        ;
+; arriav_lcell_comb     ; 9224                        ;
 ;     arith             ; 382                         ;
 ;         0 data inputs ; 11                          ;
 ;         1 data inputs ; 323                         ;
@@ -1571,13 +1571,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         3 data inputs ; 3                           ;
 ;     extend            ; 1572                        ;
 ;         7 data inputs ; 1572                        ;
-;     normal            ; 7243                        ;
+;     normal            ; 7244                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 31                          ;
 ;         2 data inputs ; 227                         ;
 ;         3 data inputs ; 260                         ;
-;         4 data inputs ; 910                         ;
-;         5 data inputs ; 4020                        ;
+;         4 data inputs ; 912                         ;
+;         5 data inputs ; 4019                        ;
 ;         6 data inputs ; 1793                        ;
 ;     shared            ; 26                          ;
 ;         0 data inputs ; 4                           ;
@@ -1595,7 +1595,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:07:04     ;
+; Top            ; 00:05:26     ;
 +----------------+--------------+
 
 
@@ -1605,39 +1605,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 25 18:42:50 2023
+    Info: Processing started: Thu May 25 19:32:36 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/hart_position_control.sv
-    Info (12023): Found entity 1: Hart_position_control File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/hart_position_control.sv Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/objects_mux.sv
-    Info (12023): Found entity 1: objects_mux File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/objects_mux.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/objects_mux_all.sv
     Info (12023): Found entity 1: objects_mux_all File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/objects_mux_all.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/top_vga_demo_kbd.bdf
     Info (12023): Found entity 1: TOP_VGA_DEMO_KBD
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/game_controller.sv
-    Info (12023): Found entity 1: game_controller File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/game_controller.sv Line: 7
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/smiley_block_t.bdf
-    Info (12023): Found entity 1: Smiley_Block_T
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/smileybitmap.sv
-    Info (12023): Found entity 1: smileyBitMap File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/smileyBitMap.sv Line: 7
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/square_object.sv
-    Info (12023): Found entity 1: square_object File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/square_object.sv Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/back_ground_draw.sv
-    Info (12023): Found entity 1: back_ground_draw File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/back_ground_draw.sv Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/square_hart_object.sv
-    Info (12023): Found entity 1: square_Hart_object File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/square_Hart_object.sv Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/hartsmatrixbitmap.sv
-    Info (12023): Found entity 1: HartsMatrixBitMap File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/HartsMatrixBitMap.sv Line: 7
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/hart_display.bdf
-    Info (12023): Found entity 1: HART_DISPLAY
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/smiley_move.sv
-    Info (12023): Found entity 1: smiley_move File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/smiley_move.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/vga_controller.sv
     Info (12023): Found entity 1: VGA_Controller File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 11
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/numbersbitmap.sv
-    Info (12023): Found entity 1: NumbersBitMap File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/NumbersBitMap.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/valx.v
     Info (12023): Found entity 1: valX File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/valX.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/keyboardx/top_kbd.bdf
@@ -2209,17 +2185,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 9444 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9445 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 39 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 9391 logic cells
+    Info (21061): Implemented 9392 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 380 warnings
-    Info: Peak virtual memory: 5020 megabytes
-    Info: Processing ended: Thu May 25 18:50:39 2023
-    Info: Elapsed time: 00:07:49
-    Info: Total CPU time (on all processors): 00:07:58
+    Info: Peak virtual memory: 4972 megabytes
+    Info: Processing ended: Thu May 25 19:38:12 2023
+    Info: Elapsed time: 00:05:36
+    Info: Total CPU time (on all processors): 00:05:44
 
 
 +------------------------------------------+

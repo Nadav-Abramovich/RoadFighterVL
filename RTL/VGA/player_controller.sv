@@ -62,7 +62,7 @@ begin
 		if(frame_start) begin
 			if(death_state != -1) begin
 				death_state <= death_state + 1;
-				if(death_state == 48*4) begin
+				if(death_state == 16*4*4) begin
 					temp_player_state[0] <= death_animation[12][0];
 					temp_player_state[3] <= death_animation[12][1];
 					temp_player_state[4] <= death_animation[12][2];
