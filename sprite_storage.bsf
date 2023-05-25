@@ -21,9 +21,9 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 256 192)
+	(rect 16 16 272 160)
 	(text "sprite_storage" (rect 5 0 61 12)(font "Arial" ))
-	(text "inst" (rect 8 160 20 172)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -48,8 +48,8 @@ agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "sprite_number[31..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "sprite_number[31..0]" (rect 21 75 102 87)(font "Arial" ))
+		(text "current_state[0..14][0..10]" (rect 0 0 101 12)(font "Arial" ))
+		(text "current_state[0..14][0..10]" (rect 21 75 122 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
@@ -67,27 +67,13 @@ agreement for further details.
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
-		(pt 0 128)
-		(input)
-		(text "x_offset[31..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "x_offset[31..0]" (rect 21 123 78 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 3))
-	)
-	(port
-		(pt 0 144)
-		(input)
-		(text "y_offset[31..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "y_offset[31..0]" (rect 21 139 80 151)(font "Arial" ))
-		(line (pt 0 144)(pt 16 144)(line_width 3))
-	)
-	(port
-		(pt 240 32)
+		(pt 256 32)
 		(output)
 		(text "RGBout[7..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "RGBout[7..0]" (rect 166 27 219 39)(font "Arial" ))
-		(line (pt 240 32)(pt 224 32)(line_width 3))
+		(text "RGBout[7..0]" (rect 182 27 235 39)(font "Arial" ))
+		(line (pt 256 32)(pt 240 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 224 160)(line_width 1))
+		(rectangle (rect 16 16 240 128)(line_width 1))
 	)
 )

@@ -1054,9 +1054,9 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect -2040 912 -1800 1088)
+	(rect -2040 912 -1784 1056)
 	(text "sprite_storage" (rect 5 0 74 12)(font "Arial" ))
-	(text "inst13" (rect 8 160 37 172)(font "Arial" ))
+	(text "inst13" (rect 8 128 37 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1081,8 +1081,8 @@ agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "sprite_number[31..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "sprite_number[31..0]" (rect 21 75 122 87)(font "Arial" ))
+		(text "current_state[0..14][0..10]" (rect 0 0 128 12)(font "Arial" ))
+		(text "current_state[0..14][0..10]" (rect 21 75 149 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
@@ -1100,28 +1100,14 @@ agreement for further details.
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
-		(pt 0 128)
-		(input)
-		(text "x_offset[31..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "x_offset[31..0]" (rect 21 123 95 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 3))
-	)
-	(port
-		(pt 0 144)
-		(input)
-		(text "y_offset[31..0]" (rect 0 0 75 12)(font "Arial" ))
-		(text "y_offset[31..0]" (rect 21 139 96 151)(font "Arial" ))
-		(line (pt 0 144)(pt 16 144)(line_width 3))
-	)
-	(port
-		(pt 240 32)
+		(pt 256 32)
 		(output)
 		(text "RGBout[7..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "RGBout[7..0]" (rect 165 27 219 39)(font "Arial" ))
-		(line (pt 240 32)(pt 224 32)(line_width 3))
+		(text "RGBout[7..0]" (rect 181 27 235 39)(font "Arial" ))
+		(line (pt 256 32)(pt 240 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 224 160))
+		(rectangle (rect 16 16 240 128))
 	)
 )
 (connector
@@ -1352,11 +1338,6 @@ agreement for further details.
 	(text "pixelY[10..0]" (rect -2654 904 -2592 916)(font "Arial" ))
 	(pt -2688 920)
 	(pt -2488 920)
-	(bus)
-)
-(connector
-	(pt -2160 904)
-	(pt -2160 1096)
 	(bus)
 )
 (connector
@@ -1615,33 +1596,8 @@ agreement for further details.
 	(pt -2832 1000)
 )
 (connector
-	(pt -2056 824)
-	(pt -2056 992)
-	(bus)
-)
-(connector
 	(pt -2064 840)
 	(pt -2064 1008)
-	(bus)
-)
-(connector
-	(pt -2072 856)
-	(pt -2072 1024)
-	(bus)
-)
-(connector
-	(pt -2080 872)
-	(pt -2080 1040)
-	(bus)
-)
-(connector
-	(pt -2088 888)
-	(pt -2088 1056)
-	(bus)
-)
-(connector
-	(pt -2168 824)
-	(pt -2056 824)
 	(bus)
 )
 (connector
@@ -1655,38 +1611,8 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt -2168 872)
-	(pt -2080 872)
-	(bus)
-)
-(connector
-	(pt -2168 888)
-	(pt -2088 888)
-	(bus)
-)
-(connector
-	(pt -2056 992)
-	(pt -2040 992)
-	(bus)
-)
-(connector
 	(pt -2064 1008)
 	(pt -2040 1008)
-	(bus)
-)
-(connector
-	(pt -2072 1024)
-	(pt -2040 1024)
-	(bus)
-)
-(connector
-	(pt -2080 1040)
-	(pt -2040 1040)
-	(bus)
-)
-(connector
-	(pt -2088 1056)
-	(pt -2040 1056)
 	(bus)
 )
 (connector
@@ -1705,19 +1631,45 @@ agreement for further details.
 	(pt -2040 960)
 )
 (connector
-	(pt -1664 944)
-	(pt -1800 944)
-	(bus)
-)
-(connector
 	(text "startOfFrame" (rect -2044 960 -1981 977)(font "Intel Clear" ))
 	(pt -2040 976)
 	(pt -2048 976)
+)
+(connector
+	(pt -1664 944)
+	(pt -1784 944)
+	(bus)
+)
+(connector
+	(pt -2072 856)
+	(pt -2072 1024)
+	(bus)
+)
+(connector
+	(pt -2040 1024)
+	(pt -2072 1024)
+	(bus)
+)
+(connector
+	(pt -2160 992)
+	(pt -2040 992)
+	(bus)
+)
+(connector
+	(pt -2160 904)
+	(pt -2160 992)
+	(bus)
+)
+(connector
+	(pt -2160 992)
+	(pt -2160 1096)
+	(bus)
 )
 (junction (pt -1560 1624))
 (junction (pt 504 1584))
 (junction (pt -3552 1016))
 (junction (pt -3512 800))
+(junction (pt -2160 992))
 (text "Output to 7Seg" (rect -1200 1608 -1110 1627)(font "Intel Clear" (font_size 8)))
 (text "// (c) Technion IIT, Department of Electrical Engineering 2021" (rect -2352 752 -1993 771)(font "Intel Clear" (font_size 8)))
 (text "Sound Unit" (rect -1712 1456 -1642 1475)(font "Intel Clear" (font_size 8)(bold)))

@@ -236,7 +236,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdo
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tms
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to resetN_pin
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/objects_mux_all.sv
-set_global_assignment -name BDF_FILE RTL/VGA/TOP_VGA_DEMO_KBD.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/VGA_Controller.sv
 set_global_assignment -name QIP_FILE RTL/VGA/valX.qip
 set_global_assignment -name TCL_SCRIPT_FILE constraints/pin.tcl

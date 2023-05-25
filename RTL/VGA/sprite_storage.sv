@@ -3,11 +3,9 @@ module	sprite_storage	(
 					input		logic	clk,
 					input		logic	resetN,
 					input    logic frame_start,
-					input    int sprite_number,
+					input    logic [0:14][0:10] current_state,
 					input    int requested_x,
 					input    int requested_y,
-					input    int x_offset,
-					input    int y_offset,
 					output	logic	[7:0] RGBout  //rgb value from the bitmap 
 );
 localparam  int OBJECT_NUMBER_OF_Y_BITS = 7;  // 2^5 = 32 
@@ -193,6 +191,50 @@ logic [0:31][0:127][7:0]  background = {
 int y_pos=0;
 
 
+logic should_draw_1 = 1'b0;
+logic should_draw_2 = 1'b0;
+logic should_draw_3 = 1'b0;
+
+collision_detector (
+	.clk (clk),
+	.resetN( resetN ),
+	.requested_x( {21'b0, requested_x} ),
+	.requested_y( {21'b0, requested_y} ),
+	.left( {21'b0, current_state[1] } ),
+	.top( {21'b0, current_state[2]} ),
+	.width( {21'b0, current_state[3]} ),
+	.height( {21'b0, current_state[4]} ),
+	.should_be_drawn(should_draw_1)
+);
+collision_detector (
+	.clk (clk),
+	.resetN( resetN ),
+	.requested_x( {21'b0, requested_x} ),
+	.requested_y( {21'b0, requested_y} ),
+	.left( {21'b0, current_state[6] } ),
+	.top( {21'b0, current_state[7]} ),
+	.width( {21'b0, current_state[8]} ),
+	.height( {21'b0, current_state[9]} ),
+	.should_be_drawn(should_draw_2)
+);
+
+collision_detector (
+	.clk (clk),
+	.resetN( resetN ),
+	.requested_x( {21'b0, requested_x} ),
+	.requested_y( {21'b0, requested_y} ),
+	.left( {21'b0, current_state[11] } ),
+	.top( {current_state[12][0], 20'b1, current_state[12][1:10]} ),
+	.width( {21'b0, current_state[13]} ),
+	.height( {21'b0, current_state[14]} ),
+	.should_be_drawn(should_draw_3)
+);
+
+
+int sprite_number = 0;
+int x_offset = 0;
+int y_offset = 0;
+
 always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
@@ -200,39 +242,53 @@ begin
 	end
 	
 	else begin
-		if(sprite_number==11'b0) begin
-			RGBout <= object_colors[(requested_x-x_offset)/2][(requested_y-y_offset)/2];
-		end
-		// death_0
-		else if(sprite_number==99) begin
-			RGBout <= object_colors[32+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
-		end
-		else if(sprite_number==100) begin
-			RGBout <= object_colors[64+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
-		end
-		else if(sprite_number==101) begin
-			RGBout <= object_colors[96+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
-		end
-		// death_1
-		else if(sprite_number==102) begin
-			RGBout <= object_colors[64-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
-		end
-		else if(sprite_number==103) begin
-			RGBout <= object_colors[96-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
-		end
-		else if(sprite_number==104) begin
-			RGBout <= object_colors[128-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
-		end
-
-		else if(sprite_number==11'b1) begin
-			RGBout <= object_colors[18+((requested_x-x_offset)/2)][57+((requested_y-y_offset)/2)];
-		end
-		else if(sprite_number==11'b11111) begin
-			if((requested_x-x_offset)/4 < 128) begin
-				RGBout <= background[((requested_y+y_offset)/4)%32][(requested_x-x_offset)/4];
+		if(should_draw_1) begin
+			sprite_number <= {21'b0, current_state[0]};
+			x_offset <= {21'b0, current_state[1]};
+			y_offset <= {21'b0, current_state[2]};
+			if(sprite_number==11'b0) begin
+				RGBout <= object_colors[(requested_x-x_offset)/2][(requested_y-y_offset)/2];
 			end
-			else begin
-				RGBout<= 8'b1111_1111;
+			// death_0
+			else if(sprite_number==99) begin
+				RGBout <= object_colors[32+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+			end
+			else if(sprite_number==100) begin
+				RGBout <= object_colors[64+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+			end
+			else if(sprite_number==101) begin
+				RGBout <= object_colors[96+(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+			end
+			// death_1
+			else if(sprite_number==102) begin
+				RGBout <= object_colors[64-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
+			end
+			else if(sprite_number==103) begin
+				RGBout <= object_colors[96-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
+			end
+			else if(sprite_number==104) begin
+				RGBout <= object_colors[128-(requested_x+x_offset)/2][(requested_y-y_offset)/2];
+			end
+		end
+		else if (should_draw_2) begin
+			sprite_number <= {21'b0, current_state[5]};
+			x_offset <= {21'b0, current_state[6]};
+			y_offset <= {21'b0, current_state[7]};
+			if(sprite_number == 11'b1) begin
+				RGBout <= object_colors[18+((requested_x-x_offset)/2)][57+((requested_y-y_offset)/2)];
+			end
+		end
+		else if ((requested_x > current_state[11]) && (requested_x < (current_state[11]+current_state[13]))) begin
+			sprite_number <= {21'b0, current_state[5]};
+			x_offset <= {21'b0, current_state[6]};
+			y_offset <= {21'b0, current_state[7]};
+			if(sprite_number==11'b11111) begin
+				if((requested_x-x_offset)/4 < 128) begin
+					RGBout <= background[((requested_y+y_offset)/4)%32][(requested_x-x_offset)/4];
+				end
+				else begin
+					RGBout<= 8'b1111_1111;
+				end
 			end
 		end
 		else begin

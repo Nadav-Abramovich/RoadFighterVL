@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Thu May 25 19:38:12 2023
+Thu May 25 20:27:42 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -31,9 +31,9 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
  23. Parameter Settings for User Entity Instance: TOP_KBD:inst16|KBDINTF:inst|lpf:inst5
  24. Parameter Settings for User Entity Instance: random:inst12
  25. Parameter Settings for User Entity Instance: lpm_rom:inst5
- 26. Port Connectivity Checks: "object_table:inst1|collision_detector:comb_5"
- 27. Port Connectivity Checks: "object_table:inst1|collision_detector:comb_4"
- 28. Port Connectivity Checks: "object_table:inst1|collision_detector:comb_3"
+ 26. Port Connectivity Checks: "sprite_storage:inst13|collision_detector:comb_5"
+ 27. Port Connectivity Checks: "sprite_storage:inst13|collision_detector:comb_4"
+ 28. Port Connectivity Checks: "sprite_storage:inst13|collision_detector:comb_3"
  29. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst"
  30. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst"
  31. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst"
@@ -67,13 +67,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 25 19:38:12 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 25 20:27:42 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 493                                         ;
+; Total registers                 ; 501                                         ;
 ; Total pins                      ; 52                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -250,34 +250,34 @@ agreement for further details.
 +------------------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------------------+----------+
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                 ;
-+---------------------------------------------+-------------------------------+
-; Resource                                    ; Usage                         ;
-+---------------------------------------------+-------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6311                          ;
-;                                             ;                               ;
-; Combinational ALUT usage for logic          ; 9217                          ;
-;     -- 7 input functions                    ; 1572                          ;
-;     -- 6 input functions                    ; 1793                          ;
-;     -- 5 input functions                    ; 4019                          ;
-;     -- 4 input functions                    ; 912                           ;
-;     -- <=3 input functions                  ; 921                           ;
-;                                             ;                               ;
-; Dedicated logic registers                   ; 493                           ;
-;                                             ;                               ;
-; I/O pins                                    ; 52                            ;
-;                                             ;                               ;
-; Total DSP Blocks                            ; 0                             ;
-;                                             ;                               ;
-; Total PLLs                                  ; 1                             ;
-;     -- PLLs                                 ; 1                             ;
-;                                             ;                               ;
-; Maximum fan-out node                        ; sprite_storage:inst13|Add11~5 ;
-; Maximum fan-out                             ; 2455                          ;
-; Total fan-out                               ; 49072                         ;
-; Average fan-out                             ; 5.00                          ;
-+---------------------------------------------+-------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                  ;
++---------------------------------------------+--------------------------------+
+; Resource                                    ; Usage                          ;
++---------------------------------------------+--------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 5479                           ;
+;                                             ;                                ;
+; Combinational ALUT usage for logic          ; 7228                           ;
+;     -- 7 input functions                    ; 1013                           ;
+;     -- 6 input functions                    ; 2683                           ;
+;     -- 5 input functions                    ; 1486                           ;
+;     -- 4 input functions                    ; 792                            ;
+;     -- <=3 input functions                  ; 1254                           ;
+;                                             ;                                ;
+; Dedicated logic registers                   ; 501                            ;
+;                                             ;                                ;
+; I/O pins                                    ; 52                             ;
+;                                             ;                                ;
+; Total DSP Blocks                            ; 0                              ;
+;                                             ;                                ;
+; Total PLLs                                  ; 1                              ;
+;     -- PLLs                                 ; 1                              ;
+;                                             ;                                ;
+; Maximum fan-out node                        ; sprite_storage:inst13|Add11~17 ;
+; Maximum fan-out                             ; 1728                           ;
+; Total fan-out                               ; 38383                          ;
+; Average fan-out                             ; 4.89                           ;
++---------------------------------------------+--------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -285,7 +285,7 @@ agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Entity Name                   ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
-; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 9217 (0)            ; 493 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
+; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 7228 (0)            ; 501 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
 ;    |AUDIO:inst18|                                       ; 205 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18                                                                          ; AUDIO                         ; work         ;
 ;       |ToneDecoder:inst4|                               ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|ToneDecoder:inst4                                                        ; ToneDecoder                   ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|addr_counter:inst9                                                       ; addr_counter                  ; work         ;
@@ -305,15 +305,15 @@ agreement for further details.
 ;          |byterec:inst3|                                ; 20 (20)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3                                             ; byterec                       ; work         ;
 ;          |lpf:inst5|                                    ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|lpf:inst5                                                 ; lpf                           ; work         ;
 ;       |keyPad_decoder:inst2|                            ; 28 (28)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2                                                   ; keyPad_decoder                ; work         ;
-;    |VGA_Controller:inst|                                ; 61 (61)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|VGA_Controller:inst                                                                   ; VGA_Controller                ; work         ;
-;    |ai_car_controller:inst4|                            ; 25 (25)             ; 42 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4                                                               ; ai_car_controller             ; work         ;
-;    |background_controller:inst11|                       ; 17 (17)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11                                                          ; background_controller         ; work         ;
-;    |object_table:inst1|                                 ; 198 (70)            ; 107 (105)                 ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1                                                                    ; object_table                  ; work         ;
-;       |collision_detector:comb_3|                       ; 58 (58)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|collision_detector:comb_3                                          ; collision_detector            ; work         ;
-;       |collision_detector:comb_4|                       ; 70 (70)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|collision_detector:comb_4                                          ; collision_detector            ; work         ;
-;    |player_controller:inst9|                            ; 118 (118)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
+;    |VGA_Controller:inst|                                ; 50 (50)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|VGA_Controller:inst                                                                   ; VGA_Controller                ; work         ;
+;    |ai_car_controller:inst4|                            ; 24 (24)             ; 42 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4                                                               ; ai_car_controller             ; work         ;
+;    |background_controller:inst11|                       ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11                                                          ; background_controller         ; work         ;
+;    |object_table:inst1|                                 ; 133 (133)           ; 108 (108)                 ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1                                                                    ; object_table                  ; work         ;
+;    |player_controller:inst9|                            ; 119 (119)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
 ;    |random:inst12|                                      ; 30 (30)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|random:inst12                                                                         ; random                        ; work         ;
-;    |sprite_storage:inst13|                              ; 8489 (8489)         ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
+;    |sprite_storage:inst13|                              ; 6593 (6465)         ; 37 (35)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
+;       |collision_detector:comb_3|                       ; 59 (59)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|collision_detector:comb_3                                       ; collision_detector            ; work         ;
+;       |collision_detector:comb_4|                       ; 69 (69)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|collision_detector:comb_4                                       ; collision_detector            ; work         ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -441,17 +441,6 @@ Encoding Type:  One-Hot
 ; ai_car_controller:inst4|new_car_state[4][8]                                    ; Stuck at VCC due to stuck port data_in                                   ;
 ; ai_car_controller:inst4|new_car_state[4][9]                                    ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_car_controller:inst4|new_car_state[4][10]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][0]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][1]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][2]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][3]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][4]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][5]                                   ; Stuck at GND due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][6]                                   ; Stuck at VCC due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][7]                                   ; Stuck at VCC due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][8]                                   ; Stuck at VCC due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][9]                                   ; Stuck at VCC due to stuck port data_in                                   ;
-; background_controller:inst11|new_state[0][10]                                  ; Stuck at VCC due to stuck port data_in                                   ;
 ; background_controller:inst11|new_state[1][0]                                   ; Stuck at GND due to stuck port data_in                                   ;
 ; background_controller:inst11|new_state[1][1]                                   ; Stuck at GND due to stuck port data_in                                   ;
 ; background_controller:inst11|new_state[1][2]                                   ; Stuck at GND due to stuck port data_in                                   ;
@@ -467,6 +456,8 @@ Encoding Type:  One-Hot
 ; background_controller:inst11|new_state[3][3]                                   ; Stuck at GND due to stuck port data_in                                   ;
 ; background_controller:inst11|new_state[3][4]                                   ; Stuck at GND due to stuck port data_in                                   ;
 ; background_controller:inst11|new_state[3][10]                                  ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|x_to_draw[11..31]                                           ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|y_to_draw[11..31]                                           ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[2][0]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[2][1]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[2][3]                                             ; Stuck at GND due to stuck port data_in                                   ;
@@ -500,17 +491,6 @@ Encoding Type:  One-Hot
 ; object_table:inst1|obj_table[9][7]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[9][9]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[9][10]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][0]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][1]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][2]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][3]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][4]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][5]                                            ; Stuck at GND due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][6]                                            ; Stuck at VCC due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][7]                                            ; Stuck at VCC due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][8]                                            ; Stuck at VCC due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][9]                                            ; Stuck at VCC due to stuck port data_in                                   ;
-; object_table:inst1|obj_table[10][10]                                           ; Stuck at VCC due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[11][0]                                            ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[11][1]                                            ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[11][2]                                            ; Stuck at GND due to stuck port data_in                                   ;
@@ -702,6 +682,54 @@ Encoding Type:  One-Hot
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][13]  ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][14]  ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][15]  ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[2][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[2][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[2][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[2][8]                                         ; Stuck at VCC due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][2]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][4]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][5]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][6]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][7]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][8]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[5][9]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][2]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][4]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][7]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][8]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][9]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[8][10]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][2]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][4]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][5]                                         ; Stuck at VCC due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][6]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][7]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][9]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[9][10]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][0]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][1]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][2]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][3]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][4]                                        ; Stuck at VCC due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][5]                                        ; Stuck at VCC due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][6]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][7]                                        ; Stuck at VCC due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][8]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][9]                                        ; Stuck at VCC due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[11][10]                                       ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[13][0]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[13][3]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[13][4]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[13][10]                                       ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst9|temp_player_state[4][10]                               ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst9|new_player_state[4][10]                                ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst9|temp_player_state[0][0]                                ; Stuck at GND due to stuck port data_in                                   ;
@@ -755,6 +783,8 @@ Encoding Type:  One-Hot
 ; player_controller:inst9|new_player_state[4][6]                                 ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst9|new_player_state[4][7]                                 ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst9|new_player_state[4][9]                                 ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][10]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[7][10]                                        ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[0][0]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[0][1]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[0][2]                                             ; Stuck at GND due to stuck port data_in                                   ;
@@ -775,6 +805,26 @@ Encoding Type:  One-Hot
 ; object_table:inst1|obj_table[4][6]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[4][7]                                             ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[4][9]                                             ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[0][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[0][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[0][2]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[0][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[0][6]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][2]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][7]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][8]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][9]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[3][10]                                        ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][0]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][1]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][2]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][3]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][6]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][7]                                         ; Stuck at GND due to stuck port data_in                                   ;
+; object_table:inst1|out_obj_table[4][9]                                         ; Stuck at GND due to stuck port data_in                                   ;
 ; object_table:inst1|obj_table[8][6]                                             ; Merged with object_table:inst1|obj_table[3][6]                           ;
 ; object_table:inst1|obj_table[3][6]                                             ; Merged with object_table:inst1|obj_table[2][10]                          ;
 ; object_table:inst1|obj_table[2][10]                                            ; Merged with object_table:inst1|obj_table[2][9]                           ;
@@ -785,23 +835,65 @@ Encoding Type:  One-Hot
 ; object_table:inst1|obj_table[2][6]                                             ; Merged with object_table:inst1|obj_table[2][5]                           ;
 ; object_table:inst1|obj_table[2][5]                                             ; Merged with object_table:inst1|obj_table[2][4]                           ;
 ; object_table:inst1|obj_table[2][4]                                             ; Merged with object_table:inst1|obj_table[2][2]                           ;
-; object_table:inst1|img_id[11..30]                                              ; Merged with object_table:inst1|img_id[31]                                ;
-; object_table:inst1|x_to_draw[11..31]                                           ; Merged with object_table:inst1|img_id[31]                                ;
-; object_table:inst1|y_to_draw[11..31]                                           ; Merged with object_table:inst1|img_id[31]                                ;
-; object_table:inst1|x_offset[11..31]                                            ; Merged with object_table:inst1|img_id[31]                                ;
-; object_table:inst1|y_offset[11..31]                                            ; Merged with object_table:inst1|img_id[31]                                ;
-; object_table:inst1|img_id[7..9,31]                                             ; Merged with object_table:inst1|img_id[10]                                ;
-; object_table:inst1|img_id[6]                                                   ; Merged with object_table:inst1|img_id[5]                                 ;
+; object_table:inst1|out_obj_table[2][4]                                         ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[2][5]                                         ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[2][6]                                         ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[2][7]                                         ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[5][10]                                        ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[8][5]                                         ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[9][8]                                         ; Merged with object_table:inst1|out_obj_table[2][2]                       ;
+; object_table:inst1|out_obj_table[2][10]                                        ; Merged with object_table:inst1|out_obj_table[2][9]                       ;
+; object_table:inst1|out_obj_table[3][6]                                         ; Merged with object_table:inst1|out_obj_table[2][9]                       ;
+; object_table:inst1|out_obj_table[8][6]                                         ; Merged with object_table:inst1|out_obj_table[2][9]                       ;
+; sprite_storage:inst13|y_offset[17]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[17]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[13]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[13]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[19]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[19]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[11,14,15]                                       ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[4,7..11,15]                                ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|x_offset[11..31]                                         ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[26..30]                                    ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[30,31]                                          ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[25]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[20,29]                                          ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[20]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[16,18]                                          ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[18]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[12,28]                                          ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[16,24]                                     ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[27]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[14]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[26]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[23]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[25]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[12]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[24]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[22]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[22,23]                                          ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[21]                                        ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|y_offset[21]                                             ; Merged with sprite_storage:inst13|sprite_number[31]                      ;
+; sprite_storage:inst13|sprite_number[6]                                         ; Merged with sprite_storage:inst13|sprite_number[5]                       ;
+; object_table:inst1|out_obj_table[13][5]                                        ; Merged with object_table:inst1|out_obj_table[13][2]                      ;
+; object_table:inst1|out_obj_table[13][6]                                        ; Merged with object_table:inst1|out_obj_table[13][2]                      ;
+; object_table:inst1|out_obj_table[13][7]                                        ; Merged with object_table:inst1|out_obj_table[13][2]                      ;
+; object_table:inst1|out_obj_table[13][8]                                        ; Merged with object_table:inst1|out_obj_table[13][2]                      ;
+; object_table:inst1|out_obj_table[13][9]                                        ; Merged with object_table:inst1|out_obj_table[13][2]                      ;
+; object_table:inst1|out_obj_table[0][5]                                         ; Merged with object_table:inst1|out_obj_table[0][4]                       ;
+; object_table:inst1|out_obj_table[3][4]                                         ; Merged with object_table:inst1|out_obj_table[0][4]                       ;
+; object_table:inst1|out_obj_table[4][4]                                         ; Merged with object_table:inst1|out_obj_table[0][4]                       ;
 ; object_table:inst1|obj_table[13][5]                                            ; Merged with object_table:inst1|obj_table[13][2]                          ;
 ; object_table:inst1|obj_table[13][6]                                            ; Merged with object_table:inst1|obj_table[13][2]                          ;
 ; object_table:inst1|obj_table[13][7]                                            ; Merged with object_table:inst1|obj_table[13][2]                          ;
 ; object_table:inst1|obj_table[13][8]                                            ; Merged with object_table:inst1|obj_table[13][2]                          ;
 ; object_table:inst1|obj_table[13][9]                                            ; Merged with object_table:inst1|obj_table[13][2]                          ;
+; object_table:inst1|out_obj_table[4][8]                                         ; Merged with object_table:inst1|out_obj_table[3][5]                       ;
+; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[7,8,14,15]            ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13] ;
+; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[3,5]                  ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[2]  ;
 ; object_table:inst1|obj_table[0][5]                                             ; Merged with object_table:inst1|obj_table[0][4]                           ;
 ; object_table:inst1|obj_table[3][4]                                             ; Merged with object_table:inst1|obj_table[0][4]                           ;
 ; object_table:inst1|obj_table[4][4]                                             ; Merged with object_table:inst1|obj_table[0][4]                           ;
-; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[7,8,14,15]            ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13] ;
-; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[3,5]                  ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[2]  ;
 ; background_controller:inst11|new_state[3][5]                                   ; Merged with background_controller:inst11|new_state[3][2]                 ;
 ; background_controller:inst11|new_state[3][6]                                   ; Merged with background_controller:inst11|new_state[3][2]                 ;
 ; background_controller:inst11|new_state[3][7]                                   ; Merged with background_controller:inst11|new_state[3][2]                 ;
@@ -819,6 +911,7 @@ Encoding Type:  One-Hot
 ; player_controller:inst9|temp_player_state[4][5]                                ; Merged with player_controller:inst9|temp_player_state[3][5]              ;
 ; player_controller:inst9|temp_player_state[4][8]                                ; Merged with player_controller:inst9|temp_player_state[3][5]              ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                   ; Stuck at GND due to stuck port data_in                                   ;
+; sprite_storage:inst13|sprite_number[31]                                        ; Stuck at GND due to stuck port data_in                                   ;
 ; TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|cur_st~4                              ; Lost fanout                                                              ;
 ; TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|cur_st~5                              ; Lost fanout                                                              ;
 ; TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|present_state~4                      ; Lost fanout                                                              ;
@@ -826,184 +919,162 @@ Encoding Type:  One-Hot
 ; TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|present_state~6                      ; Lost fanout                                                              ;
 ; TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|present_state~7                      ; Lost fanout                                                              ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4,5] ; Stuck at GND due to stuck port data_in                                   ;
-; Total Number of Removed Registers = 539                                        ;                                                                          ;
+; Total Number of Removed Registers = 608                                        ;                                                                          ;
 +--------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                   ;
-+------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
-; Register name                                                                ; Reason for Removal        ; Registers Removed due to This Register                                             ;
-+------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
-; player_controller:inst9|temp_player_state[3][9]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][9], object_table:inst1|obj_table[3][9] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][10]                             ; Stuck at GND              ; player_controller:inst9|new_player_state[4][10],                                   ;
-;                                                                              ; due to stuck port data_in ; object_table:inst1|obj_table[4][10]                                                ;
-; player_controller:inst9|temp_player_state[0][0]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][0], object_table:inst1|obj_table[0][0] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[0][1]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][1], object_table:inst1|obj_table[0][1] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[0][2]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][2], object_table:inst1|obj_table[0][2] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[0][3]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][3], object_table:inst1|obj_table[0][3] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[0][6]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][6], object_table:inst1|obj_table[0][6] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][0]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][0], object_table:inst1|obj_table[3][0] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][1]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][1], object_table:inst1|obj_table[3][1] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][2]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][2], object_table:inst1|obj_table[3][2] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][3]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][3], object_table:inst1|obj_table[3][3] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][7]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][7], object_table:inst1|obj_table[3][7] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][8]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][8], object_table:inst1|obj_table[3][8] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][10]                             ; Stuck at GND              ; player_controller:inst9|new_player_state[3][10],                                   ;
-;                                                                              ; due to stuck port data_in ; object_table:inst1|obj_table[3][10]                                                ;
-; player_controller:inst9|temp_player_state[4][0]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][0], object_table:inst1|obj_table[4][0] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][1]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][1], object_table:inst1|obj_table[4][1] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][2]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][2], object_table:inst1|obj_table[4][2] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][3]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][3], object_table:inst1|obj_table[4][3] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][6]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][6], object_table:inst1|obj_table[4][6] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][7]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][7], object_table:inst1|obj_table[4][7] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[4][9]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][9], object_table:inst1|obj_table[4][9] ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|temp_car_state[2][10]                                ; Stuck at GND              ; ai_car_controller:inst4|new_car_state[2][10], object_table:inst1|obj_table[7][10]  ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][10]                                 ; Stuck at GND              ; object_table:inst1|obj_table[8][10]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][0]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][0]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][1]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][1]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][2]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][2]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][3]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][3]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][4]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][4]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][5]                                  ; Stuck at VCC              ; object_table:inst1|obj_table[9][5]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][6]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][6]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][7]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][7]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][9]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][9]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[4][10]                                 ; Stuck at GND              ; object_table:inst1|obj_table[9][10]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][0]                                 ; Stuck at GND              ; object_table:inst1|obj_table[10][0]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][1]                                 ; Stuck at GND              ; object_table:inst1|obj_table[10][1]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][2]                                 ; Stuck at GND              ; object_table:inst1|obj_table[10][2]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][3]                                 ; Stuck at GND              ; object_table:inst1|obj_table[10][3]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][4]                                 ; Stuck at GND              ; object_table:inst1|obj_table[10][4]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][5]                                 ; Stuck at GND              ; object_table:inst1|obj_table[10][5]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][6]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[10][6]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][7]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[10][7]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][8]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[10][8]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][6]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][6]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][10]                                ; Stuck at VCC              ; object_table:inst1|obj_table[10][10]                                               ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][0]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][0]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][1]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][1]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][2]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][2]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][3]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][3]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][4]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][4]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][5]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][5]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][6]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][6]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][7]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][7]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][8]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][8]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][9]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][9]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[1][10]                                ; Stuck at GND              ; object_table:inst1|obj_table[11][10]                                               ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[3][0]                                 ; Stuck at GND              ; object_table:inst1|obj_table[13][0]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[3][3]                                 ; Stuck at GND              ; object_table:inst1|obj_table[13][3]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[3][4]                                 ; Stuck at GND              ; object_table:inst1|obj_table[13][4]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[3][10]                                ; Stuck at GND              ; object_table:inst1|obj_table[13][10]                                               ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][13] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                       ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|new_player_state[2][0]                               ; Stuck at GND              ; object_table:inst1|obj_table[2][0]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|new_player_state[2][1]                               ; Stuck at GND              ; object_table:inst1|obj_table[2][1]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|new_player_state[2][3]                               ; Stuck at GND              ; object_table:inst1|obj_table[2][3]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|new_player_state[2][8]                               ; Stuck at VCC              ; object_table:inst1|obj_table[2][8]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][0]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][0]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][1]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][1]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][2]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][2]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][3]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][3]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][4]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][4]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][5]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][5]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; player_controller:inst9|temp_player_state[3][6]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][6]                                     ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][7]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][7]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][8]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][8]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; background_controller:inst11|new_state[0][9]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[10][9]                                                ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[0][9]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][9]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][0]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][0]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][1]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][1]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][2]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][2]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][3]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][3]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][4]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][4]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][7]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][7]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][8]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][8]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; ai_car_controller:inst4|new_car_state[3][9]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][9]                                                 ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[5] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4]       ;
-;                                                                              ; due to stuck port data_in ;                                                                                    ;
-+------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                    ;
++------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                                                ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; background_controller:inst11|new_state[1][0]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][0], object_table:inst1|out_obj_table[11][0],       ;
+;                                                                              ; due to stuck port data_in ; sprite_storage:inst13|sprite_number[31]                                             ;
+; player_controller:inst9|temp_player_state[3][10]                             ; Stuck at GND              ; player_controller:inst9|new_player_state[3][10],                                    ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|obj_table[3][10], object_table:inst1|out_obj_table[3][10]        ;
+; player_controller:inst9|temp_player_state[4][10]                             ; Stuck at GND              ; player_controller:inst9|new_player_state[4][10],                                    ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|obj_table[4][10], object_table:inst1|out_obj_table[4][10]        ;
+; player_controller:inst9|temp_player_state[0][0]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][0], object_table:inst1|obj_table[0][0], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[0][0]                                              ;
+; player_controller:inst9|temp_player_state[0][1]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][1], object_table:inst1|obj_table[0][1], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[0][1]                                              ;
+; player_controller:inst9|temp_player_state[0][2]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][2], object_table:inst1|obj_table[0][2], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[0][2]                                              ;
+; player_controller:inst9|temp_player_state[0][3]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][3], object_table:inst1|obj_table[0][3], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[0][3]                                              ;
+; player_controller:inst9|temp_player_state[0][6]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[0][6], object_table:inst1|obj_table[0][6], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[0][6]                                              ;
+; player_controller:inst9|temp_player_state[3][0]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][0], object_table:inst1|obj_table[3][0], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][0]                                              ;
+; player_controller:inst9|temp_player_state[3][1]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][1], object_table:inst1|obj_table[3][1], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][1]                                              ;
+; player_controller:inst9|temp_player_state[3][2]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][2], object_table:inst1|obj_table[3][2], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][2]                                              ;
+; player_controller:inst9|temp_player_state[3][3]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][3], object_table:inst1|obj_table[3][3], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][3]                                              ;
+; player_controller:inst9|temp_player_state[3][7]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][7], object_table:inst1|obj_table[3][7], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][7]                                              ;
+; player_controller:inst9|temp_player_state[3][8]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][8], object_table:inst1|obj_table[3][8], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][8]                                              ;
+; player_controller:inst9|temp_player_state[3][9]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][9], object_table:inst1|obj_table[3][9], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[3][9]                                              ;
+; player_controller:inst9|temp_player_state[4][0]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][0], object_table:inst1|obj_table[4][0], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][0]                                              ;
+; player_controller:inst9|temp_player_state[4][1]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][1], object_table:inst1|obj_table[4][1], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][1]                                              ;
+; player_controller:inst9|temp_player_state[4][2]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][2], object_table:inst1|obj_table[4][2], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][2]                                              ;
+; player_controller:inst9|temp_player_state[4][3]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][3], object_table:inst1|obj_table[4][3], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][3]                                              ;
+; player_controller:inst9|temp_player_state[4][6]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][6], object_table:inst1|obj_table[4][6], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][6]                                              ;
+; player_controller:inst9|temp_player_state[4][7]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][7], object_table:inst1|obj_table[4][7], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][7]                                              ;
+; player_controller:inst9|temp_player_state[4][9]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[4][9], object_table:inst1|obj_table[4][9], ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[4][9]                                              ;
+; ai_car_controller:inst4|temp_car_state[2][10]                                ; Stuck at GND              ; ai_car_controller:inst4|new_car_state[2][10], object_table:inst1|obj_table[7][10],  ;
+;                                                                              ; due to stuck port data_in ; object_table:inst1|out_obj_table[7][10]                                             ;
+; ai_car_controller:inst4|new_car_state[3][10]                                 ; Stuck at GND              ; object_table:inst1|obj_table[8][10], object_table:inst1|out_obj_table[8][10]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][0]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][0], object_table:inst1|out_obj_table[9][0]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][1]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][1], object_table:inst1|out_obj_table[9][1]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][2]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][2], object_table:inst1|out_obj_table[9][2]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][3]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][3], object_table:inst1|out_obj_table[9][3]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][4]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][4], object_table:inst1|out_obj_table[9][4]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][5]                                  ; Stuck at VCC              ; object_table:inst1|obj_table[9][5], object_table:inst1|out_obj_table[9][5]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][6]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][6], object_table:inst1|out_obj_table[9][6]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][7]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][7], object_table:inst1|out_obj_table[9][7]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][9]                                  ; Stuck at GND              ; object_table:inst1|obj_table[9][9], object_table:inst1|out_obj_table[9][9]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[4][10]                                 ; Stuck at GND              ; object_table:inst1|obj_table[9][10], object_table:inst1|out_obj_table[9][10]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][1]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][1], object_table:inst1|out_obj_table[11][1]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][2]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][2], object_table:inst1|out_obj_table[11][2]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][5]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][5], object_table:inst1|out_obj_table[5][5]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][4]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][4], object_table:inst1|out_obj_table[11][4]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][5]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][5], object_table:inst1|out_obj_table[11][5]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][6]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][6], object_table:inst1|out_obj_table[11][6]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][7]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][7], object_table:inst1|out_obj_table[11][7]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][8]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][8], object_table:inst1|out_obj_table[11][8]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][9]                                 ; Stuck at VCC              ; object_table:inst1|obj_table[11][9], object_table:inst1|out_obj_table[11][9]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][10]                                ; Stuck at GND              ; object_table:inst1|obj_table[11][10], object_table:inst1|out_obj_table[11][10]      ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[3][0]                                 ; Stuck at GND              ; object_table:inst1|obj_table[13][0], object_table:inst1|out_obj_table[13][0]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[3][3]                                 ; Stuck at GND              ; object_table:inst1|obj_table[13][3], object_table:inst1|out_obj_table[13][3]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[3][4]                                 ; Stuck at GND              ; object_table:inst1|obj_table[13][4], object_table:inst1|out_obj_table[13][4]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[3][10]                                ; Stuck at GND              ; object_table:inst1|obj_table[13][10], object_table:inst1|out_obj_table[13][10]      ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; player_controller:inst9|new_player_state[2][0]                               ; Stuck at GND              ; object_table:inst1|obj_table[2][0], object_table:inst1|out_obj_table[2][0]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; player_controller:inst9|new_player_state[2][1]                               ; Stuck at GND              ; object_table:inst1|obj_table[2][1], object_table:inst1|out_obj_table[2][1]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; player_controller:inst9|new_player_state[2][3]                               ; Stuck at GND              ; object_table:inst1|obj_table[2][3], object_table:inst1|out_obj_table[2][3]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; player_controller:inst9|new_player_state[2][8]                               ; Stuck at VCC              ; object_table:inst1|obj_table[2][8], object_table:inst1|out_obj_table[2][8]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][0]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][0], object_table:inst1|out_obj_table[5][0]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][1]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][1], object_table:inst1|out_obj_table[5][1]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][2]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][2], object_table:inst1|out_obj_table[5][2]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][3]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][3], object_table:inst1|out_obj_table[5][3]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][4]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][4], object_table:inst1|out_obj_table[5][4]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][6]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][6], object_table:inst1|out_obj_table[5][6]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][7]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][7], object_table:inst1|out_obj_table[5][7]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][8]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][8], object_table:inst1|out_obj_table[5][8]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[0][9]                                  ; Stuck at GND              ; object_table:inst1|obj_table[5][9], object_table:inst1|out_obj_table[5][9]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; background_controller:inst11|new_state[1][3]                                 ; Stuck at GND              ; object_table:inst1|obj_table[11][3], object_table:inst1|out_obj_table[11][3]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][0]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][0], object_table:inst1|out_obj_table[8][0]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][1]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][1], object_table:inst1|out_obj_table[8][1]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][2]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][2], object_table:inst1|out_obj_table[8][2]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][3]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][3], object_table:inst1|out_obj_table[8][3]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][4]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][4], object_table:inst1|out_obj_table[8][4]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][7]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][7], object_table:inst1|out_obj_table[8][7]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][8]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][8], object_table:inst1|out_obj_table[8][8]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; ai_car_controller:inst4|new_car_state[3][9]                                  ; Stuck at GND              ; object_table:inst1|obj_table[8][9], object_table:inst1|out_obj_table[8][9]          ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][13] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; player_controller:inst9|temp_player_state[3][6]                              ; Stuck at GND              ; player_controller:inst9|new_player_state[3][6]                                      ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
+; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[5] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4]        ;
+;                                                                              ; due to stuck port data_in ;                                                                                     ;
++------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1011,12 +1082,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 493   ;
-; Number of registers using Synchronous Clear  ; 97    ;
-; Number of registers using Synchronous Load   ; 48    ;
-; Number of registers using Asynchronous Clear ; 330   ;
+; Total registers                              ; 501   ;
+; Number of registers using Synchronous Clear  ; 119   ;
+; Number of registers using Synchronous Load   ; 36    ;
+; Number of registers using Asynchronous Clear ; 333   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 260   ;
+; Number of registers using Clock Enable       ; 273   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1026,40 +1097,35 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------------+---------+
 ; Inverted Register                                                ; Fan out ;
 +------------------------------------------------------------------+---------+
-; background_controller:inst11|new_state[2][8]                     ; 1       ;
-; background_controller:inst11|new_state[2][9]                     ; 1       ;
-; background_controller:inst11|new_state[2][10]                    ; 1       ;
 ; VGA_Controller:inst|oVGA_VS                                      ; 6       ;
 ; VGA_Controller:inst|oVGA_HS                                      ; 4       ;
 ; VGA_Controller:inst|oVGA_HS_d                                    ; 1       ;
-; object_table:inst1|obj_table[13][2]                              ; 1       ;
+; object_table:inst1|obj_table[13][2]                              ; 3       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SDO        ; 2       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|I2C_clk_0  ; 2       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|I2C_clk_en ; 2       ;
-; object_table:inst1|obj_table[1][2]                               ; 3       ;
-; object_table:inst1|obj_table[1][5]                               ; 3       ;
-; object_table:inst1|obj_table[1][7]                               ; 3       ;
-; object_table:inst1|obj_table[1][8]                               ; 3       ;
-; object_table:inst1|obj_table[2][9]                               ; 7       ;
+; object_table:inst1|obj_table[6][2]                               ; 3       ;
 ; object_table:inst1|obj_table[7][2]                               ; 3       ;
 ; object_table:inst1|obj_table[7][4]                               ; 3       ;
 ; object_table:inst1|obj_table[7][5]                               ; 3       ;
 ; object_table:inst1|obj_table[7][6]                               ; 3       ;
 ; object_table:inst1|obj_table[7][7]                               ; 3       ;
 ; object_table:inst1|obj_table[7][8]                               ; 3       ;
-; object_table:inst1|obj_table[6][2]                               ; 3       ;
+; object_table:inst1|obj_table[1][2]                               ; 3       ;
+; object_table:inst1|obj_table[1][5]                               ; 3       ;
+; object_table:inst1|obj_table[1][7]                               ; 3       ;
+; object_table:inst1|obj_table[1][8]                               ; 3       ;
+; object_table:inst1|obj_table[2][9]                               ; 3       ;
 ; background_controller:inst11|new_state[3][2]                     ; 1       ;
-; object_table:inst1|obj_table[4][5]                               ; 3       ;
-; player_controller:inst9|new_player_state[1][2]                   ; 1       ;
+; ai_car_controller:inst4|new_car_state[1][2]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][2]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][4]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][5]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][6]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][7]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][8]                      ; 1       ;
-; ai_car_controller:inst4|new_car_state[1][2]                      ; 1       ;
-; object_table:inst1|obj_table[12][8]                              ; 1       ;
-; object_table:inst1|obj_table[12][9]                              ; 1       ;
+; object_table:inst1|obj_table[4][5]                               ; 3       ;
+; player_controller:inst9|new_player_state[1][2]                   ; 1       ;
 ; player_controller:inst9|death_state[8]                           ; 5       ;
 ; player_controller:inst9|death_state[3]                           ; 4       ;
 ; player_controller:inst9|death_state[2]                           ; 4       ;
@@ -1092,25 +1158,24 @@ Encoding Type:  One-Hot
 ; player_controller:inst9|death_state[24]                          ; 4       ;
 ; player_controller:inst9|death_state[23]                          ; 4       ;
 ; player_controller:inst9|death_state[22]                          ; 4       ;
-; player_controller:inst9|new_player_state[3][5]                   ; 2       ;
-; player_controller:inst9|temp_player_state[1][2]                  ; 5       ;
+; ai_car_controller:inst4|temp_car_state[1][2]                     ; 1       ;
 ; ai_car_controller:inst4|temp_car_state[2][2]                     ; 3       ;
 ; ai_car_controller:inst4|temp_car_state[2][4]                     ; 3       ;
 ; ai_car_controller:inst4|temp_car_state[2][5]                     ; 4       ;
 ; ai_car_controller:inst4|temp_car_state[2][6]                     ; 3       ;
 ; ai_car_controller:inst4|temp_car_state[2][7]                     ; 3       ;
 ; ai_car_controller:inst4|temp_car_state[2][8]                     ; 3       ;
-; ai_car_controller:inst4|temp_car_state[1][2]                     ; 1       ;
-; object_table:inst1|obj_table[12][10]                             ; 1       ;
-; player_controller:inst9|temp_player_state[3][5]                  ; 1       ;
+; player_controller:inst9|new_player_state[3][5]                   ; 2       ;
+; player_controller:inst9|temp_player_state[1][2]                  ; 5       ;
 ; random:inst12|dout[8]                                            ; 1       ;
 ; random:inst12|dout[3]                                            ; 1       ;
 ; random:inst12|dout[0]                                            ; 1       ;
+; player_controller:inst9|temp_player_state[3][5]                  ; 1       ;
 ; random:inst12|counter[6]                                         ; 3       ;
 ; random:inst12|counter[5]                                         ; 3       ;
 ; random:inst12|counter[3]                                         ; 3       ;
 ; random:inst12|counter[1]                                         ; 2       ;
-; Total number of inverted registers = 84                          ;         ;
+; Total number of inverted registers = 78                          ;         ;
 +------------------------------------------------------------------+---------+
 
 
@@ -1119,21 +1184,21 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|img_id[0]                                                                           ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|x_offset[10]                                                                        ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|x_offset[1]                                                                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|y_offset[9]                                                                      ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[2]                                    ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[11] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[9]    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][3]                                                        ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|y_offset[6]                                                                         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|y_offset[10]                                                                        ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|key[2]                                                             ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|death_state[21]                                                                ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[13] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[21]   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][7]                                                        ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|y_offset[0]                                                                      ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|key[0]                                                             ;
+; 540:1              ; 3 bits    ; 1080 LEs      ; 540 LEs              ; 540 LEs                ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|RGBout[6]                                                                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|death_state[14]                                                                ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|Mux27                                                                            ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|Mux1921                                                                          ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector6                                                     ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector4                                                     ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector3                                                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector8                                                     ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector1                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1475,48 +1540,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "object_table:inst1|collision_detector:comb_5"                                                      ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                ; Type   ; Severity ; Details                                                                             ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
-; requested_x[31..11] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; requested_y[31..11] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; left[31..11]        ; Input  ; Info     ; Stuck at GND                                                                        ;
-; top[29..11]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; top[10]             ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; width[31..11]       ; Input  ; Info     ; Stuck at GND                                                                        ;
-; height[31..11]      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; should_be_drawn     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sprite_storage:inst13|collision_detector:comb_5"                                               ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; left[31..11]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; top[29..11]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; top[10]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; width[31..11]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; height[31..11]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; should_be_drawn ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------+
-; Port Connectivity Checks: "object_table:inst1|collision_detector:comb_4" ;
-+---------------------+-------+----------+---------------------------------+
-; Port                ; Type  ; Severity ; Details                         ;
-+---------------------+-------+----------+---------------------------------+
-; requested_x[31..11] ; Input ; Info     ; Stuck at GND                    ;
-; requested_y[31..11] ; Input ; Info     ; Stuck at GND                    ;
-; left[31..11]        ; Input ; Info     ; Stuck at GND                    ;
-; top[31..11]         ; Input ; Info     ; Stuck at GND                    ;
-; width[31..11]       ; Input ; Info     ; Stuck at GND                    ;
-; height[31..11]      ; Input ; Info     ; Stuck at GND                    ;
-+---------------------+-------+----------+---------------------------------+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "sprite_storage:inst13|collision_detector:comb_4" ;
++----------------+-------+----------+-----------------------------------------+
+; Port           ; Type  ; Severity ; Details                                 ;
++----------------+-------+----------+-----------------------------------------+
+; left[31..11]   ; Input ; Info     ; Stuck at GND                            ;
+; top[31..11]    ; Input ; Info     ; Stuck at GND                            ;
+; width[31..11]  ; Input ; Info     ; Stuck at GND                            ;
+; height[31..11] ; Input ; Info     ; Stuck at GND                            ;
++----------------+-------+----------+-----------------------------------------+
 
 
-+--------------------------------------------------------------------------+
-; Port Connectivity Checks: "object_table:inst1|collision_detector:comb_3" ;
-+---------------------+-------+----------+---------------------------------+
-; Port                ; Type  ; Severity ; Details                         ;
-+---------------------+-------+----------+---------------------------------+
-; requested_x[31..11] ; Input ; Info     ; Stuck at GND                    ;
-; requested_y[31..11] ; Input ; Info     ; Stuck at GND                    ;
-; left[31..11]        ; Input ; Info     ; Stuck at GND                    ;
-; top[31..11]         ; Input ; Info     ; Stuck at GND                    ;
-; width[31..11]       ; Input ; Info     ; Stuck at GND                    ;
-; height[31..11]      ; Input ; Info     ; Stuck at GND                    ;
-+---------------------+-------+----------+---------------------------------+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "sprite_storage:inst13|collision_detector:comb_3" ;
++----------------+-------+----------+-----------------------------------------+
+; Port           ; Type  ; Severity ; Details                                 ;
++----------------+-------+----------+-----------------------------------------+
+; left[31..11]   ; Input ; Info     ; Stuck at GND                            ;
+; top[31..11]    ; Input ; Info     ; Stuck at GND                            ;
+; width[31..11]  ; Input ; Info     ; Stuck at GND                            ;
+; height[31..11] ; Input ; Info     ; Stuck at GND                            ;
++----------------+-------+----------+-----------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -1552,41 +1611,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 493                         ;
-;     CLR               ; 136                         ;
-;     CLR SCLR          ; 44                          ;
-;     CLR SLD           ; 20                          ;
-;     ENA               ; 102                         ;
-;     ENA CLR           ; 79                          ;
+; arriav_ff             ; 501                         ;
+;     CLR               ; 129                         ;
+;     CLR SCLR          ; 66                          ;
+;     ENA               ; 99                          ;
+;     ENA CLR           ; 87                          ;
 ;     ENA CLR SCLR      ; 51                          ;
 ;     ENA SCLR SLD      ; 2                           ;
-;     ENA SLD           ; 26                          ;
+;     ENA SLD           ; 34                          ;
 ;     plain             ; 33                          ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 9224                        ;
-;     arith             ; 382                         ;
+; arriav_lcell_comb     ; 7235                        ;
+;     arith             ; 310                         ;
 ;         0 data inputs ; 11                          ;
-;         1 data inputs ; 323                         ;
-;         2 data inputs ; 45                          ;
-;         3 data inputs ; 3                           ;
-;     extend            ; 1572                        ;
-;         7 data inputs ; 1572                        ;
-;     normal            ; 7244                        ;
+;         1 data inputs ; 268                         ;
+;         2 data inputs ; 31                          ;
+;     extend            ; 1013                        ;
+;         7 data inputs ; 1013                        ;
+;     normal            ; 5888                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 31                          ;
-;         2 data inputs ; 227                         ;
-;         3 data inputs ; 260                         ;
-;         4 data inputs ; 912                         ;
-;         5 data inputs ; 4019                        ;
-;         6 data inputs ; 1793                        ;
-;     shared            ; 26                          ;
-;         0 data inputs ; 4                           ;
+;         1 data inputs ; 23                          ;
+;         2 data inputs ; 323                         ;
+;         3 data inputs ; 579                         ;
+;         4 data inputs ; 792                         ;
+;         5 data inputs ; 1486                        ;
+;         6 data inputs ; 2683                        ;
+;     shared            ; 24                          ;
+;         0 data inputs ; 2                           ;
 ;         2 data inputs ; 22                          ;
 ; boundary_port         ; 52                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.00                       ;
-; Average LUT depth     ; 11.01                       ;
+; Max LUT depth         ; 21.90                       ;
+; Average LUT depth     ; 11.75                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1595,7 +1652,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:05:26     ;
+; Top            ; 00:04:52     ;
 +----------------+--------------+
 
 
@@ -1605,13 +1662,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 25 19:32:36 2023
+    Info: Processing started: Thu May 25 20:21:57 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/objects_mux_all.sv
     Info (12023): Found entity 1: objects_mux_all File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/objects_mux_all.sv Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/top_vga_demo_kbd.bdf
-    Info (12023): Found entity 1: TOP_VGA_DEMO_KBD
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/vga_controller.sv
     Info (12023): Found entity 1: VGA_Controller File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/valx.v
@@ -1684,9 +1739,9 @@ Warning (10236): Verilog HDL Implicit Net warning at byterec.sv(36): created imp
 Warning (10236): Verilog HDL Implicit Net warning at byterec.sv(37): created implicit net for "rel_code" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/byterec.sv Line: 37
 Warning (10236): Verilog HDL Implicit Net warning at audio_codec_controller.sv(61): created implicit net for "CLOCK_500_ena" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv Line: 61
 Warning (10236): Verilog HDL Implicit Net warning at audio_codec_controller.sv(63): created implicit net for "CLOCK_SDAT_ena" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv Line: 63
-Critical Warning (10846): Verilog HDL Instantiation warning at object_table.sv(68): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 68
-Critical Warning (10846): Verilog HDL Instantiation warning at object_table.sv(79): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 79
-Critical Warning (10846): Verilog HDL Instantiation warning at object_table.sv(91): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 91
+Critical Warning (10846): Verilog HDL Instantiation warning at sprite_storage.sv(208): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 208
+Critical Warning (10846): Verilog HDL Instantiation warning at sprite_storage.sv(219): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 219
+Critical Warning (10846): Verilog HDL Instantiation warning at sprite_storage.sv(231): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 231
 Info (12127): Elaborating entity "TOP_VGA_DEMO_KBD_MOVING_HARTS" for the top level hierarchy
 Warning (275006): Can't find a definition for parameter LPM_FILE -- assuming RTL/VGA_BG.mif was intended to be a quoted string
 Warning (275004): Undeclared parameter ON
@@ -1802,18 +1857,117 @@ Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(62): trunca
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(64): truncated value with size 32 to match size of target (19) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 64
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(74): truncated value with size 11 to match size of target (1) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 74
 Info (12128): Elaborating entity "sprite_storage" for hierarchy "sprite_storage:inst13"
-Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(19): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 19
-Warning (10036): Verilog HDL or VHDL warning at sprite_storage.sv(193): object "y_pos" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 193
-Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(20): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 20
+Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(17): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 17
+Warning (10036): Verilog HDL or VHDL warning at sprite_storage.sv(191): object "y_pos" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 191
+Warning (10036): Verilog HDL or VHDL warning at sprite_storage.sv(196): object "should_draw_3" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 196
+Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(18): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 18
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "background" into its bus
+Info (12128): Elaborating entity "collision_detector" for hierarchy "sprite_storage:inst13|collision_detector:comb_3" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 208
 Info (12128): Elaborating entity "object_table" for hierarchy "object_table:inst1"
 Warning (10036): Verilog HDL or VHDL warning at object_table.sv(50): object "current_x" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 50
 Warning (10036): Verilog HDL or VHDL warning at object_table.sv(51): object "tmp1" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 51
 Warning (10036): Verilog HDL or VHDL warning at object_table.sv(52): object "tmp2" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 52
 Warning (10036): Verilog HDL or VHDL warning at object_table.sv(53): object "tmp3" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 53
-Warning (10036): Verilog HDL or VHDL warning at object_table.sv(57): object "should_draw_3" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 57
-Info (12128): Elaborating entity "collision_detector" for hierarchy "object_table:inst1|collision_detector:comb_3" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 68
+Warning (10240): Verilog HDL Always Construct warning at object_table.sv(56): inferring latch(es) for variable "img_id", which holds its previous value in one or more paths through the always construct File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Warning (10240): Verilog HDL Always Construct warning at object_table.sv(56): inferring latch(es) for variable "x_offset", which holds its previous value in one or more paths through the always construct File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Warning (10240): Verilog HDL Always Construct warning at object_table.sv(56): inferring latch(es) for variable "y_offset", which holds its previous value in one or more paths through the always construct File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[0]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[1]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[2]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[3]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[4]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[5]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[6]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[7]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[8]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[9]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[10]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[11]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[12]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[13]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[14]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[15]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[16]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[17]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[18]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[19]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[20]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[21]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[22]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[23]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[24]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[25]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[26]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[27]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[28]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[29]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[30]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "y_offset[31]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[0]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[1]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[2]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[3]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[4]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[5]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[6]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[7]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[8]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[9]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[10]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[11]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[12]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[13]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[14]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[15]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[16]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[17]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[18]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[19]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[20]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[21]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[22]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[23]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[24]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[25]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[26]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[27]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[28]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[29]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[30]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "x_offset[31]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[0]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[1]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[2]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[3]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[4]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[5]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[6]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[7]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[8]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[9]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[10]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[11]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[12]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[13]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[14]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[15]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[16]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[17]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[18]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[19]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[20]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[21]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[22]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[23]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[24]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[25]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[26]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[27]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[28]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[29]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[30]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
+Info (10041): Inferred latch for "img_id[31]" at object_table.sv(56) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 56
 Info (12128): Elaborating entity "background_controller" for hierarchy "background_controller:inst11"
 Info (12128): Elaborating entity "ai_car_controller" for hierarchy "ai_car_controller:inst4"
 Info (12128): Elaborating entity "random" for hierarchy "random:inst12"
@@ -2169,6 +2323,50 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "AUDOUT" has no driver
     Warning (13040): bidirectional pin "AUDOUT" has no driver
     Warning (13040): bidirectional pin "AUDOUT" has no driver
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "object_table:inst1|out_obj_table[13][1]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[13][1]~_emulated" and latch "object_table:inst1|out_obj_table[13][1]~1" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[13][2]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[13][2]~_emulated" and latch "object_table:inst1|out_obj_table[13][2]~5" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[0][4]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[0][4]~_emulated" and latch "object_table:inst1|out_obj_table[0][4]~9" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[0][7]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[0][7]~_emulated" and latch "object_table:inst1|out_obj_table[0][7]~13" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[0][8]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[0][8]~_emulated" and latch "object_table:inst1|out_obj_table[0][8]~17" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[0][9]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[0][9]~_emulated" and latch "object_table:inst1|out_obj_table[0][9]~21" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[0][10]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[0][10]~_emulated" and latch "object_table:inst1|out_obj_table[0][10]~25" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[2][2]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[2][2]~_emulated" and latch "object_table:inst1|out_obj_table[2][2]~29" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][9]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][9]~_emulated" and latch "object_table:inst1|out_obj_table[7][9]~33" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][0]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][0]~_emulated" and latch "object_table:inst1|out_obj_table[6][0]~37" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][1]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][1]~_emulated" and latch "object_table:inst1|out_obj_table[6][1]~41" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][2]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][2]~_emulated" and latch "object_table:inst1|out_obj_table[6][2]~45" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][3]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][3]~_emulated" and latch "object_table:inst1|out_obj_table[6][3]~49" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][4]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][4]~_emulated" and latch "object_table:inst1|out_obj_table[6][4]~53" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][5]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][5]~_emulated" and latch "object_table:inst1|out_obj_table[6][5]~57" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][6]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][6]~_emulated" and latch "object_table:inst1|out_obj_table[6][6]~61" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][7]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][7]~_emulated" and latch "object_table:inst1|out_obj_table[6][7]~65" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][8]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][8]~_emulated" and latch "object_table:inst1|out_obj_table[6][8]~69" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][9]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][9]~_emulated" and latch "object_table:inst1|out_obj_table[6][9]~73" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[6][10]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[6][10]~_emulated" and latch "object_table:inst1|out_obj_table[6][10]~77" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][0]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][0]~_emulated" and latch "object_table:inst1|out_obj_table[7][0]~81" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][1]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][1]~_emulated" and latch "object_table:inst1|out_obj_table[7][1]~85" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][2]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][2]~_emulated" and latch "object_table:inst1|out_obj_table[7][2]~89" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][3]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][3]~_emulated" and latch "object_table:inst1|out_obj_table[7][3]~93" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][4]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][4]~_emulated" and latch "object_table:inst1|out_obj_table[7][4]~97" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][5]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][5]~_emulated" and latch "object_table:inst1|out_obj_table[7][5]~101" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][6]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][6]~_emulated" and latch "object_table:inst1|out_obj_table[7][6]~105" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][7]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][7]~_emulated" and latch "object_table:inst1|out_obj_table[7][7]~109" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[7][8]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[7][8]~_emulated" and latch "object_table:inst1|out_obj_table[7][8]~113" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[2][9]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[2][9]~_emulated" and latch "object_table:inst1|out_obj_table[2][9]~117" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][0]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][0]~_emulated" and latch "object_table:inst1|out_obj_table[1][0]~121" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][1]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][1]~_emulated" and latch "object_table:inst1|out_obj_table[1][1]~125" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][2]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][2]~_emulated" and latch "object_table:inst1|out_obj_table[1][2]~129" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][3]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][3]~_emulated" and latch "object_table:inst1|out_obj_table[1][3]~133" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][4]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][4]~_emulated" and latch "object_table:inst1|out_obj_table[1][4]~137" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][5]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][5]~_emulated" and latch "object_table:inst1|out_obj_table[1][5]~141" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][6]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][6]~_emulated" and latch "object_table:inst1|out_obj_table[1][6]~145" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][7]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][7]~_emulated" and latch "object_table:inst1|out_obj_table[1][7]~149" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][8]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][8]~_emulated" and latch "object_table:inst1|out_obj_table[1][8]~153" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][9]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][9]~_emulated" and latch "object_table:inst1|out_obj_table[1][9]~157" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[1][10]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[1][10]~_emulated" and latch "object_table:inst1|out_obj_table[1][10]~161" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[3][5]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[3][5]~_emulated" and latch "object_table:inst1|out_obj_table[3][5]~165" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
+    Warning (13310): Register "object_table:inst1|out_obj_table[4][5]" is converted into an equivalent circuit using register "object_table:inst1|out_obj_table[4][5]~_emulated" and latch "object_table:inst1|out_obj_table[4][5]~169" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 70
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "AUDOUT~synth"
     Warning (13010): Node "AUDOUT~synth"
@@ -2185,17 +2383,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 9445 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7450 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 39 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 9392 logic cells
+    Info (21061): Implemented 7397 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 380 warnings
-    Info: Peak virtual memory: 4972 megabytes
-    Info: Processing ended: Thu May 25 19:38:12 2023
-    Info: Elapsed time: 00:05:36
-    Info: Total CPU time (on all processors): 00:05:44
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 427 warnings
+    Info: Peak virtual memory: 5015 megabytes
+    Info: Processing ended: Thu May 25 20:27:42 2023
+    Info: Elapsed time: 00:05:45
+    Info: Total CPU time (on all processors): 00:05:53
 
 
 +------------------------------------------+
