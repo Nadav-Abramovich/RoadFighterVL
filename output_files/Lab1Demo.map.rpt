@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Thu May 25 14:21:33 2023
+Thu May 25 16:03:23 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -67,13 +67,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 25 14:21:33 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 25 16:03:23 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 470                                         ;
+; Total registers                 ; 438                                         ;
 ; Total pins                      ; 52                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -244,7 +244,7 @@ agreement for further details.
 ; altram.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altram.inc                                          ;          ;
 ; altdpram.inc                                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altdpram.inc                                        ;          ;
 ; db/altsyncram_8071.tdf                                     ; yes             ; Auto-Generated Megafunction            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/db/altsyncram_8071.tdf                                     ;          ;
-; RTL/VGA_BG.mif                                             ; yes             ; Auto-Found Memory Initialization File  ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA_BG.mif                                             ;          ;
+; rtl/vga_bg.mif                                             ; yes             ; Auto-Found Memory Initialization File  ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/rtl/vga_bg.mif                                             ;          ;
 ; db/decode_s2a.tdf                                          ; yes             ; Auto-Generated Megafunction            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/db/decode_s2a.tdf                                          ;          ;
 ; db/mux_jhb.tdf                                             ; yes             ; Auto-Generated Megafunction            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/db/mux_jhb.tdf                                             ;          ;
 +------------------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------------------+----------+
@@ -255,16 +255,16 @@ agreement for further details.
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 5759                         ;
+; Estimate of Logic utilization (ALMs needed) ; 5720                         ;
 ;                                             ;                              ;
-; Combinational ALUT usage for logic          ; 8454                         ;
-;     -- 7 input functions                    ; 1368                         ;
-;     -- 6 input functions                    ; 1666                         ;
-;     -- 5 input functions                    ; 3844                         ;
-;     -- 4 input functions                    ; 792                          ;
-;     -- <=3 input functions                  ; 784                          ;
+; Combinational ALUT usage for logic          ; 8396                         ;
+;     -- 7 input functions                    ; 1380                         ;
+;     -- 6 input functions                    ; 1627                         ;
+;     -- 5 input functions                    ; 3858                         ;
+;     -- 4 input functions                    ; 766                          ;
+;     -- <=3 input functions                  ; 765                          ;
 ;                                             ;                              ;
-; Dedicated logic registers                   ; 470                          ;
+; Dedicated logic registers                   ; 438                          ;
 ;                                             ;                              ;
 ; I/O pins                                    ; 52                           ;
 ;                                             ;                              ;
@@ -274,9 +274,9 @@ agreement for further details.
 ;     -- PLLs                                 ; 1                            ;
 ;                                             ;                              ;
 ; Maximum fan-out node                        ; sprite_storage:inst13|Add3~9 ;
-; Maximum fan-out                             ; 2329                         ;
-; Total fan-out                               ; 45201                        ;
-; Average fan-out                             ; 5.00                         ;
+; Maximum fan-out                             ; 2320                         ;
+; Total fan-out                               ; 44868                        ;
+; Average fan-out                             ; 5.01                         ;
 +---------------------------------------------+------------------------------+
 
 
@@ -285,7 +285,7 @@ agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Entity Name                   ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
-; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 8454 (0)            ; 470 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
+; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 8396 (0)            ; 438 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
 ;    |AUDIO:inst18|                                       ; 205 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18                                                                          ; AUDIO                         ; work         ;
 ;       |ToneDecoder:inst4|                               ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|ToneDecoder:inst4                                                        ; ToneDecoder                   ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|addr_counter:inst9                                                       ; addr_counter                  ; work         ;
@@ -306,14 +306,14 @@ agreement for further details.
 ;          |lpf:inst5|                                    ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|lpf:inst5                                                 ; lpf                           ; work         ;
 ;       |keyPad_decoder:inst2|                            ; 28 (28)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2                                                   ; keyPad_decoder                ; work         ;
 ;    |VGA_Controller:inst|                                ; 58 (58)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|VGA_Controller:inst                                                                   ; VGA_Controller                ; work         ;
-;    |ai_car_controller:inst4|                            ; 24 (24)             ; 42 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4                                                               ; ai_car_controller             ; work         ;
-;    |background_controller:inst11|                       ; 22 (22)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11                                                          ; background_controller         ; work         ;
-;    |object_table:inst1|                                 ; 178 (64)            ; 96 (94)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1                                                                    ; object_table                  ; work         ;
+;    |ai_car_controller:inst4|                            ; 25 (25)             ; 42 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4                                                               ; ai_car_controller             ; work         ;
+;    |background_controller:inst11|                       ; 17 (17)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11                                                          ; background_controller         ; work         ;
+;    |object_table:inst1|                                 ; 179 (65)            ; 96 (94)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1                                                                    ; object_table                  ; work         ;
 ;       |collision_detector:comb_3|                       ; 44 (44)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|collision_detector:comb_3                                          ; collision_detector            ; work         ;
 ;       |collision_detector:comb_4|                       ; 70 (70)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|collision_detector:comb_4                                          ; collision_detector            ; work         ;
-;    |player_controller:inst9|                            ; 20 (20)             ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
+;    |player_controller:inst9|                            ; 19 (19)             ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
 ;    |random:inst12|                                      ; 30 (30)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|random:inst12                                                                         ; random                        ; work         ;
-;    |sprite_storage:inst13|                              ; 7843 (7843)         ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
+;    |sprite_storage:inst13|                              ; 7789 (7789)         ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1013,12 +1013,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 470   ;
-; Number of registers using Synchronous Clear  ; 131   ;
-; Number of registers using Synchronous Load   ; 26    ;
+; Total registers                              ; 438   ;
+; Number of registers using Synchronous Clear  ; 99    ;
+; Number of registers using Synchronous Load   ; 48    ;
 ; Number of registers using Asynchronous Clear ; 320   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 273   ;
+; Number of registers using Clock Enable       ; 241   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1028,6 +1028,9 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------------+---------+
 ; Inverted Register                                                ; Fan out ;
 +------------------------------------------------------------------+---------+
+; background_controller:inst11|new_state[2][8]                     ; 1       ;
+; background_controller:inst11|new_state[2][9]                     ; 1       ;
+; background_controller:inst11|new_state[2][10]                    ; 1       ;
 ; VGA_Controller:inst|oVGA_VS                                      ; 6       ;
 ; VGA_Controller:inst|oVGA_HS                                      ; 4       ;
 ; VGA_Controller:inst|oVGA_HS_d                                    ; 1       ;
@@ -1056,8 +1059,8 @@ Encoding Type:  One-Hot
 ; ai_car_controller:inst4|new_car_state[2][7]                      ; 1       ;
 ; ai_car_controller:inst4|new_car_state[2][8]                      ; 1       ;
 ; player_controller:inst9|new_player_state[1][2]                   ; 1       ;
-; object_table:inst1|obj_table[12][9]                              ; 1       ;
 ; object_table:inst1|obj_table[12][8]                              ; 1       ;
+; object_table:inst1|obj_table[12][9]                              ; 1       ;
 ; ai_car_controller:inst4|temp_car_state[1][2]                     ; 1       ;
 ; ai_car_controller:inst4|temp_car_state[2][2]                     ; 3       ;
 ; ai_car_controller:inst4|temp_car_state[2][4]                     ; 3       ;
@@ -1066,45 +1069,38 @@ Encoding Type:  One-Hot
 ; ai_car_controller:inst4|temp_car_state[2][7]                     ; 3       ;
 ; ai_car_controller:inst4|temp_car_state[2][8]                     ; 3       ;
 ; player_controller:inst9|temp_player_state[1][2]                  ; 4       ;
-; background_controller:inst11|new_state[2][9]                     ; 1       ;
 ; object_table:inst1|obj_table[12][10]                             ; 1       ;
-; background_controller:inst11|new_state[2][8]                     ; 1       ;
 ; random:inst12|dout[8]                                            ; 1       ;
 ; random:inst12|dout[3]                                            ; 1       ;
 ; random:inst12|dout[0]                                            ; 1       ;
-; background_controller:inst11|temp_background_state[2][9]         ; 2       ;
-; background_controller:inst11|new_state[2][10]                    ; 1       ;
-; background_controller:inst11|temp_background_state[2][8]         ; 2       ;
 ; random:inst12|counter[6]                                         ; 3       ;
 ; random:inst12|counter[5]                                         ; 3       ;
 ; random:inst12|counter[3]                                         ; 3       ;
 ; random:inst12|counter[1]                                         ; 2       ;
-; background_controller:inst11|temp_background_state[2][10]        ; 2       ;
-; Total number of inverted registers = 52                          ;         ;
+; Total number of inverted registers = 49                          ;         ;
 +------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|x_offset[6]                                                                         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|x_offset[8]                                                                         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|y_pos[25]                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[5]                                    ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[11] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[4]    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][1]                                                        ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|y_offset[1]                                                                         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|y_offset[10]                                                                        ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|key[2]                                                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|Mux934                                                                           ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|Mux1873                                                                          ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector6                                                     ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector4                                                     ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector6                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|x_offset[1]                                                                        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|x_offset[10]                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[2]                                   ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[6] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[4]   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][4]                                                       ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|y_offset[8]                                                                        ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|object_table:inst1|y_offset[10]                                                                       ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|key[3]                                                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|Mux934                                                                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|Mux1873                                                                         ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector6                                                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector8                                                    ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector3                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------+
@@ -1522,34 +1518,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 470                         ;
-;     CLR               ; 141                         ;
+; arriav_ff             ; 438                         ;
+;     CLR               ; 130                         ;
 ;     CLR SCLR          ; 46                          ;
-;     CLR SLD           ; 9                           ;
-;     ENA               ; 100                         ;
+;     CLR SLD           ; 20                          ;
+;     ENA               ; 89                          ;
 ;     ENA CLR           ; 73                          ;
 ;     ENA CLR SCLR      ; 51                          ;
-;     ENA SCLR          ; 32                          ;
 ;     ENA SCLR SLD      ; 2                           ;
-;     ENA SLD           ; 15                          ;
+;     ENA SLD           ; 26                          ;
 ;     plain             ; 1                           ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 8461                        ;
-;     arith             ; 309                         ;
+; arriav_lcell_comb     ; 8403                        ;
+;     arith             ; 303                         ;
 ;         0 data inputs ; 9                           ;
-;         1 data inputs ; 270                         ;
+;         1 data inputs ; 262                         ;
 ;         2 data inputs ; 29                          ;
-;         3 data inputs ; 1                           ;
-;     extend            ; 1368                        ;
-;         7 data inputs ; 1368                        ;
-;     normal            ; 6758                        ;
+;         3 data inputs ; 3                           ;
+;     extend            ; 1380                        ;
+;         7 data inputs ; 1380                        ;
+;     normal            ; 6694                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 24                          ;
-;         2 data inputs ; 184                         ;
-;         3 data inputs ; 246                         ;
-;         4 data inputs ; 792                         ;
-;         5 data inputs ; 3844                        ;
-;         6 data inputs ; 1666                        ;
+;         1 data inputs ; 30                          ;
+;         2 data inputs ; 189                         ;
+;         3 data inputs ; 222                         ;
+;         4 data inputs ; 766                         ;
+;         5 data inputs ; 3858                        ;
+;         6 data inputs ; 1627                        ;
 ;     shared            ; 26                          ;
 ;         0 data inputs ; 4                           ;
 ;         2 data inputs ; 22                          ;
@@ -1557,7 +1552,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 10.15                       ;
+; Average LUT depth     ; 9.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1566,7 +1561,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:03:00     ;
+; Top            ; 00:03:28     ;
 +----------------+--------------+
 
 
@@ -1576,7 +1571,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 25 14:17:48 2023
+    Info: Processing started: Thu May 25 15:59:11 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/hart_position_control.sv
@@ -1797,8 +1792,9 @@ Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(62): trunca
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(64): truncated value with size 32 to match size of target (19) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 64
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(74): truncated value with size 11 to match size of target (1) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 74
 Info (12128): Elaborating entity "sprite_storage" for hierarchy "sprite_storage:inst13"
-Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(18): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 18
 Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(19): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 19
+Warning (10036): Verilog HDL or VHDL warning at sprite_storage.sv(193): object "y_pos" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 193
+Warning (10202): Verilog HDL Declaration warning at sprite_storage.sv(20): vector has more than 2**16 bits File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/sprite_storage.sv Line: 20
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "background" into its bus
 Info (12128): Elaborating entity "object_table" for hierarchy "object_table:inst1"
@@ -2178,17 +2174,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 8673 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 8612 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 39 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 8620 logic cells
+    Info (21061): Implemented 8559 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 379 warnings
-    Info: Peak virtual memory: 5024 megabytes
-    Info: Processing ended: Thu May 25 14:21:33 2023
-    Info: Elapsed time: 00:03:45
-    Info: Total CPU time (on all processors): 00:03:53
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 380 warnings
+    Info: Peak virtual memory: 4986 megabytes
+    Info: Processing ended: Thu May 25 16:03:23 2023
+    Info: Elapsed time: 00:04:12
+    Info: Total CPU time (on all processors): 00:04:20
 
 
 +------------------------------------------+

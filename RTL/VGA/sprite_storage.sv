@@ -2,6 +2,7 @@ module	sprite_storage	(
 //		--------	Clock Input	 	
 					input		logic	clk,
 					input		logic	resetN,
+					input    logic frame_start,
 					input    int sprite_number,
 					input    int requested_x,
 					input    int requested_y,
@@ -199,28 +200,23 @@ begin
 	end
 	
 	else begin
-			if(sprite_number==11'b0) begin
-					RGBout <= object_colors[(requested_x-x_offset)/2][(requested_y-y_offset)/2];
-			end
-			else if(sprite_number==11'b1) begin
-					RGBout <= object_colors[18+((requested_x-x_offset)/2)][57+((requested_y-y_offset)/2)];
-			end
-			else if(sprite_number==11'b11111) begin
-					if((requested_y+y_offset)%64 < 32) begin
-						y_pos <= 0;
-					end
-					else begin
-						y_pos <= y_pos + 1;
-						if(y_pos == 32) begin
-							y_pos <= 0;
-						end
-					end
-					RGBout <= background[y_pos][(requested_x-x_offset)/4];
+		if(sprite_number==11'b0) begin
+			RGBout <= object_colors[(requested_x-x_offset)/2][(requested_y-y_offset)/2];
+		end
+		else if(sprite_number==11'b1) begin
+			RGBout <= object_colors[18+((requested_x-x_offset)/2)][57+((requested_y-y_offset)/2)];
+		end
+		else if(sprite_number==11'b11111) begin
+			if((requested_x-x_offset)/4 < 128) begin
+				RGBout <= background[((requested_y+y_offset)/4)%32][(requested_x-x_offset)/4];
 			end
 			else begin
-				RGBout <= 8'b1111_1111;
+				RGBout<= 8'b1111_1111;
 			end
-
+		end
+		else begin
+			RGBout <= 8'b1111_1111;
+		end
 	end
 end
 
