@@ -1,0 +1,43 @@
+
+// (c) Technion IIT, Department of Electrical Engineering 2021 
+//-- Nadav May 2023
+//-- Ari May 2023
+
+module	background_controller	(	
+//		--------	Clock Input	 	
+					input		logic	clk,
+					input		logic	resetN,
+					input		logic	frame_start,
+					output   logic [0:4][0:10] new_state
+);
+logic [0:4] [0:10] default_background_state = {
+	11'b11111, // img_id
+	11'b001101010, // x 11
+	11'b111, // y
+	11'b100111110, //width 13
+	11'b100000 // height
+};
+logic [0:4] [0:10] temp_background_state = {
+	11'b11111, // img_id
+	11'b001101010, // x 11
+	11'b111, // y
+	11'b1000000000, //width 13
+	11'b100000 // height
+};
+
+const logic [0:10] max_x;
+always_ff@(posedge clk or negedge resetN)
+begin
+	if(!resetN) begin
+		new_state <= default_background_state;
+	end
+	
+	else begin
+		if(frame_start) begin
+			temp_background_state[2] = temp_background_state[2] - 11'b1;
+		end
+		new_state <= temp_background_state;
+	end
+end
+
+endmodule
