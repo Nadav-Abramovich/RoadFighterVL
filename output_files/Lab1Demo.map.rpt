@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Thu May 25 16:03:23 2023
+Thu May 25 17:10:47 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 25 16:03:23 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 25 17:10:46 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
@@ -261,8 +261,8 @@ agreement for further details.
 ;     -- 7 input functions                    ; 1380                         ;
 ;     -- 6 input functions                    ; 1627                         ;
 ;     -- 5 input functions                    ; 3858                         ;
-;     -- 4 input functions                    ; 766                          ;
-;     -- <=3 input functions                  ; 765                          ;
+;     -- 4 input functions                    ; 765                          ;
+;     -- <=3 input functions                  ; 766                          ;
 ;                                             ;                              ;
 ; Dedicated logic registers                   ; 438                          ;
 ;                                             ;                              ;
@@ -1540,9 +1540,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     normal            ; 6694                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 30                          ;
-;         2 data inputs ; 189                         ;
-;         3 data inputs ; 222                         ;
-;         4 data inputs ; 766                         ;
+;         2 data inputs ; 188                         ;
+;         3 data inputs ; 224                         ;
+;         4 data inputs ; 765                         ;
 ;         5 data inputs ; 3858                        ;
 ;         6 data inputs ; 1627                        ;
 ;     shared            ; 26                          ;
@@ -1561,7 +1561,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:03:28     ;
+; Top            ; 00:02:55     ;
 +----------------+--------------+
 
 
@@ -1571,7 +1571,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 25 15:59:11 2023
+    Info: Processing started: Thu May 25 17:07:41 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/hart_position_control.sv
@@ -2181,10 +2181,10 @@ Info (21057): Implemented 8612 device resources after synthesis - the final reso
     Info (21061): Implemented 8559 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 380 warnings
-    Info: Peak virtual memory: 4986 megabytes
-    Info: Processing ended: Thu May 25 16:03:23 2023
-    Info: Elapsed time: 00:04:12
-    Info: Total CPU time (on all processors): 00:04:20
+    Info: Peak virtual memory: 4954 megabytes
+    Info: Processing ended: Thu May 25 17:10:47 2023
+    Info: Elapsed time: 00:03:06
+    Info: Total CPU time (on all processors): 00:03:15
 
 
 +------------------------------------------+

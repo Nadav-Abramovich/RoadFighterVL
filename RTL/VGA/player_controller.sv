@@ -27,8 +27,8 @@ logic [0:4] [0:10] temp_player_state = {
 	11'b100000, //width
 	11'b0100100, //height
 };
-logic [0:10] max_x = 11'b001101010 + 11'b100111110;
-logic [0:10] min_x = 11'b001101010;
+logic [0:10] max_x = 11'b11110010 + 11'b11110010;
+logic [0:10] min_x = 11'b11110010;
 always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
