@@ -8,6 +8,7 @@ module	background_controller	(
 					input		logic	clk,
 					input		logic	resetN,
 					input		logic	frame_start,
+					input [0:9] player_speed,
 					output   logic [0:4][0:10] new_state
 );
 logic [0:4] [0:10] default_background_state = {
@@ -34,7 +35,7 @@ begin
 	
 	else begin
 		if(frame_start) begin
-			temp_background_state[2] = temp_background_state[2] - 11'd20;
+			temp_background_state[2] = temp_background_state[2] - (player_speed / 32);
 		end
 		new_state <= temp_background_state;
 	end

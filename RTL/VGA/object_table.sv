@@ -16,6 +16,7 @@ module	object_table	(
 					input    logic [0:4][0:10] new_player_state,
 					input    logic [0:4][0:10] new_car1_state,
 					input    logic [0:4][0:10] new_bg_state,
+					input    logic [0:4][0:10] fl_new_state,
 					
 		  // background 
 				   output	int img_id,
@@ -23,10 +24,10 @@ module	object_table	(
 					output	int y_to_draw,
 					output	int x_offset,
 					output	int y_offset,
-					output   logic [0:14] [0:10] out_obj_table
+					output   logic [0:19] [0:10] out_obj_table
 );
 //[object_id][img_id,x,y,width,height][data]
-logic [0:14][0:10] obj_table = {
+logic [0:19][0:10] obj_table = {
 	// Player
 	11'b0, // img_id
 	11'b100101100, // x
@@ -40,6 +41,12 @@ logic [0:14][0:10] obj_table = {
 	11'b10000, //width
 	11'b100000, // height
 	// BG (road)
+	11'b11111, // img_id
+	11'b001101010, // x 11
+	11'b111, // y
+	11'b100111110, //width 13
+	11'b100000, // height
+	// finish line
 	11'b11111, // img_id
 	11'b001101010, // x 11
 	11'b111, // y
@@ -76,6 +83,7 @@ begin
 		obj_table[0:4] <= new_player_state;
 		obj_table[5:9] <= new_car1_state;
 		obj_table[10:14] <= new_bg_state;
+		obj_table[15:19] <= fl_new_state;
 		x_to_draw <= requested_x;
 		y_to_draw <= requested_y;
 //		if(should_draw_1) begin

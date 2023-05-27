@@ -9,9 +9,12 @@ module	player_controller	(
 					input		logic	resetN,
 					input		logic	minus_is_pressed,
 					input		logic	plus_is_pressed,
+					input		logic [9:0]	NumberKey,
 					input		logic	frame_start,
-					input     logic [0:14][0:10] current_state,
-					output    logic [0:4][0:10] new_player_state
+					input    logic [0:19][0:10] current_state,
+					input    logic [0:1] collisions,
+					output   logic [0:4][0:10] new_player_state,
+					output   logic [0:9] player_speed
 );
 const logic [0:4] [0:10] default_player_state = {
 	11'd0, // img_id
@@ -52,6 +55,8 @@ int death_state = -1;
 typedef enum { LEFT = -1, RIGHT = 1} move_direction;
 move_direction last_moved_direction = LEFT;
 
+int tmp_speed = 0;
+int finished = 0;
 always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
@@ -75,25 +80,70 @@ begin
 					temp_player_state[4] <= death_animation[death_state/8][2];
 				end
 			end
-			else if(plus_is_pressed) begin
-				last_moved_direction <= RIGHT;
-				if((temp_player_state[1] + temp_player_state[4]) < max_x) begin
-					temp_player_state[1] <= temp_player_state[1] + 11'd2;
+			else begin
+				// car
+				if(collisions[0] == 1'd1) begin
+					death_state <= 0;
+					tmp_speed <= 0;
+				end
+				// finish line
+				else if (collisions[1] == 1'd1) begin
+					finished <= 1;
 				end
 				else begin
-					death_state <= 0;
-				end
-			end
-			else if (minus_is_pressed) begin
-				last_moved_direction <= LEFT;
-				if(temp_player_state[1] > min_x) begin
-					temp_player_state[1] <= temp_player_state[1] - 11'd2;
-				end
-				else begin
-					death_state <= 0;
+					if(finished == 0 && NumberKey[8] == 1'd1) begin
+						if(tmp_speed < 512) begin
+							if(tmp_speed > 512 - 2) begin
+								tmp_speed <= 512;
+							end
+							else begin
+								tmp_speed <= tmp_speed + 3;
+							end
+						end
+					end
+					else if(finished ==1 || NumberKey[5] == 1'd1) begin
+						if(tmp_speed > 0) begin
+							if(tmp_speed <= 10) begin
+								tmp_speed <= 0;
+							end
+							else begin
+								tmp_speed <= tmp_speed - 10;
+							end
+						end
+					end
+//					else begin // speed decay?
+//						if(tmp_speed <= 2) begin
+//							tmp_speed <= 0;
+//						end
+//						else begin
+//							tmp_speed <= tmp_speed - 2;
+//						end
+//					end
+					
+					if(finished == 0 && NumberKey[6] == 1'd1) begin
+						last_moved_direction <= RIGHT;
+						if((temp_player_state[1] + temp_player_state[4]) < max_x) begin
+							temp_player_state[1] <= temp_player_state[1] + 11'd2;
+						end
+						else begin
+							death_state <= 0;
+							tmp_speed <= 0;
+						end
+					end
+					else if (finished == 0 && NumberKey[4] == 1'd1) begin
+						last_moved_direction <= LEFT;
+						if(temp_player_state[1] > min_x) begin
+							temp_player_state[1] <= temp_player_state[1] - 11'd2;
+						end
+						else begin
+							death_state <= 0;
+							tmp_speed <= 0;
+						end
+					end
 				end
 			end
 			new_player_state <= temp_player_state;
+			player_speed <= tmp_speed;
 		end
 	end
 end

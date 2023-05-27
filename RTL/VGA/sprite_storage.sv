@@ -3,10 +3,11 @@ module	sprite_storage	(
 					input		logic	clk,
 					input		logic	resetN,
 					input    logic frame_start,
-					input    logic [0:14][0:10] current_state,
+					input    logic [0:19][0:10] current_state,
 					input    int requested_x,
 					input    int requested_y,
-					output	logic	[7:0] RGBout  //rgb value from the bitmap 
+					output	logic	[7:0] RGBout,  //rgb value from the bitmap 
+					output   logic [0:1] collisions
 );
 
 logic[0:15][0:15][7:0] car1 = {
@@ -134,12 +135,32 @@ logic [0:31][0:127][7:0]  background = {
 	{8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hba,8'h6d,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'h78,8'h30,8'h30,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h00,8'h2c,8'h70,8'h00,8'h00,8'h00,8'h00,8'h00,8'h30,8'h78,8'h78,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h30,8'h2c,8'h30,8'h78},
 	{8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hba,8'h6d,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'h78,8'h10,8'h30,8'h78,8'h78,8'h78,8'h78,8'h78,8'h38,8'h0c,8'h30,8'h00,8'h74,8'h04,8'h2c,8'h00,8'h79,8'h0c,8'h78,8'h78,8'h78,8'h00,8'h00,8'h00,8'h00,8'h04,8'h30,8'h34,8'h04,8'h78,8'h78,8'h78},
 	{8'h38,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h38,8'h38,8'h38,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hbe,8'h96,8'h04,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'hbe,8'h04,8'h30,8'h38,8'h38,8'h78,8'h78,8'h78,8'h78,8'h78,8'h34,8'h10,8'h04,8'h04,8'h04,8'h0c,8'h78,8'h78,8'h78,8'h78,8'h78,8'h10,8'h78,8'h10,8'h78,8'h10,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78}};
+
+logic[0:15][0:15][7:0] finish_line = {
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
+	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
+	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00}};
+
 int y_pos=0;
 
 
 logic should_draw_1 = 1'b0;
 logic should_draw_2 = 1'b0;
 logic should_draw_3 = 1'b0;
+logic should_draw_4 = 1'b0;
 
 collision_detector (
 	.clk (clk),
@@ -176,6 +197,18 @@ collision_detector (
 	.should_be_drawn(should_draw_3)
 );
 
+collision_detector (
+	.clk (clk),
+	.resetN( resetN ),
+	.requested_x( {21'b0, requested_x} ),
+	.requested_y( {21'b0, requested_y} ),
+	.left( {21'b0, current_state[16] } ),
+	.top( {21'b0, current_state[17]} ),
+	.width( {21'b0, current_state[18]} ),
+	.height( {21'b0, current_state[19]} ),
+	.should_be_drawn(should_draw_4)
+);
+
 
 int sprite_number = 0;
 int x_offset = 0;
@@ -183,7 +216,8 @@ int y_offset = 0;
 int bg_1 = 0;
 int bg_2 = 0;
 localparam logic[7:0] MASK_VALUE = 8'h62;
-logic	[2:0][7:0] RGBouts = {
+logic	[3:0][7:0] RGBouts = {
+	MASK_VALUE,
 	MASK_VALUE,
 	MASK_VALUE,
 	MASK_VALUE
@@ -200,6 +234,10 @@ int ai_car1_y_offset;
 int bg_sprite_number;
 int bg_x_offset;
 int bg_y_offset;
+
+int fl_sprite_number;
+int fl_x_offset;
+int fl_y_offset;
 
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -293,6 +331,19 @@ begin
 			RGBouts[1] <= MASK_VALUE;
 		end 
 
+		if (should_draw_4) begin
+			fl_sprite_number <= current_state[15];
+			fl_x_offset <= {21'b0, current_state[16]};
+			fl_y_offset <= {21'b0, current_state[17]};
+			if(fl_sprite_number == 11'd10) begin
+				RGBouts[3] <= finish_line[(requested_y-fl_y_offset)/4][((requested_x-fl_x_offset)/4)%16];
+			end
+		end
+		else begin
+			RGBouts[3] <= MASK_VALUE;
+		end 
+
+		
 		if ((requested_x > bg_1) && (requested_x < (bg_1+bg_2))) begin
 			bg_sprite_number <= current_state[10];
 			bg_x_offset <= {21'b0, current_state[11]};
@@ -308,11 +359,29 @@ begin
 			RGBouts[2] <= MASK_VALUE;
 		end
 
+		if(requested_x == 1 && requested_y == 1) begin
+			collisions[0] <= 0;
+			collisions[1] <= 0;
+		end
+		else begin
+			if(RGBouts[0] != MASK_VALUE) begin
+				if(RGBouts[1] != MASK_VALUE) begin
+					collisions[0] <= 1'd1;
+				end	
+				if(RGBouts[3] != MASK_VALUE) begin
+					collisions[1] <= 1'd1;
+				end
+			end
+		end
+
 		if(RGBouts[0] != MASK_VALUE) begin
 			RGBout <= RGBouts[0];
 		end
 		else if(RGBouts[1] != MASK_VALUE) begin
 			RGBout <= RGBouts[1];
+		end
+		else if(RGBouts[3] != MASK_VALUE) begin
+			RGBout <= RGBouts[3];
 		end
 		else if(RGBouts[2] != MASK_VALUE) begin
 			RGBout <= RGBouts[2];

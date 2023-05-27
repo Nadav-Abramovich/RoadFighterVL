@@ -9,7 +9,8 @@ module	ai_car_controller	(
 					input		logic	resetN,
 					input		logic	frame_start,
 					input    logic [0:10] random,
-					input     logic [0:14][0:10] current_state,
+					input     logic [0:9] player_speed,
+					input     logic [0:19][0:10] current_state,
 					output    logic [0:4][0:10] new_car_state
 );
 const logic [0:4] [0:10] default_car_state = {
@@ -34,7 +35,7 @@ begin
 				temp_car_state[2] <= 0;
 			end
 			else begin
-				temp_car_state[2] <= temp_car_state[2] + 11'd1;
+				temp_car_state[2] <= temp_car_state[2] - 11'd6 + {1'd0, player_speed/32};
 			end
 			new_car_state <= temp_car_state;
 		end
