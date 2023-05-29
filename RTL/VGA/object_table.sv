@@ -75,45 +75,12 @@ begin
 	
 	else begin
 		current_x <= {21'b0, requested_x};
-
-//		tmp1 <= {21'b0, obj_table[11]};
-//		tmp2 <= {21'b0, obj_table[13]};
-//		tmp3 <= obj_table[11] + obj_table[13];
-//		
 		obj_table[0:4] <= new_player_state;
 		obj_table[5:9] <= new_car1_state;
 		obj_table[10:14] <= new_bg_state;
 		obj_table[15:19] <= fl_new_state;
 		x_to_draw <= requested_x;
 		y_to_draw <= requested_y;
-//		if(should_draw_1) begin
-//			img_id <= {21'b0, obj_table[0]};
-//			x_offset <= {21'b0, obj_table[1]};
-//			y_offset <= {21'b0, obj_table[2]};
-//			x_to_draw <= {21'b0, requested_x};
-//			y_to_draw <= {21'b0, requested_y};
-//		end
-//		else if(should_draw_2) begin
-//			img_id <= {21'b0, obj_table[5]};
-//			x_offset <= {21'b0, obj_table[6]};
-//			y_offset <= {21'b0, obj_table[7]};
-//			x_to_draw <= {21'b0, requested_x};
-//			y_to_draw <= {21'b0, requested_y};
-//		end
-//		else if((requested_x > obj_table[11]) && (requested_x < (obj_table[11]+obj_table[13]))) begin
-//			img_id <= {21'b0, obj_table[10]};
-//			x_offset <= {21'b0, obj_table[11]};
-//			y_offset <= {21'b0, obj_table[12]};
-//			x_to_draw <= {21'b0, requested_x};
-//			y_to_draw <= {21'b0, requested_y};
-//		end
-//		else begin
-//			img_id <= -1;
-//			x_offset <= -1;
-//			y_offset <= -1;
-//			x_to_draw <= -1;
-//			y_to_draw <= -1;
-//		end
 		out_obj_table <= obj_table;
 	end
 end

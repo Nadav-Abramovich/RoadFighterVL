@@ -3,14 +3,24 @@ module	sprite_storage	(
 					input		logic	clk,
 					input		logic	resetN,
 					input    logic frame_start,
-					input    logic [0:19][0:10] current_state,
-					input    int requested_x,
-					input    int requested_y,
+					input    logic [0:10] requested_x,
+					input    logic [0:10] requested_y,
+					input    logic [0:7] ai_car_color,
+					input    logic [0:7] player_car_color,
+					input    logic [0:7] bg_color,
+					input    logic [0:7] fl_color,
+					output	logic [0:16*16-1][7:0] out_car1,
+					output	logic [0:16*16-1][7:0] out_car2,
+					output	logic [0:16*16-1][7:0] out_car3,
+					output	logic [0:16*16-1][7:0] out_ai_car_red,
+					output	logic [0:16*16-1][7:0] out_ai_car_yellow,
+					output	logic [0:32*128-1][7:0] out_background,
+					output	logic [0:16*16-1][7:0] out_finish_line,
 					output	logic	[7:0] RGBout,  //rgb value from the bitmap 
 					output   logic [0:1] collisions
 );
 
-logic[0:15][0:15][7:0] car1 = {
+const logic[0:15][0:15][7:0] car1 = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'he4,8'h00,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'he4,8'he4,8'hc0,8'h00,8'h62,8'h62,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'he4,8'he4,8'hc0,8'hc0,8'h62,8'h62,8'h62,8'h62,8'h62},
@@ -28,7 +38,7 @@ logic[0:15][0:15][7:0] car1 = {
 	{8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hc0,8'hc0,8'h00,8'h00,8'h00,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'hc0,8'h00,8'h62,8'h62,8'h62}};
 
-logic[0:15][0:15][7:0] car2 = {
+const logic[0:15][0:15][7:0] car2 = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'hff,8'he4,8'he4,8'he4,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'hff,8'he4,8'he4,8'he4,8'he4,8'h62,8'h62},
@@ -46,7 +56,7 @@ logic[0:15][0:15][7:0] car2 = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h00,8'he4,8'he4,8'h00,8'h00,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'h00,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}};
 
-logic[0:15][0:15][7:0] car3 = {
+const logic[0:15][0:15][7:0] car3 = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'hff,8'hff,8'he4,8'he4,8'he4,8'h62},
@@ -65,7 +75,7 @@ logic[0:15][0:15][7:0] car3 = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}};
 
 	
-logic[0:15][0:15][7:0] ai_car_red = {
+const logic[0:15][0:15][7:0] ai_car_red = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'he4,8'hff,8'he4,8'he4,8'he4,8'h00,8'h00,8'h62,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'hff,8'he4,8'he4,8'he4,8'he4,8'h00,8'h00,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'he4,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'h00,8'h00,8'h62,8'h62,8'h62},
@@ -83,7 +93,7 @@ logic[0:15][0:15][7:0] ai_car_red = {
 	{8'h62,8'h62,8'h62,8'h62,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'h00,8'h00,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'h00,8'h00,8'h62,8'h62,8'h62}};
 
-logic[0:15][0:15][7:0] ai_car_yellow = {
+const logic[0:15][0:15][7:0] ai_car_yellow = {
 	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hf8,8'hff,8'hf8,8'hf8,8'hf8,8'h00,8'h00,8'h62,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'hf8,8'hf8,8'hff,8'hf8,8'hf8,8'hf8,8'hf8,8'h00,8'h00,8'h62,8'h62,8'h62},
 	{8'h62,8'h62,8'h62,8'h62,8'hf8,8'hff,8'hf8,8'hf8,8'hf8,8'hf8,8'hf8,8'h00,8'h00,8'h62,8'h62,8'h62},
@@ -102,7 +112,7 @@ logic[0:15][0:15][7:0] ai_car_yellow = {
 	{8'h62,8'h62,8'h62,8'h62,8'hf8,8'h00,8'h00,8'h00,8'h00,8'h00,8'hf8,8'h00,8'h00,8'h62,8'h62,8'h62}};
 
 
-logic [0:31][0:127][7:0]  background = {
+const logic [0:31][0:127][7:0]  background = {
 	{8'h78,8'h78,8'h78,8'h78,8'h78,8'h0c,8'h0c,8'h10,8'h34,8'h34,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hdf,8'h96,8'h00,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'hdf,8'h00,8'h30,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78},
 	{8'h78,8'h78,8'h78,8'h30,8'h04,8'h04,8'h04,8'h04,8'h04,8'h2c,8'h78,8'h78,8'h78,8'h78,8'h78,8'h34,8'h74,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hba,8'h71,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'h78,8'h30,8'h30,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78},
 	{8'h78,8'h78,8'h0c,8'h04,8'h04,8'h00,8'h00,8'h00,8'h00,8'h00,8'h04,8'h78,8'h78,8'h78,8'h0c,8'h00,8'h04,8'h04,8'h04,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hba,8'h6d,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'h78,8'h30,8'h30,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78},
@@ -136,7 +146,7 @@ logic [0:31][0:127][7:0]  background = {
 	{8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hba,8'h6d,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'h78,8'h10,8'h30,8'h78,8'h78,8'h78,8'h78,8'h78,8'h38,8'h0c,8'h30,8'h00,8'h74,8'h04,8'h2c,8'h00,8'h79,8'h0c,8'h78,8'h78,8'h78,8'h00,8'h00,8'h00,8'h00,8'h04,8'h30,8'h34,8'h04,8'h78,8'h78,8'h78},
 	{8'h38,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h38,8'h38,8'h38,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78,8'hbe,8'h96,8'h04,8'h00,8'h2d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'h6d,8'hdf,8'hbe,8'h04,8'h30,8'h38,8'h38,8'h78,8'h78,8'h78,8'h78,8'h78,8'h34,8'h10,8'h04,8'h04,8'h04,8'h0c,8'h78,8'h78,8'h78,8'h78,8'h78,8'h10,8'h78,8'h10,8'h78,8'h10,8'h78,8'h78,8'h78,8'h78,8'h78,8'h78}};
 
-logic[0:15][0:15][7:0] finish_line = {
+const logic[0:15][0:15][7:0] finish_line = {
 	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
 	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00},
 	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
@@ -154,91 +164,7 @@ logic[0:15][0:15][7:0] finish_line = {
 	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
 	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00}};
 
-int y_pos=0;
-
-
-logic should_draw_1 = 1'b0;
-logic should_draw_2 = 1'b0;
-logic should_draw_3 = 1'b0;
-logic should_draw_4 = 1'b0;
-
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, current_state[1] } ),
-	.top( {21'b0, current_state[2]} ),
-	.width( {21'b0, current_state[3]} ),
-	.height( {21'b0, current_state[4]} ),
-	.should_be_drawn(should_draw_1)
-);
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, current_state[6] } ),
-	.top( {21'b0, current_state[7]} ),
-	.width( {21'b0, current_state[8]} ),
-	.height( {21'b0, current_state[9]} ),
-	.should_be_drawn(should_draw_2)
-);
-
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, current_state[11] } ),
-	.top( {current_state[12][0], 20'b1, current_state[12][1:10]} ),
-	.width( {21'b0, current_state[13]} ),
-	.height( {21'b0, current_state[14]} ),
-	.should_be_drawn(should_draw_3)
-);
-
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, current_state[16] } ),
-	.top( {21'b0, current_state[17]} ),
-	.width( {21'b0, current_state[18]} ),
-	.height( {21'b0, current_state[19]} ),
-	.should_be_drawn(should_draw_4)
-);
-
-
-int sprite_number = 0;
-int x_offset = 0;
-int y_offset = 0;
-int bg_1 = 0;
-int bg_2 = 0;
 localparam logic[7:0] MASK_VALUE = 8'h62;
-logic	[3:0][7:0] RGBouts = {
-	MASK_VALUE,
-	MASK_VALUE,
-	MASK_VALUE,
-	MASK_VALUE
-};
-
-int player_sprite_number;
-int player_x_offset;
-int player_y_offset;
-
-int ai_car1_sprite_number;
-int ai_car1_x_offset;
-int ai_car1_y_offset;
-
-int bg_sprite_number;
-int bg_x_offset;
-int bg_y_offset;
-
-int fl_sprite_number;
-int fl_x_offset;
-int fl_y_offset;
-
 always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
@@ -246,150 +172,54 @@ begin
 	end
 	
 	else begin
-		bg_1 <= {21'b0, current_state[11]};
-		bg_2 <= {21'b0, current_state[13]};
-		
-		if(should_draw_1) begin
-			player_sprite_number <= current_state[0];
-			player_x_offset <= {21'b0, current_state[1]};
-			player_y_offset <= {21'b0, current_state[2]};
-			// up
-			if(player_sprite_number == 0) begin
-				RGBouts[0] <= car1[(requested_y-player_y_offset)/4][(requested_x-player_x_offset)/4];
-			end
-			// up-right
-			else if(player_sprite_number == 99) begin
-				RGBouts[0] <= car2[(requested_y-player_y_offset)/4][(requested_x-player_x_offset)/4];
-			end
-			// right-up
-			else if(player_sprite_number == 100) begin
-				RGBouts[0] <= car3[(requested_y-player_y_offset)/4][(requested_x-player_x_offset)/4];
-			end
-			// right
-			else if(player_sprite_number == 101) begin
-				// TODO: car4
-				RGBouts[0] <= car1[15-(requested_x-player_x_offset)/4][(requested_y-player_y_offset)/4];
-			end
-			//right-down
-			else if(player_sprite_number == 102) begin
-				RGBouts[0] <= car3[15-(requested_y-player_y_offset)/4][(requested_x-player_x_offset)/4];
-			end
-			//down-right
-			else if(player_sprite_number == 103) begin
-				RGBouts[0] <= car2[15-(requested_y-player_y_offset)/4][(requested_x-player_x_offset)/4];
-			end
-			//down
-			else if(player_sprite_number == 104) begin // down
-				RGBouts[0] <= car1[15-(requested_y-player_y_offset)/4][(requested_x-player_x_offset)/4];
-			end
-			// //down-left
-			else if(player_sprite_number == 105) begin
-				RGBouts[0] <= car2[15-(requested_y-player_y_offset)/4][15-(requested_x-player_x_offset)/4];
-			end
-			// left-down
-			else if(player_sprite_number == 106) begin
-				RGBouts[0] <= car3[15-(requested_y-player_y_offset)/4][15-(requested_x-player_x_offset)/4];
-			end
-			// left
-			else if(player_sprite_number == 107) begin
-				// todo: change to be car4 maybe
-				RGBouts[0] <= car1[(requested_x-player_x_offset)/4][(requested_y-player_y_offset)/4];
-			end
-			
-			// left-up
-			else if(player_sprite_number == 108) begin
-				RGBouts[0] <= car3[(requested_y-player_y_offset)/4][15-(requested_x-player_x_offset)/4];
-			end
-			// up-left
-			else if(player_sprite_number == 109) begin
-				RGBouts[0] <= car2[(requested_y-player_y_offset)/4][15-(requested_x-player_x_offset)/4];
-			end
-			// up
-			else if(player_sprite_number == 110) begin
-				RGBouts[0] <= car1[(requested_y-player_y_offset)/4][15-(requested_x-player_x_offset)/4];
-			end
-
-			
-			// Default value
-			else begin 
-				RGBouts[0] <= MASK_VALUE;
-			end
+	//// --------------
+	//// sprite priority
+	//// --------------
+		if(player_car_color != MASK_VALUE) begin
+			RGBout <= player_car_color;
+		end
+		else if(ai_car_color != MASK_VALUE) begin
+			RGBout <= ai_car_color;
+		end
+		else if(fl_color != MASK_VALUE) begin
+			RGBout <= fl_color;
+		end
+		else if(bg_color != MASK_VALUE) begin
+			RGBout <= bg_color;
 		end
 		else begin
-			RGBouts[0] <= MASK_VALUE;
+			RGBout <= 8'b0000_0000;
 		end
 		
-		if (should_draw_2) begin
-			ai_car1_sprite_number <= current_state[5];
-			ai_car1_x_offset <= {21'b0, current_state[6]};
-			ai_car1_y_offset <= {21'b0, current_state[7]};
-			if(ai_car1_sprite_number == 11'd1) begin
-				RGBouts[1] <= ai_car_yellow[(requested_y-ai_car1_y_offset)/4][(requested_x-ai_car1_x_offset)/4];
-			end
-		end
-		else begin
-			RGBouts[1] <= MASK_VALUE;
-		end 
-
-		if (should_draw_4) begin
-			fl_sprite_number <= current_state[15];
-			fl_x_offset <= {21'b0, current_state[16]};
-			fl_y_offset <= {21'b0, current_state[17]};
-			if(fl_sprite_number == 11'd10) begin
-				RGBouts[3] <= finish_line[(requested_y-fl_y_offset)/4][((requested_x-fl_x_offset)/4)%16];
-			end
-		end
-		else begin
-			RGBouts[3] <= MASK_VALUE;
-		end 
-
-		
-		if ((requested_x > bg_1) && (requested_x < (bg_1+bg_2))) begin
-			bg_sprite_number <= current_state[10];
-			bg_x_offset <= {21'b0, current_state[11]};
-			bg_y_offset <= {21'b0, current_state[12]};
-			if(bg_sprite_number==11'd31) begin
-				RGBouts[2] <= background[((requested_y+bg_y_offset)/4)%32][(requested_x-bg_x_offset)/4];
-			end
-			else begin
-				RGBouts[2] <= MASK_VALUE;
-			end 
-		end
-		else begin
-			RGBouts[2] <= MASK_VALUE;
-		end
-
+	//// --------------
+	//// collisions
+	//// --------------
 		if(requested_x == 1 && requested_y == 1) begin
 			collisions[0] <= 0;
 			collisions[1] <= 0;
 		end
 		else begin
-			if(RGBouts[0] != MASK_VALUE) begin
-				if(RGBouts[1] != MASK_VALUE) begin
+			if(player_car_color != MASK_VALUE) begin
+				if(ai_car_color != MASK_VALUE) begin
 					collisions[0] <= 1'd1;
 				end	
-				if(RGBouts[3] != MASK_VALUE) begin
+				if(fl_color != MASK_VALUE) begin
 					collisions[1] <= 1'd1;
 				end
 			end
 		end
-
-		if(RGBouts[0] != MASK_VALUE) begin
-			RGBout <= RGBouts[0];
-		end
-		else if(RGBouts[1] != MASK_VALUE) begin
-			RGBout <= RGBouts[1];
-		end
-		else if(RGBouts[3] != MASK_VALUE) begin
-			RGBout <= RGBouts[3];
-		end
-		else if(RGBouts[2] != MASK_VALUE) begin
-			RGBout <= RGBouts[2];
-		end
-		else begin
-			RGBout <= 8'b0000_0000;
-		end
 	end
+end
+
+always begin
+	integer i,j;
+	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_ai_car_red[j*16+i] = ai_car_red[j][i];
+	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_ai_car_yellow[j*16+i] = ai_car_yellow[j][i];
+	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_car1[j*16+i] = car1[j][i];
+	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_car2[j*16+i] = car2[j][i];
+	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_car3[j*16+i] = car3[j][i];
+	for (i=0; i<128; i=i+1) for (j=0; j<32; j=j+1) out_background[j*128+i] = background[j][i];
+	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_finish_line[j*16+i] = finish_line[j][i];
 end
 
 endmodule

@@ -1,5 +1,5 @@
 Flow report for Lab1Demo
-Sat May 27 18:46:37 2023
+Tue May 30 00:45:05 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat May 27 18:46:25 2023       ;
+; Flow Status                     ; Successful - Tue May 30 00:44:56 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,606 / 41,910 ( 4 % )                      ;
-; Total registers                 ; 812                                         ;
+; Logic utilization (in ALMs)     ; 1,317 / 41,910 ( 3 % )                      ;
+; Total registers                 ; 575                                         ;
 ; Total pins                      ; 52 / 499 ( 10 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/27/2023 18:44:48 ;
+; Start date & time ; 05/30/2023 00:43:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Lab1Demo            ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------------------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name                   ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589203.168520228814752         ; --            ; --                            ; --         ;
+; COMPILER_SIGNATURE_ID               ; 10995770589203.168539658704864         ; --            ; --                            ; --         ;
 ; ENABLE_SIGNALTAP                    ; On                                     ; --            ; --                            ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --                            ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --                            ; --         ;
@@ -110,11 +110,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:28     ; 1.0                     ; 4883 MB             ; 00:00:37                           ;
-; Fitter                    ; 00:01:00     ; 1.2                     ; 6685 MB             ; 00:02:21                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 4846 MB             ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:00:11     ; 1.9                     ; 5195 MB             ; 00:00:17                           ;
-; Total                     ; 00:01:45     ; --                      ; --                  ; 00:03:22                           ;
+; Analysis & Synthesis      ; 00:00:40     ; 1.0                     ; 4991 MB             ; 00:00:48                           ;
+; Fitter                    ; 00:00:58     ; 1.1                     ; 6681 MB             ; 00:02:14                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 4848 MB             ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.7                     ; 5186 MB             ; 00:00:12                           ;
+; Total                     ; 00:01:53     ; --                      ; --                  ; 00:03:21                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
