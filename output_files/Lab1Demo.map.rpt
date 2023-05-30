@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Tue May 30 00:43:48 2023
+Tue May 30 23:56:36 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -31,16 +31,19 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
  23. Parameter Settings for User Entity Instance: TOP_KBD:inst16|KBDINTF:inst|lpf:inst5
  24. Parameter Settings for User Entity Instance: random:inst12
  25. Parameter Settings for User Entity Instance: lpm_rom:inst5
- 26. Port Connectivity Checks: "finish_line_controller:inst8|collision_detector:comb_3"
- 27. Port Connectivity Checks: "player_controller:inst9|collision_detector:comb_3"
- 28. Port Connectivity Checks: "ai_car_controller:inst4|collision_detector:comb_3"
- 29. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst"
- 30. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst"
- 31. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst"
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Analysis & Synthesis Messages
- 35. Analysis & Synthesis Suppressed Messages
+ 26. Port Connectivity Checks: "progress_bar_controller:inst14|collision_detector:comb_5"
+ 27. Port Connectivity Checks: "progress_bar_controller:inst14|collision_detector:comb_4"
+ 28. Port Connectivity Checks: "progress_bar_controller:inst14|collision_detector:comb_3"
+ 29. Port Connectivity Checks: "finish_line_controller:inst8|collision_detector:comb_3"
+ 30. Port Connectivity Checks: "player_controller:inst9|collision_detector:comb_3"
+ 31. Port Connectivity Checks: "ai_car_controller:inst4|collision_detector:comb_3"
+ 32. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst"
+ 33. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst"
+ 34. Port Connectivity Checks: "AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst"
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+ 38. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -67,13 +70,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 30 00:43:48 2023       ;
+; Analysis & Synthesis Status     ; Successful - Tue May 30 23:56:36 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 489                                         ;
+; Total registers                 ; 526                                         ;
 ; Total pins                      ; 52                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -230,6 +233,7 @@ agreement for further details.
 ; RTL/VGA/background_controller.sv                           ; yes             ; User SystemVerilog HDL File            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/background_controller.sv                           ;          ;
 ; RTL/VGA/ai_car_controller.sv                               ; yes             ; User SystemVerilog HDL File            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/ai_car_controller.sv                               ;          ;
 ; RTL/VGA/finish_line_controller.sv                          ; yes             ; User SystemVerilog HDL File            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/finish_line_controller.sv                          ;          ;
+; RTL/VGA/progress_bar_controller.sv                         ; yes             ; User SystemVerilog HDL File            ; C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/progress_bar_controller.sv                         ;          ;
 ; altera_pll.v                                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altera_pll.v                                        ;          ;
 ; lpm_rom.tdf                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_rom.tdf                                         ;          ;
 ; altrom.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altrom.inc                                          ;          ;
@@ -256,16 +260,16 @@ agreement for further details.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1340                                                                              ;
+; Estimate of Logic utilization (ALMs needed) ; 1405                                                                              ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 2078                                                                              ;
-;     -- 7 input functions                    ; 98                                                                                ;
-;     -- 6 input functions                    ; 477                                                                               ;
-;     -- 5 input functions                    ; 423                                                                               ;
-;     -- 4 input functions                    ; 418                                                                               ;
-;     -- <=3 input functions                  ; 662                                                                               ;
+; Combinational ALUT usage for logic          ; 2199                                                                              ;
+;     -- 7 input functions                    ; 100                                                                               ;
+;     -- 6 input functions                    ; 484                                                                               ;
+;     -- 5 input functions                    ; 454                                                                               ;
+;     -- 4 input functions                    ; 445                                                                               ;
+;     -- <=3 input functions                  ; 716                                                                               ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 489                                                                               ;
+; Dedicated logic registers                   ; 526                                                                               ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 52                                                                                ;
 ;                                             ;                                                                                   ;
@@ -275,9 +279,9 @@ agreement for further details.
 ;     -- PLLs                                 ; 1                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 506                                                                               ;
-; Total fan-out                               ; 10320                                                                             ;
-; Average fan-out                             ; 3.85                                                                              ;
+; Maximum fan-out                             ; 544                                                                               ;
+; Total fan-out                               ; 10835                                                                             ;
+; Average fan-out                             ; 3.82                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -286,7 +290,7 @@ agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Entity Name                   ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
-; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 2078 (0)            ; 489 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
+; |TOP_VGA_DEMO_KBD_MOVING_HARTS                          ; 2199 (0)            ; 526 (0)                   ; 0                 ; 0          ; 52   ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS                                                                                       ; TOP_VGA_DEMO_KBD_MOVING_HARTS ; work         ;
 ;    |AUDIO:inst18|                                       ; 205 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18                                                                          ; AUDIO                         ; work         ;
 ;       |ToneDecoder:inst4|                               ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|ToneDecoder:inst4                                                        ; ToneDecoder                   ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|addr_counter:inst9                                                       ; addr_counter                  ; work         ;
@@ -306,17 +310,21 @@ agreement for further details.
 ;          |byterec:inst3|                                ; 19 (19)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3                                             ; byterec                       ; work         ;
 ;          |lpf:inst5|                                    ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|lpf:inst5                                                 ; lpf                           ; work         ;
 ;       |keyPad_decoder:inst2|                            ; 26 (26)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2                                                   ; keyPad_decoder                ; work         ;
-;    |VGA_Controller:inst|                                ; 65 (65)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|VGA_Controller:inst                                                                   ; VGA_Controller                ; work         ;
+;    |VGA_Controller:inst|                                ; 66 (66)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|VGA_Controller:inst                                                                   ; VGA_Controller                ; work         ;
 ;    |ai_car_controller:inst4|                            ; 152 (74)            ; 29 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4                                                               ; ai_car_controller             ; work         ;
 ;       |collision_detector:comb_3|                       ; 78 (78)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4|collision_detector:comb_3                                     ; collision_detector            ; work         ;
-;    |background_controller:inst11|                       ; 426 (426)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11                                                          ; background_controller         ; work         ;
-;    |finish_line_controller:inst8|                       ; 71 (27)             ; 17 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|finish_line_controller:inst8                                                          ; finish_line_controller        ; work         ;
-;       |collision_detector:comb_3|                       ; 44 (44)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|finish_line_controller:inst8|collision_detector:comb_3                                ; collision_detector            ; work         ;
+;    |background_controller:inst11|                       ; 424 (424)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11                                                          ; background_controller         ; work         ;
+;    |finish_line_controller:inst8|                       ; 63 (18)             ; 17 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|finish_line_controller:inst8                                                          ; finish_line_controller        ; work         ;
+;       |collision_detector:comb_3|                       ; 45 (45)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|finish_line_controller:inst8|collision_detector:comb_3                                ; collision_detector            ; work         ;
 ;    |game_controller_all:inst2|                          ; 32 (32)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|game_controller_all:inst2                                                             ; game_controller_all           ; work         ;
 ;    |player_controller:inst9|                            ; 1001 (960)          ; 106 (105)                 ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9                                                               ; player_controller             ; work         ;
 ;       |collision_detector:comb_3|                       ; 41 (41)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|collision_detector:comb_3                                     ; collision_detector            ; work         ;
+;    |progress_bar_controller:inst14|                     ; 120 (71)            ; 37 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14                                                        ; progress_bar_controller       ; work         ;
+;       |collision_detector:comb_3|                       ; 40 (40)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14|collision_detector:comb_3                              ; collision_detector            ; work         ;
+;       |collision_detector:comb_4|                       ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14|collision_detector:comb_4                              ; collision_detector            ; work         ;
+;       |collision_detector:comb_5|                       ; 8 (8)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14|collision_detector:comb_5                              ; collision_detector            ; work         ;
 ;    |random:inst12|                                      ; 30 (30)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|random:inst12                                                                         ; random                        ; work         ;
-;    |sprite_storage:inst13|                              ; 25 (25)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
+;    |sprite_storage:inst13|                              ; 35 (35)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13                                                                 ; sprite_storage                ; work         ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -580,6 +588,16 @@ Encoding Type:  One-Hot
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][13]  ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][14]  ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][15]  ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|car_x_offset[0..31]                             ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|car_y_offset[11..31]                            ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|yf_x_offset[0..31]                              ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|yf_y_offset[5..31]                              ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|yf_y_offset[4]                                  ; Stuck at VCC due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|yf_y_offset[0..3]                               ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|bf_x_offset[0..31]                              ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|bf_y_offset[9..31]                              ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|bf_y_offset[6..8]                               ; Stuck at VCC due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|bf_y_offset[0..5]                               ; Stuck at GND due to stuck port data_in                                   ;
 ; finish_line_controller:inst8|fl_x_offset[8..31]                                ; Stuck at GND due to stuck port data_in                                   ;
 ; finish_line_controller:inst8|fl_x_offset[7]                                    ; Stuck at VCC due to stuck port data_in                                   ;
 ; finish_line_controller:inst8|fl_x_offset[6]                                    ; Stuck at GND due to stuck port data_in                                   ;
@@ -637,6 +655,7 @@ Encoding Type:  One-Hot
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[19]                   ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[18]                   ; Stuck at VCC due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[16,17]                ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|car_y_offset[6..10]                             ; Lost fanout                                                              ;
 ; finish_line_controller:inst8|fl_y_offset[6..10]                                ; Lost fanout                                                              ;
 ; background_controller:inst11|bg_y_offset[7..10]                                ; Lost fanout                                                              ;
 ; player_controller:inst9|player_x_offset[6..10]                                 ; Lost fanout                                                              ;
@@ -648,11 +667,24 @@ Encoding Type:  One-Hot
 ; background_controller:inst11|bg_y_offset[1]                                    ; Merged with background_controller:inst11|temp_background_state[2][9]     ;
 ; background_controller:inst11|bg_y_offset[0]                                    ; Merged with background_controller:inst11|temp_background_state[2][10]    ;
 ; player_controller:inst9|last_moved_direction[11..31]                           ; Lost fanout                                                              ;
+; progress_bar_controller:inst14|output_color[6]                                 ; Merged with progress_bar_controller:inst14|output_color[5]               ;
 ; finish_line_controller:inst8|output_color[5,6]                                 ; Merged with finish_line_controller:inst8|output_color[1]                 ;
 ; finish_line_controller:inst8|output_color[2..4,7]                              ; Merged with finish_line_controller:inst8|output_color[0]                 ;
 ; ai_car_controller:inst4|output_color[7]                                        ; Merged with ai_car_controller:inst4|output_color[4]                      ;
 ; ai_car_controller:inst4|output_color[6]                                        ; Merged with ai_car_controller:inst4|output_color[5]                      ;
 ; player_controller:inst9|output_color[3,4]                                      ; Merged with player_controller:inst9|output_color[0]                      ;
+; progress_bar_controller:inst14|output_colors[2][2]                             ; Merged with progress_bar_controller:inst14|output_colors[2][0]           ;
+; progress_bar_controller:inst14|output_colors[2][3]                             ; Merged with progress_bar_controller:inst14|output_colors[2][0]           ;
+; progress_bar_controller:inst14|output_colors[2][4]                             ; Merged with progress_bar_controller:inst14|output_colors[2][0]           ;
+; progress_bar_controller:inst14|output_colors[2][6]                             ; Merged with progress_bar_controller:inst14|output_colors[2][5]           ;
+; progress_bar_controller:inst14|output_colors[1][4]                             ; Merged with progress_bar_controller:inst14|output_colors[1][3]           ;
+; progress_bar_controller:inst14|output_colors[1][7]                             ; Merged with progress_bar_controller:inst14|output_colors[1][3]           ;
+; progress_bar_controller:inst14|output_colors[1][2]                             ; Merged with progress_bar_controller:inst14|output_colors[1][0]           ;
+; progress_bar_controller:inst14|output_colors[1][6]                             ; Merged with progress_bar_controller:inst14|output_colors[1][5]           ;
+; progress_bar_controller:inst14|output_colors[0][7]                             ; Merged with progress_bar_controller:inst14|output_colors[0][2]           ;
+; progress_bar_controller:inst14|output_colors[0][3]                             ; Merged with progress_bar_controller:inst14|output_colors[0][0]           ;
+; progress_bar_controller:inst14|output_colors[0][4]                             ; Merged with progress_bar_controller:inst14|output_colors[0][0]           ;
+; progress_bar_controller:inst14|output_colors[0][6]                             ; Merged with progress_bar_controller:inst14|output_colors[0][5]           ;
 ; player_controller:inst9|player_sprite_number[6]                                ; Merged with player_controller:inst9|player_sprite_number[5]              ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[7,8,14,15]            ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13] ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[3,5]                  ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[2]  ;
@@ -660,6 +692,8 @@ Encoding Type:  One-Hot
 ; player_controller:inst9|temp_player_state[4][4]                                ; Merged with player_controller:inst9|temp_player_state[3][4]              ;
 ; player_controller:inst9|last_moved_direction[1..9]                             ; Merged with player_controller:inst9|last_moved_direction[10]             ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                   ; Stuck at GND due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|output_colors[1][5]                             ; Stuck at VCC due to stuck port data_in                                   ;
+; progress_bar_controller:inst14|output_colors[2][1]                             ; Stuck at VCC due to stuck port data_in                                   ;
 ; finish_line_controller:inst8|fl_y_offset[3..5]                                 ; Lost fanout                                                              ;
 ; player_controller:inst9|last_moved_direction[0]                                ; Stuck at VCC due to stuck port data_in                                   ;
 ; TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|cur_st~4                              ; Lost fanout                                                              ;
@@ -673,7 +707,7 @@ Encoding Type:  One-Hot
 ; background_controller:inst11|temp_background_state[2][2]                       ; Lost fanout                                                              ;
 ; background_controller:inst11|temp_background_state[2][3]                       ; Lost fanout                                                              ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4,5] ; Stuck at GND due to stuck port data_in                                   ;
-; Total Number of Removed Registers = 523                                        ;                                                                          ;
+; Total Number of Removed Registers = 724                                        ;                                                                          ;
 +--------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -683,6 +717,10 @@ Encoding Type:  One-Hot
 ; Register name                                                                ; Reason for Removal        ; Registers Removed due to This Register                                       ;
 +------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------+
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][13] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                 ;
+;                                                                              ; due to stuck port data_in ;                                                                              ;
+; progress_bar_controller:inst14|yf_x_offset[31]                               ; Stuck at GND              ; progress_bar_controller:inst14|output_colors[1][5]                           ;
+;                                                                              ; due to stuck port data_in ;                                                                              ;
+; progress_bar_controller:inst14|bf_x_offset[31]                               ; Stuck at GND              ; progress_bar_controller:inst14|output_colors[2][1]                           ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
 ; player_controller:inst9|temp_player_state[0][0]                              ; Stuck at GND              ; player_controller:inst9|player_sprite_number[10]                             ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
@@ -730,12 +768,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 489   ;
-; Number of registers using Synchronous Clear  ; 142   ;
+; Total registers                              ; 526   ;
+; Number of registers using Synchronous Clear  ; 134   ;
 ; Number of registers using Synchronous Load   ; 15    ;
-; Number of registers using Asynchronous Clear ; 261   ;
+; Number of registers using Asynchronous Clear ; 264   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 280   ;
+; Number of registers using Clock Enable       ; 314   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -800,45 +838,52 @@ Encoding Type:  One-Hot
 ; random:inst12|dout[8]                                            ; 1       ;
 ; random:inst12|dout[3]                                            ; 1       ;
 ; random:inst12|dout[0]                                            ; 1       ;
+; progress_bar_controller:inst14|temp_pb_state[2][2]               ; 2       ;
+; progress_bar_controller:inst14|temp_pb_state[2][5]               ; 4       ;
+; progress_bar_controller:inst14|temp_pb_state[2][3]               ; 3       ;
 ; player_controller:inst9|last_moved_direction[10]                 ; 11      ;
 ; random:inst12|counter[6]                                         ; 3       ;
 ; random:inst12|counter[3]                                         ; 3       ;
 ; random:inst12|counter[1]                                         ; 2       ;
 ; random:inst12|counter[5]                                         ; 3       ;
-; Total number of inverted registers = 60                          ;         ;
+; Total number of inverted registers = 63                          ;         ;
 +------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|keyIsPressed[4]                                                   ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[0]                                   ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[5] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[8]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][0]                                                       ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|RGBout[2]                                                                       ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4|output_color[3]                                                               ;
-; 33:1               ; 4 bits    ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11|output_color[2]                                                          ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|tmp_speed[29]                                                                 ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|key[3]                                                            ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|last_moved_direction[0]                                                       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][6]                                                       ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|death_state[27]                                                               ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4|Mux131                                                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux713                                                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux984                                                                        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux23                                                                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux167                                                                        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux575                                                                        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux576                                                                        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux1120                                                                       ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector6                                                    ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector4                                                    ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector3                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|keyIsPressed[5]                                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14|output_colors[2][0]                                                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14|output_colors[1][3]                                                     ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[4]                                    ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[12] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[13]   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|progress_bar_controller:inst14|output_color[4]                                                         ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][7]                                                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|RGBout[5]                                                                        ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4|output_color[3]                                                                ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|sprite_storage:inst13|RGBout[0]                                                                        ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|background_controller:inst11|output_color[6]                                                           ;
+; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|tmp_speed[19]                                                                  ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|keyPad_decoder:inst2|key[3]                                                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|last_moved_direction[0]                                                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|temp_player_state[1][6]                                                        ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|death_state[30]                                                                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|ai_car_controller:inst4|Mux131                                                                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux713                                                                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux24                                                                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux983                                                                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux711                                                                         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux575                                                                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux576                                                                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|player_controller:inst9|Mux16                                                                          ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector7                                                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector4                                                     ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |TOP_VGA_DEMO_KBD_MOVING_HARTS|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector6                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------+
@@ -1179,6 +1224,64 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "progress_bar_controller:inst14|collision_detector:comb_5" ;
++---------------------+-------+----------+---------------------------------------------+
+; Port                ; Type  ; Severity ; Details                                     ;
++---------------------+-------+----------+---------------------------------------------+
+; requested_x[31..11] ; Input ; Info     ; Stuck at GND                                ;
+; requested_y[31..11] ; Input ; Info     ; Stuck at GND                                ;
+; left                ; Input ; Info     ; Stuck at GND                                ;
+; top[8..6]           ; Input ; Info     ; Stuck at VCC                                ;
+; top[31..9]          ; Input ; Info     ; Stuck at GND                                ;
+; top[5..0]           ; Input ; Info     ; Stuck at GND                                ;
+; width[31..6]        ; Input ; Info     ; Stuck at GND                                ;
+; width[4..0]         ; Input ; Info     ; Stuck at GND                                ;
+; width[5]            ; Input ; Info     ; Stuck at VCC                                ;
+; height[31..6]       ; Input ; Info     ; Stuck at GND                                ;
+; height[4..0]        ; Input ; Info     ; Stuck at GND                                ;
+; height[5]           ; Input ; Info     ; Stuck at VCC                                ;
++---------------------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "progress_bar_controller:inst14|collision_detector:comb_4" ;
++---------------------+-------+----------+---------------------------------------------+
+; Port                ; Type  ; Severity ; Details                                     ;
++---------------------+-------+----------+---------------------------------------------+
+; requested_x[31..11] ; Input ; Info     ; Stuck at GND                                ;
+; requested_y[31..11] ; Input ; Info     ; Stuck at GND                                ;
+; left                ; Input ; Info     ; Stuck at GND                                ;
+; top[31..5]          ; Input ; Info     ; Stuck at GND                                ;
+; top[3..0]           ; Input ; Info     ; Stuck at GND                                ;
+; top[4]              ; Input ; Info     ; Stuck at VCC                                ;
+; width[31..6]        ; Input ; Info     ; Stuck at GND                                ;
+; width[4..0]         ; Input ; Info     ; Stuck at GND                                ;
+; width[5]            ; Input ; Info     ; Stuck at VCC                                ;
+; height[31..6]       ; Input ; Info     ; Stuck at GND                                ;
+; height[4..0]        ; Input ; Info     ; Stuck at GND                                ;
+; height[5]           ; Input ; Info     ; Stuck at VCC                                ;
++---------------------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "progress_bar_controller:inst14|collision_detector:comb_3" ;
++---------------------+-------+----------+---------------------------------------------+
+; Port                ; Type  ; Severity ; Details                                     ;
++---------------------+-------+----------+---------------------------------------------+
+; requested_x[31..11] ; Input ; Info     ; Stuck at GND                                ;
+; requested_y[31..11] ; Input ; Info     ; Stuck at GND                                ;
+; left                ; Input ; Info     ; Stuck at GND                                ;
+; top[31..11]         ; Input ; Info     ; Stuck at GND                                ;
+; width[31..6]        ; Input ; Info     ; Stuck at GND                                ;
+; width[4..0]         ; Input ; Info     ; Stuck at GND                                ;
+; width[5]            ; Input ; Info     ; Stuck at VCC                                ;
+; height[31..7]       ; Input ; Info     ; Stuck at GND                                ;
+; height[5..0]        ; Input ; Info     ; Stuck at GND                                ;
+; height[6]           ; Input ; Info     ; Stuck at VCC                                ;
++---------------------+-------+----------+---------------------------------------------+
+
+
 +------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "finish_line_controller:inst8|collision_detector:comb_3" ;
 +---------------------+-------+----------+-------------------------------------------+
@@ -1268,42 +1371,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 489                         ;
-;     CLR               ; 117                         ;
-;     CLR SCLR          ; 52                          ;
-;     ENA               ; 134                         ;
+; arriav_ff             ; 526                         ;
+;     CLR               ; 128                         ;
+;     CLR SCLR          ; 44                          ;
+;     ENA               ; 168                         ;
 ;     ENA CLR           ; 41                          ;
 ;     ENA CLR SCLR      ; 51                          ;
 ;     ENA SCLR          ; 39                          ;
 ;     ENA SLD           ; 15                          ;
 ;     plain             ; 40                          ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 2085                        ;
-;     arith             ; 412                         ;
-;         0 data inputs ; 15                          ;
-;         1 data inputs ; 343                         ;
+; arriav_lcell_comb     ; 2206                        ;
+;     arith             ; 444                         ;
+;         0 data inputs ; 19                          ;
+;         1 data inputs ; 365                         ;
 ;         2 data inputs ; 26                          ;
 ;         3 data inputs ; 2                           ;
 ;         4 data inputs ; 1                           ;
-;         5 data inputs ; 25                          ;
-;     extend            ; 98                          ;
-;         7 data inputs ; 98                          ;
-;     normal            ; 1568                        ;
+;         5 data inputs ; 31                          ;
+;     extend            ; 100                         ;
+;         7 data inputs ; 100                         ;
+;     normal            ; 1655                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 21                          ;
-;         2 data inputs ; 98                          ;
-;         3 data inputs ; 155                         ;
-;         4 data inputs ; 417                         ;
-;         5 data inputs ; 398                         ;
-;         6 data inputs ; 477                         ;
+;         1 data inputs ; 23                          ;
+;         2 data inputs ; 108                         ;
+;         3 data inputs ; 171                         ;
+;         4 data inputs ; 444                         ;
+;         5 data inputs ; 423                         ;
+;         6 data inputs ; 484                         ;
 ;     shared            ; 7                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 5                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 3                           ;
 ; boundary_port         ; 52                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.50                        ;
-; Average LUT depth     ; 5.08                        ;
+; Average LUT depth     ; 5.10                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1312,7 +1415,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:27     ;
+; Top            ; 00:00:25     ;
 +----------------+--------------+
 
 
@@ -1322,7 +1425,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue May 30 00:43:07 2023
+    Info: Processing started: Tue May 30 23:55:52 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/objects_mux_all.sv
@@ -1396,6 +1499,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga
     Info (12023): Found entity 1: ai_car_controller File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/finish_line_controller.sv
     Info (12023): Found entity 1: finish_line_controller File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/finish_line_controller.sv Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/progress_bar_controller.sv
+    Info (12023): Found entity 1: progress_bar_controller File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/progress_bar_controller.sv Line: 6
 Warning (10236): Verilog HDL Implicit Net warning at byterec.sv(35): created implicit net for "nor_code" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/byterec.sv Line: 35
 Warning (10236): Verilog HDL Implicit Net warning at byterec.sv(36): created implicit net for "ext_code" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/byterec.sv Line: 36
 Warning (10236): Verilog HDL Implicit Net warning at byterec.sv(37): created implicit net for "rel_code" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/KEYBOARDX/byterec.sv Line: 37
@@ -1403,7 +1508,10 @@ Warning (10236): Verilog HDL Implicit Net warning at audio_codec_controller.sv(6
 Warning (10236): Verilog HDL Implicit Net warning at audio_codec_controller.sv(63): created implicit net for "CLOCK_SDAT_ena" File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv Line: 63
 Critical Warning (10846): Verilog HDL Instantiation warning at player_controller.sv(75): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/player_controller.sv Line: 75
 Critical Warning (10846): Verilog HDL Instantiation warning at ai_car_controller.sv(33): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 33
-Critical Warning (10846): Verilog HDL Instantiation warning at finish_line_controller.sv(40): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/finish_line_controller.sv Line: 40
+Critical Warning (10846): Verilog HDL Instantiation warning at finish_line_controller.sv(41): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/finish_line_controller.sv Line: 41
+Critical Warning (10846): Verilog HDL Instantiation warning at progress_bar_controller.sv(65): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/progress_bar_controller.sv Line: 65
+Critical Warning (10846): Verilog HDL Instantiation warning at progress_bar_controller.sv(80): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/progress_bar_controller.sv Line: 80
+Critical Warning (10846): Verilog HDL Instantiation warning at progress_bar_controller.sv(92): instance has no name File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/progress_bar_controller.sv Line: 92
 Info (12127): Elaborating entity "TOP_VGA_DEMO_KBD_MOVING_HARTS" for the top level hierarchy
 Warning (275006): Can't find a definition for parameter LPM_FILE -- assuming RTL/VGA_BG.mif was intended to be a quoted string
 Warning (275004): Undeclared parameter ON
@@ -1525,6 +1633,9 @@ Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "ai_car_yellow" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "background" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "finish_line" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pbc_colors" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "blue_flag_bitmap" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "yellow_flag_bitmap" into its bus
 Info (12128): Elaborating entity "ai_car_controller" for hierarchy "ai_car_controller:inst4"
 Warning (10230): Verilog HDL assignment warning at ai_car_controller.sv(60): truncated value with size 33 to match size of target (11) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 60
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sprite_2d" into its bus
@@ -1545,9 +1656,14 @@ Info (12128): Elaborating entity "background_controller" for hierarchy "backgrou
 Warning (10230): Verilog HDL assignment warning at background_controller.sv(46): truncated value with size 32 to match size of target (11) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/background_controller.sv Line: 46
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "background_2d" into its bus
 Info (12128): Elaborating entity "finish_line_controller" for hierarchy "finish_line_controller:inst8"
-Warning (10230): Verilog HDL assignment warning at finish_line_controller.sv(51): truncated value with size 32 to match size of target (11) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/finish_line_controller.sv Line: 51
+Warning (10230): Verilog HDL assignment warning at finish_line_controller.sv(52): truncated value with size 32 to match size of target (11) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/finish_line_controller.sv Line: 52
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sprite_2d" into its bus
 Info (12128): Elaborating entity "game_controller_all" for hierarchy "game_controller_all:inst2"
+Info (12128): Elaborating entity "progress_bar_controller" for hierarchy "progress_bar_controller:inst14"
+Warning (10230): Verilog HDL assignment warning at progress_bar_controller.sv(108): truncated value with size 32 to match size of target (11) File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/progress_bar_controller.sv Line: 108
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "car_sprite_2d" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "blue_flag_sprite_2d" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "yellow_flag_sprite_2d" into its bus
 Info (12128): Elaborating entity "object_table" for hierarchy "object_table:inst1"
 Warning (10036): Verilog HDL or VHDL warning at object_table.sv(57): object "current_x" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 57
 Warning (10036): Verilog HDL or VHDL warning at object_table.sv(58): object "tmp1" assigned a value but never read File: C:/University/Semester_4/Lab/25.5/RoadFighterVL/RTL/VGA/object_table.sv Line: 58
@@ -2005,23 +2121,23 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "greenLight" is stuck at GND
     Warning (13410): Pin "OVGA[26]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 48 registers lost all their fanouts during netlist optimizations.
+Info (17049): 53 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/University/Semester_4/Lab/25.5/RoadFighterVL/output_files/Lab1Demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 2248 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2385 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 39 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 2195 logic cells
+    Info (21061): Implemented 2332 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 381 warnings
-    Info: Peak virtual memory: 4991 megabytes
-    Info: Processing ended: Tue May 30 00:43:48 2023
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:00:49
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 385 warnings
+    Info: Peak virtual memory: 5008 megabytes
+    Info: Processing ended: Tue May 30 23:56:36 2023
+    Info: Elapsed time: 00:00:44
+    Info: Total CPU time (on all processors): 00:00:53
 
 
 +------------------------------------------+

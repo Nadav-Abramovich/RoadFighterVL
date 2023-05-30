@@ -69,9 +69,16 @@ agreement for further details.
 	(port
 		(pt 0 128)
 		(input)
-		(text "sprite[0..255][7..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "sprite[0..255][7..0]" (rect 21 123 91 135)(font "Arial" ))
+		(text "track_length[31..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "track_length[31..0]" (rect 21 123 92 135)(font "Arial" ))
 		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "sprite[0..255][7..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "sprite[0..255][7..0]" (rect 21 139 91 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port
 		(pt 272 32)

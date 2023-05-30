@@ -66,6 +66,13 @@ agreement for further details.
 		(text "distance_drove[31..0]" (rect 159 27 243 39)(font "Arial" ))
 		(line (pt 264 32)(pt 248 32)(line_width 3))
 	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "track_length[31..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "track_length[31..0]" (rect 172 43 243 55)(font "Arial" ))
+		(line (pt 264 48)(pt 248 48)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 248 128)(line_width 1))
 	)

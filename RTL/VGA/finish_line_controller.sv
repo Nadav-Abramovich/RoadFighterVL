@@ -11,6 +11,7 @@ module	finish_line_controller	(
 					input    logic [0:10] requested_x,
 					input    logic [0:10] requested_y,
 					input    int distance_drove,
+					input    int track_length,
 					input	   logic [0:16*16-1][7:0] sprite,
 					output   logic [0:4][0:10] new_state,
 					output   logic [7:0] output_color
@@ -47,8 +48,8 @@ begin
 	
 	else begin
 		if(frame_start) begin
-			if(distance_drove > 10000) begin
-				temp_fl_state[2] <= distance_drove-10000;
+			if(distance_drove > track_length) begin
+				temp_fl_state[2] <= distance_drove-track_length;
 			end
 			new_state <= temp_fl_state;
 		end

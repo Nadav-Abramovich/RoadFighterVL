@@ -9,6 +9,7 @@ module	sprite_storage	(
 					input    logic [0:7] player_car_color,
 					input    logic [0:7] bg_color,
 					input    logic [0:7] fl_color,
+					input    logic [0:7] pb_color,
 					output	logic [0:16*16-1][7:0] out_car1,
 					output	logic [0:16*16-1][7:0] out_car2,
 					output	logic [0:16*16-1][7:0] out_car3,
@@ -16,6 +17,9 @@ module	sprite_storage	(
 					output	logic [0:16*16-1][7:0] out_ai_car_yellow,
 					output	logic [0:32*128-1][7:0] out_background,
 					output	logic [0:16*16-1][7:0] out_finish_line,
+					output	logic [0:32*16-1][7:0] out_progress_bar,
+					output	logic [0:8*8-1][7:0] out_blue_flag,
+					output	logic [0:8*8-1][7:0] out_yellow_flag,
 					output	logic	[7:0] RGBout,  //rgb value from the bitmap 
 					output   logic [0:1] collisions
 );
@@ -164,6 +168,63 @@ const logic[0:15][0:15][7:0] finish_line = {
 	{8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00, 8'hFF},
 	{8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF,8'h00,8'hFF, 8'h00}};
 
+logic[0:31][0:15][7:0] pbc_colors = {
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'hff,8'hff},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'h00,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'he4,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}};
+
+
+logic[0:7][0:7][7:0] blue_flag_bitmap = {
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h1f,8'h1f,8'h1f,8'h1f,8'h1f,8'h1f},
+	{8'h62,8'hff,8'h1f,8'h1f,8'h1f,8'h1f,8'h1f,8'h62},
+	{8'h62,8'hff,8'h1f,8'h1f,8'h1f,8'h1f,8'h62,8'h62},
+	{8'h62,8'hff,8'h1f,8'h1f,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}};
+
+	
+logic[0:7][0:7][7:0] yellow_flag_bitmap = {
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hf8,8'hf8,8'hf8,8'hf8,8'hf8,8'hf8},
+	{8'h62,8'hff,8'hf8,8'hf8,8'hf8,8'hf8,8'hf8,8'h62},
+	{8'h62,8'hff,8'hf8,8'hf8,8'hf8,8'hf8,8'h62,8'h62},
+	{8'h62,8'hff,8'hf8,8'hf8,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}};
+
+
 localparam logic[7:0] MASK_VALUE = 8'h62;
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -186,6 +247,9 @@ begin
 		end
 		else if(bg_color != MASK_VALUE) begin
 			RGBout <= bg_color;
+		end
+		else if(pb_color != MASK_VALUE) begin
+			RGBout <= pb_color;
 		end
 		else begin
 			RGBout <= 8'b0000_0000;
@@ -220,6 +284,9 @@ always begin
 	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_car3[j*16+i] = car3[j][i];
 	for (i=0; i<128; i=i+1) for (j=0; j<32; j=j+1) out_background[j*128+i] = background[j][i];
 	for (i=0; i<16; i=i+1) for (j=0; j<16; j=j+1) out_finish_line[j*16+i] = finish_line[j][i];
+	for (i=0; i<32; i=i+1) for (j=0; j<16; j=j+1) out_progress_bar[j*32+i] = pbc_colors[i][j];
+	for (i=0; i<8; i=i+1) for (j=0; j<8; j=j+1) out_blue_flag[j*8+i] = blue_flag_bitmap[i][j];
+	for (i=0; i<8; i=i+1) for (j=0; j<8; j=j+1) out_yellow_flag[j*8+i] = yellow_flag_bitmap[i][j];
 end
 
 endmodule
