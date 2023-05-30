@@ -445,6 +445,9 @@ begin
 		else begin
 			RGBout <= 8'b0000_0000;
 		end
+		//for loop for all the digits,
+		//mult is an enlargment factor
+		//8 represents the width and height of the bitmaps of the numerals.
 		 for(int i=0; i<4; i++) begin
 			if 	((digits_position_y<= requested_y ) 
 				&& ((digits_position_y+8*mult) >= requested_y ) 
