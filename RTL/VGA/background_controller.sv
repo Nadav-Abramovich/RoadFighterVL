@@ -43,7 +43,7 @@ begin
 	
 	else begin
 		if(frame_start) begin
-			temp_background_state[2] = temp_background_state[2] - (player_speed / 128);
+			temp_background_state[2] = temp_background_state[2] - (player_speed / 32);
 		end
 		
 		bg_x_offset <= {21'b0, temp_background_state[1]};

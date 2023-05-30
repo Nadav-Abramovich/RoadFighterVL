@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Tue May 30 23:56:36 2023
+Wed May 31 00:03:30 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -70,7 +70,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 30 23:56:36 2023       ;
+; Analysis & Synthesis Status     ; Successful - Wed May 31 00:03:29 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                    ;
 ; Top-level Entity Name           ; TOP_VGA_DEMO_KBD_MOVING_HARTS               ;
@@ -280,7 +280,7 @@ agreement for further details.
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 544                                                                               ;
-; Total fan-out                               ; 10835                                                                             ;
+; Total fan-out                               ; 10839                                                                             ;
 ; Average fan-out                             ; 3.82                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
@@ -1384,8 +1384,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_lcell_comb     ; 2206                        ;
 ;     arith             ; 444                         ;
 ;         0 data inputs ; 19                          ;
-;         1 data inputs ; 365                         ;
-;         2 data inputs ; 26                          ;
+;         1 data inputs ; 363                         ;
+;         2 data inputs ; 28                          ;
 ;         3 data inputs ; 2                           ;
 ;         4 data inputs ; 1                           ;
 ;         5 data inputs ; 31                          ;
@@ -1400,8 +1400,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 423                         ;
 ;         6 data inputs ; 484                         ;
 ;     shared            ; 7                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 3                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 5                           ;
 ; boundary_port         ; 52                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
@@ -1415,7 +1415,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:25     ;
+; Top            ; 00:00:20     ;
 +----------------+--------------+
 
 
@@ -1425,7 +1425,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue May 30 23:55:52 2023
+    Info: Processing started: Wed May 31 00:02:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga/objects_mux_all.sv
@@ -2135,9 +2135,9 @@ Info (21057): Implemented 2385 device resources after synthesis - the final reso
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 385 warnings
     Info: Peak virtual memory: 5008 megabytes
-    Info: Processing ended: Tue May 30 23:56:36 2023
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:00:53
+    Info: Processing ended: Wed May 31 00:03:30 2023
+    Info: Elapsed time: 00:00:39
+    Info: Total CPU time (on all processors): 00:00:49
 
 
 +------------------------------------------+
