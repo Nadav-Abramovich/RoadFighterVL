@@ -52,43 +52,6 @@ int tmp1 = 0;
 int tmp2 = 0;
 int tmp3 = 0;
 
-logic should_draw_1 = 1'b0;
-logic should_draw_2 = 1'b0;
-logic should_draw_3 = 1'b0;
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, obj_table[1] } ),
-	.top( {21'b0, obj_table[2]} ),
-	.width( {21'b0, obj_table[3]} ),
-	.height( {21'b0, obj_table[4]} ),
-	.should_be_drawn(should_draw_1)
-);
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, obj_table[6] } ),
-	.top( {21'b0, obj_table[7]} ),
-	.width( {21'b0, obj_table[8]} ),
-	.height( {21'b0, obj_table[9]} ),
-	.should_be_drawn(should_draw_2)
-);
-
-collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( {21'b0, obj_table[11] } ),
-	.top( {obj_table[12][0], 20'b1, obj_table[12][1:10]} ),
-	.width( {21'b0, obj_table[13]} ),
-	.height( {21'b0, obj_table[14]} ),
-	.should_be_drawn(should_draw_3)
-);
 
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -106,42 +69,43 @@ begin
 	else begin
 		current_x <= {21'b0, requested_x};
 
-		tmp1 <= {21'b0, obj_table[11]};
-		tmp2 <= {21'b0, obj_table[13]};
-		tmp3 <= obj_table[11] + obj_table[13];
-		
+//		tmp1 <= {21'b0, obj_table[11]};
+//		tmp2 <= {21'b0, obj_table[13]};
+//		tmp3 <= obj_table[11] + obj_table[13];
+//		
 		obj_table[0:4] <= new_player_state;
 		obj_table[5:9] <= new_car1_state;
 		obj_table[10:14] <= new_bg_state;
-		
-		if(should_draw_1) begin
-			img_id <= {21'b0, obj_table[0]};
-			x_offset <= {21'b0, obj_table[1]};
-			y_offset <= {21'b0, obj_table[2]};
-			x_to_draw <= {21'b0, requested_x};
-			y_to_draw <= {21'b0, requested_y};
-		end
-		else if(should_draw_2) begin
-			img_id <= {21'b0, obj_table[5]};
-			x_offset <= {21'b0, obj_table[6]};
-			y_offset <= {21'b0, obj_table[7]};
-			x_to_draw <= {21'b0, requested_x};
-			y_to_draw <= {21'b0, requested_y};
-		end
-		else if((requested_x > obj_table[11]) && (requested_x < (obj_table[11]+obj_table[13]))) begin
-			img_id <= {21'b0, obj_table[10]};
-			x_offset <= {21'b0, obj_table[11]};
-			y_offset <= {21'b0, obj_table[12]};
-			x_to_draw <= {21'b0, requested_x};
-			y_to_draw <= {21'b0, requested_y};
-		end
-		else begin
-			img_id <= -1;
-			x_offset <= -1;
-			y_offset <= -1;
-			x_to_draw <= -1;
-			y_to_draw <= -1;
-		end
+		x_to_draw <= requested_x;
+		y_to_draw <= requested_y;
+//		if(should_draw_1) begin
+//			img_id <= {21'b0, obj_table[0]};
+//			x_offset <= {21'b0, obj_table[1]};
+//			y_offset <= {21'b0, obj_table[2]};
+//			x_to_draw <= {21'b0, requested_x};
+//			y_to_draw <= {21'b0, requested_y};
+//		end
+//		else if(should_draw_2) begin
+//			img_id <= {21'b0, obj_table[5]};
+//			x_offset <= {21'b0, obj_table[6]};
+//			y_offset <= {21'b0, obj_table[7]};
+//			x_to_draw <= {21'b0, requested_x};
+//			y_to_draw <= {21'b0, requested_y};
+//		end
+//		else if((requested_x > obj_table[11]) && (requested_x < (obj_table[11]+obj_table[13]))) begin
+//			img_id <= {21'b0, obj_table[10]};
+//			x_offset <= {21'b0, obj_table[11]};
+//			y_offset <= {21'b0, obj_table[12]};
+//			x_to_draw <= {21'b0, requested_x};
+//			y_to_draw <= {21'b0, requested_y};
+//		end
+//		else begin
+//			img_id <= -1;
+//			x_offset <= -1;
+//			y_offset <= -1;
+//			x_to_draw <= -1;
+//			y_to_draw <= -1;
+//		end
 		out_obj_table <= obj_table;
 	end
 end

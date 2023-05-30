@@ -11,18 +11,18 @@ module	background_controller	(
 					output   logic [0:4][0:10] new_state
 );
 logic [0:4] [0:10] default_background_state = {
-	11'b11111, // img_id
-	11'b001101010, // x 11
-	11'b111, // y
-	11'b100111110, //width 13
-	11'b100000 // height
+	11'd31, // img_id
+	11'd32, // x 11
+	11'd0, // y
+	11'd512, //width 13
+	11'd480 // height
 };
 logic [0:4] [0:10] temp_background_state = {
-	11'b11111, // img_id
-	11'b001101010, // x 11
-	11'b111, // y
-	11'b1000000000, //width 13
-	11'b100000 // height
+	11'd31, // img_id
+	11'd32, // x 11
+	11'd0, // y
+	11'd512, //width 13
+	11'd480// height
 };
 
 const logic [0:10] max_x;
@@ -34,7 +34,7 @@ begin
 	
 	else begin
 		if(frame_start) begin
-			temp_background_state[2] = temp_background_state[2] - 11'b1;
+			temp_background_state[2] = temp_background_state[2] - 11'd20;
 		end
 		new_state <= temp_background_state;
 	end

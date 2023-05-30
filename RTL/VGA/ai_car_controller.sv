@@ -12,20 +12,14 @@ module	ai_car_controller	(
 					input     logic [0:14][0:10] current_state,
 					output    logic [0:4][0:10] new_car_state
 );
-logic [0:4] [0:10] default_car_state = {
-	11'b1, // img_id
-	11'b100000000, // x
-	11'b101111100, // y
-	11'b100000, //width
-	11'b0100100, //height
+const logic [0:4] [0:10] default_car_state = {
+	11'd1, // img_id
+	11'd256, // x
+	11'd380, // y
+	11'd64, //width
+	11'd64, //height
 };
-logic [0:4] [0:10] temp_car_state = {
-	11'b1, // img_id
-	11'b100000000, // x
-	11'b101111100, // y
-	11'b100000, //width
-	11'b0100100, //height
-};
+logic [0:4] [0:10] temp_car_state = default_car_state;
 
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -40,7 +34,7 @@ begin
 				temp_car_state[2] <= 0;
 			end
 			else begin
-				temp_car_state[2] <= temp_car_state[2] + 11'b10;
+				temp_car_state[2] <= temp_car_state[2] + 11'd1;
 			end
 			new_car_state <= temp_car_state;
 		end

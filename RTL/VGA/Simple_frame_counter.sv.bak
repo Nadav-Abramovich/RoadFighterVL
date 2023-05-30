@@ -1,0 +1,25 @@
+module counter       	
+	(
+   // Input, Output Ports
+	input  logic clk, 
+	input  logic resetN, 
+	input  logic startOfFrame,
+	output logic  [0:3][0:3] num
+   );
+	
+	
+	
+always_ff @(posedge clk or negedge resetN)
+begin 
+	if(!resetN)
+		num <=16'b0;
+	end 
+	
+	else if (startOfFrame) begin 
+		for (int i=0; i<4; i++) begin 
+			if(num[i]<9) begin
+				num[i] <= num[i] +4'b0001;
+			end 
+		end 
+	end 
+end
