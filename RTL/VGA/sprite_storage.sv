@@ -282,21 +282,10 @@ collision_detector (
 	.height( {21'b0, current_state[14]} ),
 	.should_be_drawn(should_draw_3)
 );
-logic [0:3][0:3] arr = { 4'b0011,4'b0011,4'b0011,4'b0011};
-const int digits_position_x = 549;
-const int digits_position_y = 85;
-const int mult=2;
-/*collision_detector (
-	.clk (clk),
-	.resetN( resetN ),
-	.requested_x( {21'b0, requested_x} ),
-	.requested_y( {21'b0, requested_y} ),
-	.left( digits_position_x),
-	.top( digits_position_y ),
-	.width( 32'd16),
-	.height( 32'd16 ),
-	.should_be_drawn(should_draw_4)
-);*/
+
+
+
+
 int sprite_number = 0;
 int x_offset = 0;
 int y_offset = 0;
@@ -310,6 +299,10 @@ logic	[2:0][7:0] RGBouts = {
 	MASK_VALUE,
 	MASK_VALUE
 };
+//logic [0:3][0:3] arr = { 4'b0011,4'b0011,4'b0011,4'b0011};
+const int digits_position_x = 549;
+const int digits_position_y = 85;
+const int mult=2;
 
 int player_sprite_number;
 int player_x_offset;
@@ -322,6 +315,48 @@ int ai_car1_y_offset;
 int bg_sprite_number;
 int bg_x_offset;
 int bg_y_offset;
+
+
+
+
+
+
+
+
+
+
+
+
+typedef enum  int {Blank, Hello, Nadav, Arie, Win, Lose} names;
+logic[0:7][0:255][7:0] letters = {
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}};
+
+
+
+
+logic[0:10][0:4] word = {5'b00111,5'b00100,5'b01011,5'b01011,5'b01110};
+
+const int letters_position_x=549;
+const int letters_position_y=129;
+
+
+const int mult_letters=2;
+const int length=5;
+int offset_word=0;
+
+
+
+
+
+
+
 
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -456,6 +491,15 @@ begin
 				RGBouts[0] <= nums[score_number[3-i]][(requested_y-digits_position_y)/mult][(requested_x-digits_position_x-i*8*mult)/mult];
 			end
 		end
+		
+		if ((letters_position_x <= requested_x) 
+			&&(letters_position_x +length*8 >= requested_x) 
+			&&(letters_position_y <=requested_y)
+			&&(length*8 +letters_position_y >= requested_y)) begin
+			offset_word = (letters_position_x-requested_x)/8;
+			RGBouts[0] <= word[(requested_y-letters_position_y)/mult_letters][(requested_x-letters_position_x-word[offset_word]*8*mult_letters)/mult_letters];
+		end
+		
 		
 	end
 end
