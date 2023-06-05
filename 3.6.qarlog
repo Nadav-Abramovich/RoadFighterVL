@@ -1,0 +1,77 @@
+Quartus Prime Archive log --	/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/3.6.qarlog
+
+Archive:	/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/3.6.qar
+Date:		Sat Jun  3 18:59:19 2023
+Quartus Prime		22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+	=========== Files Selected: ===========
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5.cmp
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5.qip
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5.sip
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5.spd
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5/CLK_31P5_0002.qip
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5/CLK_31P5_0002.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/CLK_31P5_sim/CLK_31P5.vo
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/DE10_Standard_Audio.sdc
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Lab1Demo.qpf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Lab1Demo.qsf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Lab1Demo_assignment_defaults.qdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Message_Encoder.py
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Number_position.bsf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Number_position.qip
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Number_position.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Number_position_bb.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/AUDIO.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/SinTable.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/TOP_AUDIO.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/ToneDecoder.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/addr_counter.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/audio_codec_controller/DualSerial2parallel.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/audio_codec_controller/clock_500.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/audio_codec_controller/i2c.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/musix_mux.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/AUDIO/prescaler.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/KBDINTF.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/TOP_KBD.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/bitrec.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/byterec.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/keyPad_decoder.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/lpf.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/random.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/KEYBOARDX/simple_up_counter.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/Seg7/SEG7.SV
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/Seg7/seg_fuel_display.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/Seg7/splitter_16_to_4.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/Car_Fighter.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/VGA_Controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/ai_bonus_car.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/ai_car_controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/ai_cars.bdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/background_controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/car_collision_manager.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/collision_detector.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/finish_line_controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/game_distance_progress.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/game_mux.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/messageboard.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/player_controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/progress_bar_controller.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/truck.sv
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/valX.bsf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/valX.qip
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/valX.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/valX_bb.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA/valX_inst.v
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/RTL/VGA_BG.mif
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/Waveform.vwf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/assignment_defaults.qdf
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/constraints/DE10_Standard_Audio.sdc
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/constraints/pin.tcl
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/db/Lab1Demo.cmp.rdb
+/home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/output_files/Chain1.cdf
+	======= Total: 66 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

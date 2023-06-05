@@ -1,0 +1,511 @@
+
+
+module	messageboard	(	
+//		--------	Clock Input	 	
+					input		logic	clk,
+					input		logic	resetN,
+					input		logic	frame_start,
+					input    logic [0:10] requested_x,
+					input    logic [0:10] requested_y,
+					input 	logic [0:7] fuel_gauge1,
+					input 	logic [0:10] score,
+					input 	int temp_x,
+					output   logic [0:4][0:10] new_state,
+					output   logic [7:0] output_color
+);
+
+logic [0:31][0:7][0:7][7:0] letters = { //letters A to Z
+	{
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	},
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'hff,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}};
+
+	logic [0:9][0:7][0:7][0:7] nums = { //digits 0 to 9
+	{
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+{
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
+	,
+	{
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
+	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
+	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}	
+	};
+	
+
+
+localparam logic[7:0] MASK_VALUE = 8'h62;
+
+localparam logic[7:0] COLOR1 = 8'h88;
+
+localparam logic[7:0] ARBTITRARYCOLOR = 8'h99;
+
+
+typedef struct {
+	logic [5:0][0:4] code;
+	int x;
+	int y;
+	byte mult;
+	int length;
+} WORD;
+
+typedef struct {
+	int val;
+	int x;
+	int y;
+	byte mult;
+	int length;
+} NUMBER;
+
+
+WORD hello = '{{5'd7,5'd4,5'd11,5'd11,5'd14},550,129,2,4};
+
+WORD fuel = '{{5'd5,5'd20,5'd4,5'd11},550,157,2,3};
+
+//NUMBER fuel_gauge = '{fuel_gauge[7:0],550,185,2,127}; temp, add fuel_gauge later
+NUMBER fuel_gauge = '{42,550,185,2,64};
+
+
+//const int hello.x=500;
+
+int i=0;
+always_ff@(posedge clk or negedge resetN)
+begin
+	if(!resetN)
+	begin 
+		output_color <= 0;
+	end 
+	else begin 
+		if(((requested_y > 32'd300)&&(requested_y < 32'd305))&&(fuel_gauge.x<requested_x)&& ((fuel_gauge.x+fuel_gauge.val)>requested_x))  begin
+				output_color <= COLOR1;
+		end
+		for(int i=0; i<5; i++) begin
+			if 	((hello.y <= requested_y) 
+				&& ((hello.y+8*hello.mult) > requested_y) 
+				&& ((hello.x +i*8*hello.mult) <= requested_x) 
+				&& ((hello.x+8*hello.mult+i*8*hello.mult) > requested_x )) begin
+					output_color <= letters[hello.code[hello.length-i]][(requested_y-hello.y)/hello.mult][(requested_x-hello.x-(i*8*hello.mult))/hello.mult];
+				end
+		end
+		for(int i=0; i<4; i++) begin
+			if 	((fuel.y<= requested_y) 
+				&& ((fuel.y+8*fuel.mult) > requested_y) 
+				&& ((fuel.x +i*8*fuel.mult) <= requested_x) 
+				&& ((fuel.x+8*fuel.mult+i*8*fuel.mult) > requested_x )) begin
+					output_color <= letters[fuel.code[fuel.length-i]][(requested_y-fuel.y)/fuel.mult][(requested_x-fuel.x-(i*8*fuel.mult))/fuel.mult];
+				end
+		end
+		
+		
+		
+		
+	
+		
+	end
+end
+endmodule

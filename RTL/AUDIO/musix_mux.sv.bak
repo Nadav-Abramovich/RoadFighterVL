@@ -1,0 +1,36 @@
+module musix_mux (
+	input logic clk,
+	input logic resetN,
+	input logic bonus,
+	input logic collision,
+	input logic win,
+	input logic lose,
+	input logic frame_start,
+	
+	output logic [3:0] stuff
+	);
+	
+	
+int count_collision;
+parameter HALFSEC = 15
+always_ff @(posedge clk or negedge resetN) begin
+	if (bonus) begin
+		 count_collision = HALFSEC;
+	end 
+	
+	if(frame_start&& (count_collision>0))
+		count_collision--;
+	if (count_collision) 
+		stuff = 4'b4;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+end 

@@ -1,0 +1,20 @@
+module splitter_16_to_4 (
+	input logic [15:0] arr,
+	
+	output logic [3:0] arr1,
+	output logic [3:0] arr2,
+	output logic [3:0] arr3,
+	output logic [3:0] arr4
+);
+
+always_comb
+begin
+		arr1 = arr[3:0];
+		arr2 = arr[7:4];
+		arr3 = arr[11:8];
+		arr4 = arr[15:12];
+end
+endmodule
+
+	
+	

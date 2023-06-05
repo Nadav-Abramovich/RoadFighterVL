@@ -1,0 +1,17 @@
+
+module	ai_cars	(	
+//		--------	Clock Input	 	
+					input		logic	clk,
+					input		logic	resetN,
+					input		logic	frame_start,
+					input    logic [0:10] requested_x,
+					input    logic [0:10] requested_y,
+					input    logic [0:9] player_speed,
+					
+					input 	logic [0:10] score,
+					input 	logic [7:0] temp_y,
+					output   logic [7:0] output_color_red,
+					output   logic [7:0] output_color_yellow,
+					output   logic [7:0] output_color_blue,
+					output   logic [7:0] output_color_bonus
+);
