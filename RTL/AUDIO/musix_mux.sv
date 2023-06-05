@@ -16,7 +16,7 @@ module musix_mux (
 	
 int timer;
 
-enum logic [0:4] {collision_car, bonus, collision_edge} state;
+enum logic [0:4] {collision_car, bonus, finished_game, collision_edge} state;
 
 always_ff @(posedge clk or negedge resetN) begin
 	if(!resetN) begin
@@ -27,9 +27,13 @@ always_ff @(posedge clk or negedge resetN) begin
 			timer <= 5'd3;
 			state <= collision_car;
 		end
+		else if (game_states[1])begin
+			timer <= 5'd3;
+			state <= collision_edge;
+		end 
 	   else 	if (collision[1]) begin
 			timer <= 5'd4;
-			state <= collision_edge;
+			state <= finished_game;
 		end 
 		else if(game_states[0]) begin 
 			timer <= 5'd5;
@@ -45,8 +49,9 @@ always_ff @(posedge clk or negedge resetN) begin
 			case (state)
 				collision_car: sound <= 4'b0100;
 				bonus: sound <= 4'b0111;
-				collision_edge: sound <= 4'b1100;
-				default: sound <= 4'b0000;
+				finished_game: sound <= 4'b0110;
+				collision_edge: sound <= 4'b0011;
+				//default: sound <= 4'b0000;
 			endcase
 		end
 		else  begin

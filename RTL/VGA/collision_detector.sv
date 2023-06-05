@@ -21,7 +21,7 @@ begin
 	end
 	
 	else begin
-			should_be_drawn <= ((requested_x > left) & ((left+width-1) > requested_x)) & ((requested_y > top) & ((top+height-1) > requested_y));
+			should_be_drawn <= ((requested_x > left) & ((left+width-1) > requested_x)) & (((requested_y) > top) & ((top+height-1) > requested_y));
 	end
 end
 

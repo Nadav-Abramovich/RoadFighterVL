@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Mon Jun  5 19:54:22 2023
+Mon Jun  5 20:56:20 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -93,13 +93,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Jun  5 19:54:22 2023          ;
+; Analysis & Synthesis Status     ; Successful - Mon Jun  5 20:56:20 2023          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                       ;
 ; Top-level Entity Name           ; Car_Fighter                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 752                                            ;
+; Total registers                 ; 779                                            ;
 ; Total pins                      ; 77                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -300,16 +300,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 3293                                                                              ;
+; Estimate of Logic utilization (ALMs needed) ; 3353                                                                              ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 5671                                                                              ;
-;     -- 7 input functions                    ; 114                                                                               ;
-;     -- 6 input functions                    ; 760                                                                               ;
-;     -- 5 input functions                    ; 660                                                                               ;
-;     -- 4 input functions                    ; 1270                                                                              ;
-;     -- <=3 input functions                  ; 2867                                                                              ;
+; Combinational ALUT usage for logic          ; 5792                                                                              ;
+;     -- 7 input functions                    ; 113                                                                               ;
+;     -- 6 input functions                    ; 759                                                                               ;
+;     -- 5 input functions                    ; 694                                                                               ;
+;     -- 4 input functions                    ; 1262                                                                              ;
+;     -- <=3 input functions                  ; 2964                                                                              ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 752                                                                               ;
+; Dedicated logic registers                   ; 779                                                                               ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 77                                                                                ;
 ;                                             ;                                                                                   ;
@@ -319,9 +319,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 769                                                                               ;
-; Total fan-out                               ; 23228                                                                             ;
-; Average fan-out                             ; 3.53                                                                              ;
+; Maximum fan-out                             ; 799                                                                               ;
+; Total fan-out                               ; 23610                                                                             ;
+; Average fan-out                             ; 3.51                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -330,8 +330,9 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Entity Name             ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |Car_Fighter                                            ; 5671 (1)            ; 752 (0)                   ; 0                 ; 1          ; 77   ; 0            ; |Car_Fighter                                                                                                                     ; Car_Fighter             ; work         ;
-;    |AUDIO:inst18|                                       ; 198 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18                                                                                                        ; AUDIO                   ; work         ;
+; |Car_Fighter                                            ; 5792 (1)            ; 779 (0)                   ; 0                 ; 1          ; 77   ; 0            ; |Car_Fighter                                                                                                                     ; Car_Fighter             ; work         ;
+;    |AUDIO:inst18|                                       ; 199 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18                                                                                                        ; AUDIO                   ; work         ;
+;       |ToneDecoder:inst4|                               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18|ToneDecoder:inst4                                                                                      ; ToneDecoder             ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18|addr_counter:inst9                                                                                     ; addr_counter            ; work         ;
 ;       |audio_codec_controller:inst|                     ; 109 (0)             ; 90 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst                                                                            ; audio_codec_controller  ; work         ;
 ;          |CLOCK_500:CLOCK_500_inst|                     ; 32 (32)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst                                                   ; CLOCK_500               ; work         ;
@@ -350,22 +351,22 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpf:inst5|                                    ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|lpf:inst5                                                                               ; lpf                     ; work         ;
 ;       |keyPad_decoder:inst2|                            ; 8 (8)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|TOP_KBD:inst16|keyPad_decoder:inst2                                                                                 ; keyPad_decoder          ; work         ;
 ;    |VGA_Controller:inst|                                ; 69 (69)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|VGA_Controller:inst                                                                                                 ; VGA_Controller          ; work         ;
-;    |ai_cars:inst19|                                     ; 420 (0)             ; 105 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19                                                                                                      ; ai_cars                 ; work         ;
-;       |ai_bonus_car:inst|                               ; 167 (167)           ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst                                                                                    ; ai_bonus_car            ; work         ;
-;       |ai_car_controller:inst1|                         ; 69 (65)             ; 19 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1                                                                              ; ai_car_controller       ; work         ;
-;          |collision_detector:comb_3|                    ; 4 (4)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|collision_detector:comb_3                                                    ; collision_detector      ; work         ;
-;       |ai_car_red:inst2|                                ; 82 (43)             ; 8 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2                                                                                     ; ai_car_red              ; work         ;
-;          |collision_detector:comb_3|                    ; 39 (39)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|collision_detector:comb_3                                                           ; collision_detector      ; work         ;
-;       |random:inst14|                                   ; 30 (30)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|random:inst14                                                                                        ; random                  ; work         ;
-;       |truck:inst3|                                     ; 72 (41)             ; 6 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3                                                                                          ; truck                   ; work         ;
-;          |collision_detector:comb_3|                    ; 31 (31)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3|collision_detector:comb_3                                                                ; collision_detector      ; work         ;
-;    |background_controller:inst8|                        ; 429 (429)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|background_controller:inst8                                                                                         ; background_controller   ; work         ;
+;    |ai_cars:inst19|                                     ; 531 (0)             ; 129 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19                                                                                                      ; ai_cars                 ; work         ;
+;       |ai_bonus_car:inst|                               ; 194 (194)           ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst                                                                                    ; ai_bonus_car            ; work         ;
+;       |ai_car_controller:inst1|                         ; 97 (70)             ; 26 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1                                                                              ; ai_car_controller       ; work         ;
+;          |collision_detector:comb_3|                    ; 27 (27)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|collision_detector:comb_3                                                    ; collision_detector      ; work         ;
+;       |ai_car_red:inst2|                                ; 81 (43)             ; 8 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2                                                                                     ; ai_car_red              ; work         ;
+;          |collision_detector:comb_3|                    ; 38 (38)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|collision_detector:comb_3                                                           ; collision_detector      ; work         ;
+;       |random:inst14|                                   ; 25 (25)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|random:inst14                                                                                        ; random                  ; work         ;
+;       |truck:inst3|                                     ; 134 (76)            ; 25 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3                                                                                          ; truck                   ; work         ;
+;          |collision_detector:comb_3|                    ; 58 (58)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3|collision_detector:comb_3                                                                ; collision_detector      ; work         ;
+;    |background_controller:inst8|                        ; 432 (432)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|background_controller:inst8                                                                                         ; background_controller   ; work         ;
 ;    |car_collision_manager:inst15|                       ; 11 (11)             ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|car_collision_manager:inst15                                                                                        ; car_collision_manager   ; work         ;
-;    |finish_line_controller:inst14|                      ; 55 (18)             ; 17 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|finish_line_controller:inst14                                                                                       ; finish_line_controller  ; work         ;
-;       |collision_detector:comb_3|                       ; 37 (37)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|finish_line_controller:inst14|collision_detector:comb_3                                                             ; collision_detector      ; work         ;
+;    |finish_line_controller:inst14|                      ; 53 (18)             ; 17 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|finish_line_controller:inst14                                                                                       ; finish_line_controller  ; work         ;
+;       |collision_detector:comb_3|                       ; 35 (35)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|finish_line_controller:inst14|collision_detector:comb_3                                                             ; collision_detector      ; work         ;
 ;    |game_distance_progress:inst11|                      ; 32 (32)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|game_distance_progress:inst11                                                                                       ; game_distance_progress  ; work         ;
-;    |game_mux:inst4|                                     ; 44 (44)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|game_mux:inst4                                                                                                      ; game_mux                ; work         ;
-;    |messageboard:inst9|                                 ; 3073 (751)          ; 62 (62)                   ; 0                 ; 1          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9                                                                                                  ; messageboard            ; work         ;
+;    |game_mux:inst4|                                     ; 49 (49)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|game_mux:inst4                                                                                                      ; game_mux                ; work         ;
+;    |messageboard:inst9|                                 ; 3071 (749)          ; 62 (62)                   ; 0                 ; 1          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9                                                                                                  ; messageboard            ; work         ;
 ;       |lpm_divide:Div0|                                 ; 211 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9|lpm_divide:Div0                                                                                  ; lpm_divide              ; work         ;
 ;          |lpm_divide_3dm:auto_generated|                ; 211 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                    ; lpm_divide_3dm          ; work         ;
 ;             |sign_div_unsign_9nh:divider|               ; 211 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                        ; sign_div_unsign_9nh     ; work         ;
@@ -414,8 +415,8 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpm_divide_mbm:auto_generated|                ; 188 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9|lpm_divide:Div9|lpm_divide_mbm:auto_generated                                                    ; lpm_divide_mbm          ; work         ;
 ;             |sign_div_unsign_slh:divider|               ; 188 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9|lpm_divide:Div9|lpm_divide_mbm:auto_generated|sign_div_unsign_slh:divider                        ; sign_div_unsign_slh     ; work         ;
 ;                |alt_u_div_uve:divider|                  ; 188 (188)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|messageboard:inst9|lpm_divide:Div9|lpm_divide_mbm:auto_generated|sign_div_unsign_slh:divider|alt_u_div_uve:divider  ; alt_u_div_uve           ; work         ;
-;    |musix_mux:inst1|                                    ; 45 (45)             ; 37 (37)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|musix_mux:inst1                                                                                                     ; musix_mux               ; work         ;
-;    |player_controller:inst12|                           ; 942 (904)           ; 111 (110)                 ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|player_controller:inst12                                                                                            ; player_controller       ; work         ;
+;    |musix_mux:inst1|                                    ; 51 (51)             ; 39 (39)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|musix_mux:inst1                                                                                                     ; musix_mux               ; work         ;
+;    |player_controller:inst12|                           ; 941 (903)           ; 111 (110)                 ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|player_controller:inst12                                                                                            ; player_controller       ; work         ;
 ;       |collision_detector:comb_3|                       ; 38 (38)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|player_controller:inst12|collision_detector:comb_3                                                                  ; collision_detector      ; work         ;
 ;    |progress_bar_controller:inst2|                      ; 284 (242)           ; 110 (107)                 ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|progress_bar_controller:inst2                                                                                       ; progress_bar_controller ; work         ;
 ;       |collision_detector:comb_3|                       ; 33 (33)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|progress_bar_controller:inst2|collision_detector:comb_3                                                             ; collision_detector      ; work         ;
@@ -494,15 +495,16 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------+
-; State Machine - |Car_Fighter|musix_mux:inst1|state                              ;
-+----------------------+---------------------+----------------------+-------------+
-; Name                 ; state.collision_car ; state.collision_edge ; state.bonus ;
-+----------------------+---------------------+----------------------+-------------+
-; state.collision_car  ; 0                   ; 0                    ; 0           ;
-; state.bonus          ; 1                   ; 0                    ; 1           ;
-; state.collision_edge ; 1                   ; 1                    ; 0           ;
-+----------------------+---------------------+----------------------+-------------+
++-------------------------------------------------------------------------------------------------------+
+; State Machine - |Car_Fighter|musix_mux:inst1|state                                                    ;
++----------------------+----------------------+---------------------+-------------+---------------------+
+; Name                 ; state.collision_edge ; state.finished_game ; state.bonus ; state.collision_car ;
++----------------------+----------------------+---------------------+-------------+---------------------+
+; state.collision_car  ; 0                    ; 0                   ; 0           ; 0                   ;
+; state.bonus          ; 0                    ; 0                   ; 1           ; 1                   ;
+; state.finished_game  ; 0                    ; 1                   ; 0           ; 1                   ;
+; state.collision_edge ; 1                    ; 0                   ; 0           ; 1                   ;
++----------------------+----------------------+---------------------+-------------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -510,11 +512,8 @@ Encoding Type:  One-Hot
 +-------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
 ; Register Name                             ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
 +-------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
-; ai_cars:inst19|random:inst14|counter[10]  ; yes                                                              ; yes                                        ;
-; ai_cars:inst19|random:inst14|rise_d       ; yes                                                              ; yes                                        ;
-; ai_cars:inst19|random:inst14|counter[9]   ; yes                                                              ; yes                                        ;
-; ai_cars:inst19|random:inst14|counter[8]   ; yes                                                              ; yes                                        ;
 ; ai_cars:inst19|random:inst14|counter[7]   ; yes                                                              ; yes                                        ;
+; ai_cars:inst19|random:inst14|rise_d       ; yes                                                              ; yes                                        ;
 ; ai_cars:inst19|random:inst14|counter[6]   ; yes                                                              ; yes                                        ;
 ; ai_cars:inst19|random:inst14|counter[5]   ; yes                                                              ; yes                                        ;
 ; ai_cars:inst19|random:inst14|counter[4]   ; yes                                                              ; yes                                        ;
@@ -522,6 +521,9 @@ Encoding Type:  One-Hot
 ; ai_cars:inst19|random:inst14|counter[2]   ; yes                                                              ; yes                                        ;
 ; ai_cars:inst19|random:inst14|counter[1]   ; yes                                                              ; yes                                        ;
 ; ai_cars:inst19|random:inst14|counter[0]   ; yes                                                              ; yes                                        ;
+; ai_cars:inst19|random:inst14|counter[10]  ; yes                                                              ; yes                                        ;
+; ai_cars:inst19|random:inst14|counter[9]   ; yes                                                              ; yes                                        ;
+; ai_cars:inst19|random:inst14|counter[8]   ; yes                                                              ; yes                                        ;
 ; Total number of protected registers is 12 ;                                                                  ;                                            ;
 +-------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
 
@@ -538,6 +540,7 @@ Encoding Type:  One-Hot
 ; background_controller:inst8|bg_x_offset[6..31]                                 ; Stuck at GND due to stuck port data_in                                   ;
 ; background_controller:inst8|bg_x_offset[5]                                     ; Stuck at VCC due to stuck port data_in                                   ;
 ; background_controller:inst8|bg_x_offset[0..4]                                  ; Stuck at GND due to stuck port data_in                                   ;
+; musix_mux:inst1|sound[3]                                                       ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][3]    ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][2]    ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][1]    ; Stuck at GND due to stuck port data_in                                   ;
@@ -776,12 +779,7 @@ Encoding Type:  One-Hot
 ; player_controller:inst12|player_y_offset[7]                                    ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst12|player_y_offset[2..6]                                 ; Stuck at VCC due to stuck port data_in                                   ;
 ; player_controller:inst12|player_y_offset[0,1]                                  ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][0]                                ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][1]                                ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][2]                                ; Stuck at VCC due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][3]                                ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][4]                                ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][7]                                ; Stuck at VCC due to stuck port data_in                                   ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][8]                                ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[1][9]                                ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[1][10]                               ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][0]                           ; Stuck at GND due to stuck port data_in                                   ;
@@ -790,14 +788,8 @@ Encoding Type:  One-Hot
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][5]                           ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][9]                           ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][10]                          ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_bonus_car:inst|car_temp.x[11..31]                            ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][0]                    ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][1]                    ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][2]                    ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][3]                    ; Stuck at VCC due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][4]                    ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][5]                    ; Stuck at VCC due to stuck port data_in                                   ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][7]                    ; Stuck at GND due to stuck port data_in                                   ;
+; ai_cars:inst19|ai_bonus_car:inst|car_temp.x[0,1,11..31]                        ; Stuck at GND due to stuck port data_in                                   ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][8]                    ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][9]                    ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][10]                   ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[22,23]                ; Stuck at GND due to stuck port data_in                                   ;
@@ -838,46 +830,29 @@ Encoding Type:  One-Hot
 ; ai_cars:inst19|ai_bonus_car:inst|output_color[3]                               ; Merged with ai_cars:inst19|ai_bonus_car:inst|output_color[4]             ;
 ; ai_cars:inst19|ai_car_controller:inst1|output_color[4]                         ; Merged with ai_cars:inst19|ai_car_controller:inst1|output_color[7]       ;
 ; ai_cars:inst19|ai_car_controller:inst1|output_color[5]                         ; Merged with ai_cars:inst19|ai_car_controller:inst1|output_color[6]       ;
-; musix_mux:inst1|sound[1]                                                       ; Merged with musix_mux:inst1|sound[0]                                     ;
-; musix_mux:inst1|sound[2]                                                       ; Merged with musix_mux:inst1|enable_sound                                 ;
 ; player_controller:inst12|last_moved_direction[11..31]                          ; Lost fanout                                                              ;
 ; ai_cars:inst19|truck:inst3|output_color[6]                                     ; Merged with ai_cars:inst19|truck:inst3|output_color[5]                   ;
 ; progress_bar_controller:inst2|output_color[6]                                  ; Merged with progress_bar_controller:inst2|output_color[5]                ;
 ; messageboard:inst9|output_color[5,6]                                           ; Merged with messageboard:inst9|output_color[1]                           ;
 ; messageboard:inst9|output_color[2..4,7]                                        ; Merged with messageboard:inst9|output_color[0]                           ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][10]                          ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][10] ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][10]                               ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][10] ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][9]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][9]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][9]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][9]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][8]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][8]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][8]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][8]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][7]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][7]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][7]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][7]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][6]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][6]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][6]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][6]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][5]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][5]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][5]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][5]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][4]                           ; Merged with ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]         ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][6]                           ; Merged with ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]         ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][7]                           ; Merged with ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]         ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][8]                           ; Merged with ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]         ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][6]                                ; Merged with ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]         ;
-; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][4]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][4]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][4]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][4]  ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][8]                    ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][6]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][5]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][6]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][8]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][6]  ;
 ; player_controller:inst12|player_sprite_number[6]                               ; Merged with player_controller:inst12|player_sprite_number[5]             ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[7,8,14,15]            ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13] ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[3,5]                  ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[2]  ;
+; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][4]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][4]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][3]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][3]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][3]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][3]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][2]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][2]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][2]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][2]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][1]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][1]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][1]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][1]  ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[2][0]                           ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][0]  ;
-; ai_cars:inst19|truck:inst3|temp_car_state[2][0]                                ; Merged with ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][0]  ;
 ; player_controller:inst12|temp_player_state[0][5]                               ; Merged with player_controller:inst12|temp_player_state[0][4]             ;
 ; player_controller:inst12|temp_player_state[4][4]                               ; Merged with player_controller:inst12|temp_player_state[3][4]             ;
 ; player_controller:inst12|last_moved_direction[1..9]                            ; Merged with player_controller:inst12|last_moved_direction[10]            ;
@@ -890,10 +865,12 @@ Encoding Type:  One-Hot
 ; TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|present_state~5                      ; Lost fanout                                                              ;
 ; TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|present_state~6                      ; Lost fanout                                                              ;
 ; TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|present_state~7                      ; Lost fanout                                                              ;
+; musix_mux:inst1|state~6                                                        ; Lost fanout                                                              ;
 ; musix_mux:inst1|state~7                                                        ; Lost fanout                                                              ;
 ; musix_mux:inst1|state~8                                                        ; Lost fanout                                                              ;
 ; musix_mux:inst1|state~9                                                        ; Lost fanout                                                              ;
-; musix_mux:inst1|state.collision_car                                            ; Lost fanout                                                              ;
+; musix_mux:inst1|state~10                                                       ; Lost fanout                                                              ;
+; musix_mux:inst1|state.bonus                                                    ; Lost fanout                                                              ;
 ; progress_bar_controller:inst2|one_sec_point[6..31]                             ; Lost fanout                                                              ;
 ; background_controller:inst8|y_offset[7..31]                                    ; Lost fanout                                                              ;
 ; progress_bar_controller:inst2|score_val_reg[14..31]                            ; Lost fanout                                                              ;
@@ -917,7 +894,7 @@ Encoding Type:  One-Hot
 ; messageboard:inst9|fuel_num.bcd[1][2]                                          ; Stuck at GND due to stuck port data_in                                   ;
 ; messageboard:inst9|seg_7[9]                                                    ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4,5] ; Stuck at GND due to stuck port data_in                                   ;
-; Total Number of Removed Registers = 909                                        ;                                                                          ;
+; Total Number of Removed Registers = 886                                        ;                                                                          ;
 +--------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -968,7 +945,7 @@ Encoding Type:  One-Hot
 ;                                                                              ;                           ; progress_bar_controller:inst2|score_val_reg[16],                             ;
 ;                                                                              ;                           ; progress_bar_controller:inst2|score_val_reg[15],                             ;
 ;                                                                              ;                           ; progress_bar_controller:inst2|score_val_reg[14]                              ;
-; background_controller:inst8|bg_y_offset[9]                                   ; Lost Fanouts              ; background_controller:inst8|y_offset[9]                                      ;
+; background_controller:inst8|bg_y_offset[8]                                   ; Lost Fanouts              ; background_controller:inst8|y_offset[8]                                      ;
 ; background_controller:inst8|bg_y_offset[21]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[21]                                     ;
 ; background_controller:inst8|bg_y_offset[20]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[20]                                     ;
 ; background_controller:inst8|bg_y_offset[19]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[19]                                     ;
@@ -981,9 +958,10 @@ Encoding Type:  One-Hot
 ; background_controller:inst8|bg_y_offset[12]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[12]                                     ;
 ; background_controller:inst8|bg_y_offset[11]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[11]                                     ;
 ; background_controller:inst8|bg_y_offset[10]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[10]                                     ;
+; background_controller:inst8|bg_y_offset[9]                                   ; Lost Fanouts              ; background_controller:inst8|y_offset[9]                                      ;
 ; background_controller:inst8|bg_y_offset[22]                                  ; Lost Fanouts              ; background_controller:inst8|y_offset[22]                                     ;
-; background_controller:inst8|bg_y_offset[8]                                   ; Lost Fanouts              ; background_controller:inst8|y_offset[8]                                      ;
 ; background_controller:inst8|bg_y_offset[7]                                   ; Lost Fanouts              ; background_controller:inst8|y_offset[7]                                      ;
+; musix_mux:inst1|state~6                                                      ; Lost Fanouts              ; musix_mux:inst1|state.bonus                                                  ;
 ; messageboard:inst9|fuel_num.bcd[0][0]                                        ; Stuck at GND              ; messageboard:inst9|seg_7[15]                                                 ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
 ; messageboard:inst9|fuel_num.bcd[0][1]                                        ; Stuck at GND              ; messageboard:inst9|seg_7[14]                                                 ;
@@ -1051,12 +1029,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 752   ;
-; Number of registers using Synchronous Clear  ; 153   ;
-; Number of registers using Synchronous Load   ; 127   ;
+; Total registers                              ; 779   ;
+; Number of registers using Synchronous Clear  ; 190   ;
+; Number of registers using Synchronous Load   ; 101   ;
 ; Number of registers using Asynchronous Clear ; 456   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 484   ;
+; Number of registers using Clock Enable       ; 512   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1070,33 +1048,49 @@ Encoding Type:  One-Hot
 ; VGA_Controller:inst|oVGA_VS                                      ; 7       ;
 ; VGA_Controller:inst|oVGA_HS                                      ; 4       ;
 ; VGA_Controller:inst|oVGA_HS_d                                    ; 1       ;
+; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[6]                   ; 6       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[5]                   ; 4       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[4]                   ; 4       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[3]                   ; 4       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[2]                   ; 4       ;
-; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[6]                   ; 6       ;
+; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[8]                   ; 5       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.x[5]                   ; 2       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.x[4]                   ; 2       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.x[3]                   ; 2       ;
 ; ai_cars:inst19|ai_bonus_car:inst|car_temp.x[2]                   ; 2       ;
-; ai_cars:inst19|ai_bonus_car:inst|car_temp.y[8]                   ; 5       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SDO        ; 2       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|I2C_clk_0  ; 2       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|I2C_clk_en ; 2       ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][2]      ; 5       ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][4]      ; 6       ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][5]      ; 7       ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][6]      ; 7       ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][7]      ; 7       ;
-; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][8]      ; 7       ;
-; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]             ; 10      ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][3]      ; 2       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[1][5]      ; 3       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][2]      ; 4       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][4]      ; 4       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][5]      ; 6       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][6]      ; 5       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][7]      ; 5       ;
+; ai_cars:inst19|ai_car_controller:inst1|temp_car_state[2][8]      ; 5       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[2][4]                  ; 5       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[2][5]                  ; 5       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][6]                  ; 3       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][7]                  ; 4       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[2][6]                  ; 5       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[2][8]                  ; 5       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[2][7]                  ; 5       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[2][2]                  ; 4       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][2]                  ; 2       ;
+; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][3]             ; 6       ;
 ; finish_line_controller:inst14|temp_fl_state[2][1]                ; 2       ;
 ; finish_line_controller:inst14|temp_fl_state[2][2]                ; 2       ;
 ; finish_line_controller:inst14|temp_fl_state[2][7]                ; 2       ;
 ; finish_line_controller:inst14|temp_fl_state[2][8]                ; 3       ;
-; ai_cars:inst19|random:inst14|dout[8]                             ; 1       ;
-; ai_cars:inst19|random:inst14|dout[3]                             ; 1       ;
+; ai_cars:inst19|random:inst14|dout[2]                             ; 2       ;
+; ai_cars:inst19|random:inst14|dout[1]                             ; 2       ;
 ; ai_cars:inst19|random:inst14|dout[0]                             ; 1       ;
+; ai_cars:inst19|random:inst14|dout[4]                             ; 3       ;
+; ai_cars:inst19|random:inst14|dout[7]                             ; 3       ;
+; ai_cars:inst19|random:inst14|dout[6]                             ; 3       ;
+; ai_cars:inst19|random:inst14|dout[5]                             ; 3       ;
+; ai_cars:inst19|random:inst14|dout[3]                             ; 3       ;
 ; player_controller:inst12|temp_player_state[1][2]                 ; 7       ;
 ; player_controller:inst12|temp_player_state[1][6]                 ; 8       ;
 ; player_controller:inst12|temp_player_state[3][4]                 ; 3       ;
@@ -1105,57 +1099,55 @@ Encoding Type:  One-Hot
 ; progress_bar_controller:inst2|fuel_val_reg[2]                    ; 3       ;
 ; progress_bar_controller:inst2|temp_pb_state[2][2]                ; 2       ;
 ; progress_bar_controller:inst2|temp_pb_state[2][3]                ; 2       ;
-; ai_cars:inst19|random:inst14|counter[6]                          ; 3       ;
-; ai_cars:inst19|random:inst14|counter[5]                          ; 3       ;
-; ai_cars:inst19|random:inst14|counter[3]                          ; 3       ;
-; ai_cars:inst19|random:inst14|counter[1]                          ; 2       ;
+; ai_cars:inst19|random:inst14|dout[9]                             ; 1       ;
+; ai_cars:inst19|random:inst14|dout[8]                             ; 2       ;
 ; player_controller:inst12|last_moved_direction[10]                ; 11      ;
-; Total number of inverted registers = 44                          ;         ;
+; Total number of inverted registers = 58                          ;         ;
 +------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Car_Fighter|TOP_KBD:inst16|keyPad_decoder:inst2|keyIsPressed[6]                                                   ;
-; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst|car_temp.y[25]                                                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|output_colors[2][6]                                                     ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|output_colors[1][1]                                                     ;
-; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|fuel_val_reg[26]                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[2]                                   ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[1] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[30]  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|output_color[7]                                                         ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |Car_Fighter|musix_mux:inst1|timer[21]                                                                             ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Car_Fighter|player_controller:inst12|temp_player_state[1][7]                                                      ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|output_color[7]                                                       ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|output_color[7]                                                ;
-; 33:1               ; 4 bits    ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; Yes        ; |Car_Fighter|background_controller:inst8|output_color[6]                                                           ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|truck:inst3|output_color[0]                                                            ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |Car_Fighter|player_controller:inst12|tmp_speed[13]                                                                ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |Car_Fighter|game_mux:inst4|RGB[5]                                                                                 ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst|car_temp.y[8]                                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|player_controller:inst12|last_moved_direction[10]                                                     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|player_controller:inst12|temp_player_state[1][2]                                                      ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |Car_Fighter|player_controller:inst12|death_state[9]                                                               ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|Mux5                                                           ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|Mux0                                                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|Mux0                                                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux56                                                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux68                                                                        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux67                                                                        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux55                                                                        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux37                                                                        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Car_Fighter|progress_bar_controller:inst2|fuel_val_reg                                                            ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Car_Fighter|musix_mux:inst1|state.collision_edge                                                                  ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux51                                                                        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux74                                                                        ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector7                                                    ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector4                                                    ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector1                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Car_Fighter|TOP_KBD:inst16|keyPad_decoder:inst2|keyIsPressed[5]                                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|output_colors[2][6]                                                      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|output_colors[1][1]                                                      ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|fuel_val_reg[31]                                                         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[0]                                    ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Car_Fighter|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[10]   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst|car_temp.y[31]                                                        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Car_Fighter|progress_bar_controller:inst2|output_color[7]                                                          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Car_Fighter|player_controller:inst12|temp_player_state[1][9]                                                       ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |Car_Fighter|musix_mux:inst1|timer[30]                                                                              ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|output_color[2]                                                        ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|output_color[3]                                                 ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; Yes        ; |Car_Fighter|background_controller:inst8|output_color[5]                                                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|truck:inst3|output_color[3]                                                             ;
+; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |Car_Fighter|player_controller:inst12|tmp_speed[2]                                                                  ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |Car_Fighter|game_mux:inst4|RGB[5]                                                                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|player_controller:inst12|last_moved_direction[0]                                                       ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst|car_temp.y[2]                                                         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Car_Fighter|player_controller:inst12|temp_player_state[1][2]                                                       ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |Car_Fighter|player_controller:inst12|death_state[26]                                                               ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|Mux2                                                                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|Mux0                                                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|Mux0                                                                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux32                                                                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux20                                                                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux67                                                                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux31                                                                         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux13                                                                         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Car_Fighter|progress_bar_controller:inst2|fuel_val_reg                                                             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux38                                                                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Car_Fighter|player_controller:inst12|Mux14                                                                         ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |Car_Fighter|musix_mux:inst1|state.bonus                                                                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector7                                                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|bitrec:inst4|Selector8                                                     ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|byterec:inst3|Selector1                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -1456,13 +1448,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +---------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: ai_cars:inst19|random:inst14 ;
-+----------------+----------------------------------+-----------------------+
-; Parameter Name ; Value                            ; Type                  ;
-+----------------+----------------------------------+-----------------------+
-; SIZE_BITS      ; 11                               ; Signed Integer        ;
-; MIN_VAL        ; 00000000000000000000000001101010 ; Unsigned Binary       ;
-; MAX_VAL        ; 00000000000000000000000110101000 ; Unsigned Binary       ;
-+----------------+----------------------------------+-----------------------+
++----------------+-------------+--------------------------------------------+
+; Parameter Name ; Value       ; Type                                       ;
++----------------+-------------+--------------------------------------------+
+; SIZE_BITS      ; 11          ; Signed Integer                             ;
+; MIN_VAL        ; 0           ; Unsigned Binary                            ;
+; MAX_VAL        ; 11111111111 ; Unsigned Binary                            ;
++----------------+-------------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -2103,37 +2095,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 752                         ;
-;     CLR               ; 168                         ;
-;     CLR SCLR          ; 44                          ;
+; arriav_ff             ; 779                         ;
+;     CLR               ; 157                         ;
+;     CLR SCLR          ; 55                          ;
 ;     CLR SCLR SLD      ; 18                          ;
 ;     CLR SLD           ; 30                          ;
-;     ENA               ; 233                         ;
+;     ENA               ; 261                         ;
 ;     ENA CLR           ; 81                          ;
 ;     ENA CLR SCLR      ; 83                          ;
 ;     ENA CLR SLD       ; 32                          ;
-;     ENA SCLR          ; 8                           ;
-;     ENA SLD           ; 47                          ;
-;     plain             ; 8                           ;
+;     ENA SCLR          ; 34                          ;
+;     ENA SLD           ; 21                          ;
+;     plain             ; 7                           ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 5681                        ;
-;     arith             ; 2080                        ;
-;         0 data inputs ; 298                         ;
-;         1 data inputs ; 753                         ;
-;         2 data inputs ; 90                          ;
+; arriav_lcell_comb     ; 5799                        ;
+;     arith             ; 2135                        ;
+;         0 data inputs ; 304                         ;
+;         1 data inputs ; 797                         ;
+;         2 data inputs ; 95                          ;
 ;         3 data inputs ; 411                         ;
-;         4 data inputs ; 471                         ;
-;         5 data inputs ; 57                          ;
-;     extend            ; 114                         ;
-;         7 data inputs ; 114                         ;
-;     normal            ; 3395                        ;
+;         4 data inputs ; 472                         ;
+;         5 data inputs ; 56                          ;
+;     extend            ; 113                         ;
+;         7 data inputs ; 113                         ;
+;     normal            ; 3459                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 34                          ;
-;         2 data inputs ; 741                         ;
-;         3 data inputs ; 456                         ;
-;         4 data inputs ; 799                         ;
-;         5 data inputs ; 603                         ;
-;         6 data inputs ; 760                         ;
+;         1 data inputs ; 53                          ;
+;         2 data inputs ; 758                         ;
+;         3 data inputs ; 459                         ;
+;         4 data inputs ; 790                         ;
+;         5 data inputs ; 638                         ;
+;         6 data inputs ; 759                         ;
 ;     shared            ; 92                          ;
 ;         0 data inputs ; 22                          ;
 ;         1 data inputs ; 65                          ;
@@ -2143,7 +2135,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 37.30                       ;
-; Average LUT depth     ; 18.61                       ;
+; Average LUT depth     ; 18.31                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2162,7 +2154,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Mon Jun  5 19:53:44 2023
+    Info: Processing started: Mon Jun  5 20:55:42 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Warning (125092): Tcl Script File RTL/lpm_score_bcd_16bit_to_4digit.qip not found
     Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_16bit_to_4digit.qip
@@ -2279,7 +2271,7 @@ Warning (275006): Can't find a definition for parameter IGNORE_CARRY_BUFFERS -- 
 Warning (275004): Undeclared parameter OFF
 Warning (275006): Can't find a definition for parameter IGNORE_CASCADE_BUFFERS -- assuming OFF was intended to be a quoted string
 Warning (275011): Block or symbol "SEG7" of instance "inst10" overlaps another block or symbol
-Warning (275011): Block or symbol "player_controller" of instance "inst12" overlaps another block or symbol
+Warning (275011): Block or symbol "background_controller" of instance "inst8" overlaps another block or symbol
 Info (12128): Elaborating entity "AUDIO" for hierarchy "AUDIO:inst18"
 Info (12128): Elaborating entity "audio_codec_controller" for hierarchy "AUDIO:inst18|audio_codec_controller:inst"
 Warning (10230): Verilog HDL assignment warning at audio_codec_controller.sv(69): truncated value with size 32 to match size of target (1) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv Line: 69
@@ -2377,21 +2369,21 @@ Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(62): trunca
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(64): truncated value with size 32 to match size of target (19) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 64
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.sv(74): truncated value with size 11 to match size of target (1) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/VGA_Controller.sv Line: 74
 Info (12128): Elaborating entity "game_mux" for hierarchy "game_mux:inst4"
-Warning (10034): Output port "game_states[1..4]" at game_mux.sv(18) has no driver File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/game_mux.sv Line: 18
+Warning (10034): Output port "game_states[2..4]" at game_mux.sv(20) has no driver File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/game_mux.sv Line: 20
 Info (12128): Elaborating entity "ai_cars" for hierarchy "ai_cars:inst19"
 Info (12128): Elaborating entity "ai_car_controller" for hierarchy "ai_cars:inst19|ai_car_controller:inst1"
+Warning (10036): Verilog HDL or VHDL warning at ai_car_controller.sv(65): object "rand_x_location" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 65
+Warning (10230): Verilog HDL assignment warning at ai_car_controller.sv(80): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 80
 Warning (10230): Verilog HDL assignment warning at ai_car_controller.sv(84): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 84
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "ai_car_yellow" into its bus
 Info (12128): Elaborating entity "collision_detector" for hierarchy "ai_cars:inst19|ai_car_controller:inst1|collision_detector:comb_3" File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_controller.sv Line: 37
 Info (12128): Elaborating entity "random" for hierarchy "ai_cars:inst19|random:inst14"
 Warning (10230): Verilog HDL assignment warning at random.sv(22): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/KEYBOARDX/random.sv Line: 22
-Warning (10230): Verilog HDL assignment warning at random.sv(23): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/KEYBOARDX/random.sv Line: 23
 Warning (10230): Verilog HDL assignment warning at random.sv(28): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/KEYBOARDX/random.sv Line: 28
-Warning (10230): Verilog HDL assignment warning at random.sv(30): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/KEYBOARDX/random.sv Line: 30
 Info (12128): Elaborating entity "ai_bonus_car" for hierarchy "ai_cars:inst19|ai_bonus_car:inst"
 Warning (10036): Verilog HDL or VHDL warning at ai_bonus_car.sv(55): object "car_default" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 55
 Warning (10036): Verilog HDL or VHDL warning at ai_bonus_car.sv(78): object "rand_x_location" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 78
-Warning (10230): Verilog HDL assignment warning at ai_bonus_car.sv(94): truncated value with size 33 to match size of target (32) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 94
+Warning (10230): Verilog HDL assignment warning at ai_bonus_car.sv(95): truncated value with size 33 to match size of target (32) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 95
 Info (10041): Inferred latch for "new_car_state[4][10]" at ai_bonus_car.sv(79) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 79
 Info (10041): Inferred latch for "new_car_state[4][9]" at ai_bonus_car.sv(79) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 79
 Info (10041): Inferred latch for "new_car_state[4][8]" at ai_bonus_car.sv(79) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_bonus_car.sv Line: 79
@@ -2450,10 +2442,13 @@ Info (10041): Inferred latch for "new_car_state[0][0]" at ai_bonus_car.sv(79) Fi
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "car_bonus_sprite" into its bus
 Info (12128): Elaborating entity "ai_car_red" for hierarchy "ai_cars:inst19|ai_car_red:inst2"
 Warning (10036): Verilog HDL or VHDL warning at ai_car_red.sv(65): object "rand_x_location" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 65
+Warning (10230): Verilog HDL assignment warning at ai_car_red.sv(80): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 80
 Warning (10230): Verilog HDL assignment warning at ai_car_red.sv(84): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 84
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "car_sprite_red" into its bus
 Info (12128): Elaborating entity "truck" for hierarchy "ai_cars:inst19|truck:inst3"
-Warning (10230): Verilog HDL assignment warning at truck.sv(99): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 99
+Warning (10036): Verilog HDL or VHDL warning at truck.sv(80): object "rand_x_location" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 80
+Warning (10230): Verilog HDL assignment warning at truck.sv(95): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 95
+Warning (10230): Verilog HDL assignment warning at truck.sv(98): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 98
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "ai_truck" into its bus
 Info (12128): Elaborating entity "player_controller" for hierarchy "player_controller:inst12"
 Warning (10230): Verilog HDL assignment warning at player_controller.sv(155): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/player_controller.sv Line: 155
@@ -3074,22 +3069,22 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register player_controller:inst12|death_state[2] will power up to Low File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/player_controller.sv Line: 152
     Critical Warning (18010): Register player_controller:inst12|death_state[1] will power up to Low File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/player_controller.sv Line: 152
     Critical Warning (18010): Register player_controller:inst12|death_state[0] will power up to Low File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/player_controller.sv Line: 152
-Info (17049): 143 registers lost all their fanouts during netlist optimizations.
+Info (17049): 145 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/arie/Desktop/Elec_labs_1/RoadFighterVL/output_files/Lab1Demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 5967 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6086 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 64 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 5888 logic cells
+    Info (21061): Implemented 6007 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 463 warnings
-    Info: Peak virtual memory: 574 megabytes
-    Info: Processing ended: Mon Jun  5 19:54:22 2023
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 466 warnings
+    Info: Peak virtual memory: 592 megabytes
+    Info: Processing ended: Mon Jun  5 20:56:20 2023
     Info: Elapsed time: 00:00:38
     Info: Total CPU time (on all processors): 00:00:50
 

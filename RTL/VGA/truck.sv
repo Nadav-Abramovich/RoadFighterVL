@@ -90,14 +90,12 @@ begin
 	
 	else begin
 		
-		if(frame_start) begin
+		if(frame_start) begin //(random[4:10]*16 < 640) && (random[4:10]*16 >0)) begin
 			if(temp_car_state[2] == 480) begin
-				temp_car_state[1] <= rand_x_location[2];
+				temp_car_state[1] <= random[2:9]*8;
 				temp_car_state[2] <= 0;
 			end
-			else begin
-				temp_car_state[2] <= temp_car_state[2] - 11'd6 + {1'd0, player_speed/32};
-			end
+			temp_car_state[2] <= temp_car_state[2] - 11'd6 + {1'd0, player_speed/32};
 			new_car_state <= temp_car_state;
 		end
 		

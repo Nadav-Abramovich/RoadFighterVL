@@ -7,7 +7,7 @@
 // unique lane allocation.
 //--------------------------------------------------------------------------
 
-module	ai_bonus_car	(	
+module ai_bonus_car(	
 //		--------	Clock Input	 	
 					input		logic	clk,
 					input		logic	resetN,
@@ -88,11 +88,12 @@ begin
 		end 
 		if(frame_start) begin
 			if(car_temp.y > (480+{24'b0,car_temp.width})) begin
-				car_temp.x <= random;
-				car_temp.y <= -200;
+				car_temp.x <= random[3:10]*8;
+				car_temp.y <=0;
 			end
-			car_temp.y <= car_temp.y + {1'd0, player_speed/32};
-			
+			else begin 
+				car_temp.y <= car_temp.y + {1'd0, player_speed/32};
+			end
 			
 		end
 		

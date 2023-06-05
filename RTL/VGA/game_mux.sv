@@ -15,9 +15,14 @@ module	game_mux	(
 			input logic [0:7] player_car,
 			input logic [0:7] truck_color,
 			input logic [0:7] ai_car_red,
+			input  logic [0:10] requested_x,
+			input  logic [0:10] requested_y,
 			output logic [0:4] game_states, //0 stands for car bonus .
 			output logic [7:0] RGB
 );
+
+const logic [0:10] min_x = 11'd166;
+const logic [0:10] max_x = min_x + 11'd248;
 
 localparam logic[7:0] MASK_VALUE = 8'h62;
 
@@ -31,12 +36,20 @@ begin
 				
 				
 				
-				if ((player_car != MASK_VALUE)&&(car_bonus != MASK_VALUE)) 
-					game_states[0] = 1'b1;
-				else 
-					game_states[0] = 1'b0;
-		
-			
+				if ((player_car != MASK_VALUE)&&(car_bonus != MASK_VALUE)) begin	
+					game_states[0] <= 1'b1;
+				end
+				else begin 
+					game_states[0] <= 1'b0;
+				end
+				
+				
+				if ((player_car != MASK_VALUE)&&((requested_x <= min_x) || (requested_x >=max_x))) begin
+					game_states[1] <= 1; //play sound 
+				end 
+				else begin  
+					game_states[1] <= 0;
+				end
 			
 			//// --------------
 			//// sprite priority

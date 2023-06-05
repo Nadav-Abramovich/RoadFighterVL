@@ -26,7 +26,8 @@ present_state.wait_ext_rel_ST 0 1 0 0 0 0 0 0 0 1
 present_state.sample_ext_rel_ST 1 0 0 0 0 0 0 0 0 1 
 
 State Machine - |Car_Fighter|musix_mux:inst1|state
-Name state.collision_car state.collision_edge state.bonus 
-state.collision_car 0 0 0 
-state.bonus 1 0 1 
-state.collision_edge 1 1 0 
+Name state.collision_edge state.finished_game state.bonus state.collision_car 
+state.collision_car 0 0 0 0 
+state.bonus 0 0 1 1 
+state.finished_game 0 1 0 1 
+state.collision_edge 1 0 0 1 

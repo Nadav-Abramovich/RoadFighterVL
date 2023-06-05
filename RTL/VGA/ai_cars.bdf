@@ -269,58 +269,6 @@ https://fpgasoftware.intel.com/eula.
 	)
 )
 (symbol
-	(rect -264 320 -48 432)
-	(text "random" (rect 5 0 46 12)(font "Arial" ))
-	(text "inst14" (rect 8 96 38 108)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 16 12)(font "Arial" ))
-		(text "clk" (rect 21 27 37 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "resetN" (rect 0 0 35 12)(font "Arial" ))
-		(text "resetN" (rect 21 43 56 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "rise" (rect 0 0 20 12)(font "Arial" ))
-		(text "rise" (rect 21 59 41 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 216 32)
-		(output)
-		(text "dout[SIZE_BITS-1..0]" (rect 0 0 109 12)(font "Arial" ))
-		(text "dout[SIZE_BITS-1..0]" (rect 107 27 216 39)(font "Arial" ))
-		(line (pt 216 32)(pt 200 32)(line_width 3))
-	)
-	(parameter
-		"SIZE_BITS"
-		"11"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"MIN_VAL"
-		"00000000000000000000000001101010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"MAX_VAL"
-		"00000000000000000000000110101000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(drawing
-		(rectangle (rect 16 16 200 96))
-	)
-	(annotation_block (parameter)(rect -288 232 -56 312))
-)
-(symbol
 	(rect 208 544 488 752)
 	(text "ai_bonus_car" (rect 5 0 74 12)(font "Arial" ))
 	(text "inst" (rect 8 192 28 204)(font "Arial" ))
@@ -546,6 +494,58 @@ https://fpgasoftware.intel.com/eula.
 	(drawing
 		(rectangle (rect 16 16 264 160))
 	)
+)
+(symbol
+	(rect -264 320 -48 432)
+	(text "random" (rect 5 0 46 12)(font "Arial" ))
+	(text "inst14" (rect 8 96 38 108)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 16 12)(font "Arial" ))
+		(text "clk" (rect 21 27 37 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "resetN" (rect 0 0 35 12)(font "Arial" ))
+		(text "resetN" (rect 21 43 56 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "rise" (rect 0 0 20 12)(font "Arial" ))
+		(text "rise" (rect 21 59 41 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "dout[SIZE_BITS-1..0]" (rect 0 0 109 12)(font "Arial" ))
+		(text "dout[SIZE_BITS-1..0]" (rect 107 27 216 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
+	)
+	(parameter
+		"SIZE_BITS"
+		"11"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"MIN_VAL"
+		"0"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"MAX_VAL"
+		"11111111111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(drawing
+		(rectangle (rect 16 16 200 96))
+	)
+	(annotation_block (parameter)(rect -288 232 -64 292))
 )
 (connector
 	(text "player_speed[0..9]" (rect -446 240 -357 252)(font "Intel Clear" ))

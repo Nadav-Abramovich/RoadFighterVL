@@ -77,7 +77,7 @@ begin
 		
 		if(frame_start) begin
 			if(temp_car_state[2] == 480) begin
-				temp_car_state[1] <= rand_x_location[0];
+				temp_car_state[1] <= random[0:7]*8;
 				temp_car_state[2] <= 0;
 			end
 			else begin

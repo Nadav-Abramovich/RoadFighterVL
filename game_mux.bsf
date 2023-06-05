@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 288 288)
+	(rect 16 16 288 320)
 	(text "game_mux" (rect 5 0 51 12)(font "Arial" ))
-	(text "inst" (rect 8 256 20 268)(font "Arial" ))
+	(text "inst" (rect 8 288 20 300)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -116,6 +116,20 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 224)(pt 16 224)(line_width 3))
 	)
 	(port
+		(pt 0 240)
+		(input)
+		(text "requested_x[0..10]" (rect 0 0 73 12)(font "Arial" ))
+		(text "requested_x[0..10]" (rect 21 235 94 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "requested_y[0..10]" (rect 0 0 74 12)(font "Arial" ))
+		(text "requested_y[0..10]" (rect 21 251 95 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 3))
+	)
+	(port
 		(pt 272 32)
 		(output)
 		(text "game_states[0..4]" (rect 0 0 73 12)(font "Arial" ))
@@ -130,6 +144,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 272 48)(pt 256 48)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 256 256)(line_width 1))
+		(rectangle (rect 16 16 256 288)(line_width 1))
 	)
 )
