@@ -70,34 +70,28 @@ collision_detector (
 	
 const logic [0:4] [0:10] default_car_state = {
 	11'd1, // img_id
-	11'd200, // x
+	11'd260, // x
 	11'd380, // y
 	11'd64, //width
 	11'd64, //height
 };
-const logic [0:2][0:9] rand_x_location  ={10'd140,10'd180,10'd220,10'd260};
-
+const logic [0:3][0:9] rand_x_location  ={10'd180,10'd240,10'd300,10'd360};
 always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
 		new_car_state <= default_car_state;
 	end
-
-	
-	
 	else begin
-		if(game_states[0]) begin 
+		
+		if(game_states[0]==1'b1) begin 
 		   car_temp.y<= -127;
 		end 
 		if(frame_start) begin
-			if(car_temp.y > 1000) begin
-					car_temp.x <= rand_x_location[(random%4) -1];
+			if(car_temp.y > (480+{24'b0,car_temp.width})) begin
+				car_temp.x <= random;
 				car_temp.y <= -200;
 			end
-			if(car_temp.y < -1000) begin
-					car_temp.y <= 200;
-			end
-			car_temp.y <= car_temp.y - 11'd6 + {1'd0, player_speed/32};
+			car_temp.y <= car_temp.y + {1'd0, player_speed/32};
 			
 			
 		end

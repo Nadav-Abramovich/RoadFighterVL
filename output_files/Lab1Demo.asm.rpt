@@ -1,5 +1,5 @@
 Assembler report for Lab1Demo
-Mon Jun  5 16:47:39 2023
+Mon Jun  5 19:51:10 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jun  5 16:47:39 2023 ;
+; Assembler Status      ; Successful - Mon Jun  5 19:51:10 2023 ;
 ; Revision Name         ; Lab1Demo                              ;
 ; Top-level Entity Name ; Car_Fighter                           ;
 ; Family                ; Cyclone V                             ;
@@ -53,13 +53,13 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                     ;
-+-----------------------------------------------------------------------------------------------+
-; File Name                                                                                     ;
-+-----------------------------------------------------------------------------------------------+
-; /home/arie/Desktop/Elec_labs_1/project_restored/project2.6_restored/output_files/Lab1Demo.sof ;
-+-----------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------+
+; Assembler Generated Files                                              ;
++------------------------------------------------------------------------+
+; File Name                                                              ;
++------------------------------------------------------------------------+
+; /home/arie/Desktop/Elec_labs_1/RoadFighterVL/output_files/Lab1Demo.sof ;
++------------------------------------------------------------------------+
 
 
 +----------------------------------------+
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-----------------------+
 ; Option         ; Setting               ;
 +----------------+-----------------------+
-; JTAG usercode  ; 0x0111D28D            ;
-; Checksum       ; 0x0111D28D            ;
+; JTAG usercode  ; 0x01125FFC            ;
+; Checksum       ; 0x01125FFC            ;
 +----------------+-----------------------+
 
 
@@ -78,21 +78,17 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Mon Jun  5 16:47:34 2023
+    Info: Processing started: Mon Jun  5 19:51:04 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Lab1Demo -c Lab1Demo
-Warning (125092): Tcl Script File RTL/lpm_temp_x_fuel_gauge.qip not found
-    Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_temp_x_fuel_gauge.qip
 Warning (125092): Tcl Script File RTL/lpm_score_bcd_16bit_to_4digit.qip not found
     Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_16bit_to_4digit.qip
 Warning (125092): Tcl Script File RTL/lpm_score_bcd_11bit_to_4digit.qip not found
     Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_11bit_to_4digit.qip
-Warning (125092): Tcl Script File RTL/lpm_14bit.qip not found
-    Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_14bit.qip
 Info (115030): Assembler is generating device programming files
-Info: Quartus Prime Assembler was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 570 megabytes
-    Info: Processing ended: Mon Jun  5 16:47:39 2023
-    Info: Elapsed time: 00:00:05
+Info: Quartus Prime Assembler was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 569 megabytes
+    Info: Processing ended: Mon Jun  5 19:51:10 2023
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:06
 
 

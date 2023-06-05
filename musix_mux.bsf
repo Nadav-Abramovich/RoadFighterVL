@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 208 192)
+	(rect 16 16 248 160)
 	(text "musix_mux" (rect 5 0 52 12)(font "Arial" ))
-	(text "inst" (rect 8 160 20 172)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -41,52 +41,39 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 64)
 		(input)
-		(text "bonus" (rect 0 0 23 12)(font "Arial" ))
-		(text "bonus" (rect 21 59 44 71)(font "Arial" ))
+		(text "frame_start" (rect 0 0 48 12)(font "Arial" ))
+		(text "frame_start" (rect 21 59 69 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "collision[0..1]" (rect 0 0 47 12)(font "Arial" ))
-		(text "collision[0..1]" (rect 21 75 68 87)(font "Arial" ))
+		(text "game_states[0..4]" (rect 0 0 73 12)(font "Arial" ))
+		(text "game_states[0..4]" (rect 21 75 94 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
 		(pt 0 96)
 		(input)
-		(text "win" (rect 0 0 11 12)(font "Arial" ))
-		(text "win" (rect 21 91 32 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 1))
+		(text "collision[0..1]" (rect 0 0 47 12)(font "Arial" ))
+		(text "collision[0..1]" (rect 21 91 68 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port
-		(pt 0 112)
-		(input)
-		(text "lose" (rect 0 0 15 12)(font "Arial" ))
-		(text "lose" (rect 21 107 36 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 1))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "frame_start" (rect 0 0 48 12)(font "Arial" ))
-		(text "frame_start" (rect 21 123 69 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 1))
-	)
-	(port
-		(pt 192 32)
+		(pt 232 32)
 		(output)
-		(text "stuff[3..0]" (rect 0 0 38 12)(font "Arial" ))
-		(text "stuff[3..0]" (rect 133 27 171 39)(font "Arial" ))
-		(line (pt 192 32)(pt 176 32)(line_width 3))
+		(text "enable_sound" (rect 0 0 54 12)(font "Arial" ))
+		(text "enable_sound" (rect 157 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 1))
 	)
-	(parameter
-		"HALFSEC"
-		"15"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "sound[3..0]" (rect 0 0 43 12)(font "Arial" ))
+		(text "sound[3..0]" (rect 168 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
+	)
 	(drawing
-		(rectangle (rect 16 16 176 160)(line_width 1))
+		(rectangle (rect 16 16 216 128)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 208 -64 308 16))
 )

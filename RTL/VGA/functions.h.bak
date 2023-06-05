@@ -1,0 +1,13 @@
+		/* //Idealy i'd use a command like the one below to print out all these... 
+		`define print(x,y,height,width,mult,len,arr) \ 
+		for(int i=0; i<len; i++) begin \
+			if 	((y<= requested_y)  \
+				&& ((y+8*mult) > requested_y) \
+				&& ((x +i*8*word_nadav.mult) <= requested_x) \
+				&& ((x+8*mult+i*8*mult) > requested_x )) begin \
+					output_color <= letters[arr[len-i]][(requested_y-y)/mult][(requested_x-x-(i*8*mult))/mult]; \
+				end \
+		end
+		*/
+
+		

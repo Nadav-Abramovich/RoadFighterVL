@@ -206,10 +206,10 @@ begin
 	else begin
 	
 	if(game_states[0]) begin //player took extra fuel.
-		score_val_reg+=100;
+		score_val_reg+=50;
 		fuel_val_reg+=5;
 		if (fuel_val_reg>100)
-			fuel_val_reg=0;
+			fuel_val_reg=100;
 	end 
 	if(frame_start) begin
 		one_sec_point++;

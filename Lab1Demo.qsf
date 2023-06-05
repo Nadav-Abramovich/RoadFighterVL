@@ -265,7 +265,6 @@ set_global_assignment -name QIP_FILE CLK_31P5.qip
 set_global_assignment -name SIP_FILE CLK_31P5.sip
 set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
 set_global_assignment -name SIGNALTAP_FILE vga.stp
-set_global_assignment -name BDF_FILE RTL/VGA/TOP_VGA_DEMO_KBD_MOVING_HARTS.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/game_mux.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/collision_detector.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/background_controller.sv
@@ -278,10 +277,8 @@ set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/progress_bar_controller.s
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/finish_line_controller.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/messageboard.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/ai_bonus_car.sv
-set_global_assignment -name QIP_FILE RTL/lpm_temp_x_fuel_gauge.qip
 set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_16bit_to_4digit.qip
 set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_11bit_to_4digit.qip
-set_global_assignment -name QIP_FILE RTL/lpm_14bit.qip
 set_global_assignment -name BDF_FILE RTL/VGA/Car_Fighter.bdf
 set_global_assignment -name SOURCE_FILE db/Lab1Demo.cmp.rdb
 set_global_assignment -name BDF_FILE RTL/Seg7/seg_fuel_display.bdf
@@ -319,4 +316,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/musix_mux.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/truck.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/functions.sv
 set_global_assignment -name SOURCE_FILE RTL/VGA/bitmaps.h
+set_global_assignment -name SOURCE_FILE RTL/VGA/functions.h
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/ai_car_red.sv
+set_global_assignment -name TEXT_FILE RTL/VGA/chars.txt
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

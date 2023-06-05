@@ -3,34 +3,56 @@
 module musix_mux (
 	input logic clk,
 	input logic resetN,
-	input logic bonus,
-	input logic [0:1] collision,
-	input logic win,
-	input logic lose,
 	input logic frame_start,
-	
-	output logic [3:0] stuff
+	input logic [0:4] game_states,
+	input logic [0:1] collision,
+
+
+
+	output enable_sound,
+	output logic [3:0] sound
 	);
 	
 	
-int count_collision;
-parameter HALFSEC = 15;
+int timer;
+
+enum logic [0:4] {collision_car, bonus, collision_edge} state;
+
 always_ff @(posedge clk or negedge resetN) begin
-
-	if (collision[0]) begin
-		 count_collision <= HALFSEC;
-	end 
+	if(!resetN) begin
+		timer <= 5'd0;
+	end
+	else begin 
+		if (collision[0]) begin
+			timer <= 5'd3;
+			state <= collision_car;
+		end
+	   else 	if (collision[1]) begin
+			timer <= 5'd4;
+			state <= collision_edge;
+		end 
+		else if(game_states[0]) begin 
+			timer <= 5'd5;
+			state <= bonus;
+		end 
+	
 
 	
-	if(frame_start && (count_collision>0))
-		 count_collision <= count_collision - 1;
-	if (count_collision) 
-		stuff <= 4'b0100;
-	else  
-		stuff <= 4'b0000;
-		
-		
-		
-	
+		if(frame_start)
+			timer <= timer - 1;
+		if (timer>0) begin
+			enable_sound=1;
+			case (state)
+				collision_car: sound <= 4'b0100;
+				bonus: sound <= 4'b0111;
+				collision_edge: sound <= 4'b1100;
+				default: sound <= 4'b0000;
+			endcase
+		end
+		else  begin
+			sound <= 4'b0000;
+			enable_sound=0;
+		end
+	end
 end 
 endmodule 

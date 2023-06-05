@@ -1,4 +1,5 @@
 
+
 //this module supports pre coded messages (short words etc.)
 //and can also "print" changing numbers into predetermined coordinates in the screen.
 module	messageboard	(	
@@ -16,441 +17,23 @@ module	messageboard	(
 					output   logic [7:0] output_color,
 					output 	logic [15:0] seg_7
 );
+`include "chars.txt"
 
-logic [0:31][0:7][0:7][7:0] letters = { //letters A to Z
-	{
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	},
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'hff,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff}}};
+typedef struct {
+	logic [4:0][0:4] code;
+	int x;
+	int y;
+	byte mult;
+	int length;
+} WORD;
 
-logic [0:9][0:7][0:7][0:7] nums = { //digits 0 to 9
-	{
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-{
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'hff,8'hff,8'h62,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'hff,8'h62,8'h62,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'h62,8'h62,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'hff,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}
-	,
-	{
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'hff,8'hff,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'hff,8'hff,8'h62,8'h62},
-	{8'h62,8'hff,8'hff,8'hff,8'hff,8'h62,8'h62,8'h62},
-	{8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62,8'h62}}	
-	};
-
-
-
-
-
-
-
-
-
-
-
-
+typedef struct {
+	logic [0:3][0:3] bcd;
+	int x;
+	int y;
+	byte mult;
+	int length;
+} NUMBER;
 
 
 
@@ -472,21 +55,6 @@ localparam logic[7:0] COLOR1 = 8'h88;
 localparam logic[7:0] ARBTITRARYCOLOR = 8'h99;
 
 
-typedef struct {
-	logic [4:0][0:4] code;
-	int x;
-	int y;
-	byte mult;
-	int length;
-} WORD;
-
-typedef struct {
-	logic [0:3][0:3] bcd;
-	int x;
-	int y;
-	byte mult;
-	int length;
-} NUMBER;
 
 
 //Declaration of words and numbers and their locations.
@@ -520,6 +88,10 @@ always @(score_val) begin
 	bcd_score_reg = {bcd_score_reg[14:0],score_val[13-i]};						//Shift one bit, and shift in proper bit from input 
     end
 end
+
+
+
+
 
 always @(fuel_val) begin
     bcd_fuel_reg=0;		 	
@@ -561,6 +133,7 @@ always @(distance_drove) begin
 	bcd_distance_reg = {bcd_distance_reg[14:0],distnace_fix[13-i]};				//Shift one bit, and shift in proper bit from input 
     end
 end
+
 
 int i=0;
 always_ff@(posedge clk or negedge resetN)

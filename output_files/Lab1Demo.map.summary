@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon Jun  5 16:46:24 2023
+Analysis & Synthesis Status : Successful - Mon Jun  5 19:54:22 2023
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : Lab1Demo
 Top-level Entity Name : Car_Fighter
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 706
+Total registers : 752
 Total pins : 77
 Total virtual pins : 0
 Total block memory bits : 0

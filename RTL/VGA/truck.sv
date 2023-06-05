@@ -71,13 +71,13 @@ const logic[0:31][0:15][7:0] ai_truck = {
 	{8'h62,8'hff,8'h91,8'hff,8'h91,8'hff,8'h91,8'hff,8'h91,8'hff,8'hff,8'h00,8'h00,8'h00,8'h00,8'h00}};
 const logic [0:4] [0:10] default_car_state = {
 	11'd1, // img_id
-	11'd256, // x
+	11'd280, // x
 	11'd380, // y
 	11'd64, //width
 	11'd128, //height
 };
 logic [0:4] [0:10] temp_car_state = default_car_state;
-const logic [0:2][0:9] rand_x_location  ={10'd140,10'd180,10'd220,10'd260};
+const logic [0:3][0:9] rand_x_location  ={10'd180,10'd240,10'd300,10'd360};
 
 
 
@@ -92,7 +92,7 @@ begin
 		
 		if(frame_start) begin
 			if(temp_car_state[2] == 480) begin
-				temp_car_state[1] <= rand_x_location[(random%4)-3];
+				temp_car_state[1] <= rand_x_location[2];
 				temp_car_state[2] <= 0;
 			end
 			else begin
