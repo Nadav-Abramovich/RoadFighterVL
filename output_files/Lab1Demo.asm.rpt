@@ -1,5 +1,5 @@
 Assembler report for Lab1Demo
-Mon Jun  5 20:57:35 2023
+Mon Jun  5 21:25:38 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jun  5 20:57:35 2023 ;
+; Assembler Status      ; Successful - Mon Jun  5 21:25:38 2023 ;
 ; Revision Name         ; Lab1Demo                              ;
 ; Top-level Entity Name ; Car_Fighter                           ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-----------------------+
 ; Option         ; Setting               ;
 +----------------+-----------------------+
-; JTAG usercode  ; 0x01155139            ;
-; Checksum       ; 0x01155139            ;
+; JTAG usercode  ; 0x01150F03            ;
+; Checksum       ; 0x01150F03            ;
 +----------------+-----------------------+
 
 
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Mon Jun  5 20:57:29 2023
+    Info: Processing started: Mon Jun  5 21:25:32 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Lab1Demo -c Lab1Demo
 Warning (125092): Tcl Script File RTL/lpm_score_bcd_16bit_to_4digit.qip not found
     Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_16bit_to_4digit.qip
@@ -87,7 +87,7 @@ Warning (125092): Tcl Script File RTL/lpm_score_bcd_11bit_to_4digit.qip not foun
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 556 megabytes
-    Info: Processing ended: Mon Jun  5 20:57:35 2023
+    Info: Processing ended: Mon Jun  5 21:25:38 2023
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:06
 

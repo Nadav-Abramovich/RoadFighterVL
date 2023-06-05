@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1Demo
-Mon Jun  5 20:56:20 2023
+Mon Jun  5 21:24:24 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -93,13 +93,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Jun  5 20:56:20 2023          ;
+; Analysis & Synthesis Status     ; Successful - Mon Jun  5 21:24:24 2023          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; Lab1Demo                                       ;
 ; Top-level Entity Name           ; Car_Fighter                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 779                                            ;
+; Total registers                 ; 780                                            ;
 ; Total pins                      ; 77                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -302,14 +302,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Estimate of Logic utilization (ALMs needed) ; 3353                                                                              ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 5792                                                                              ;
+; Combinational ALUT usage for logic          ; 5793                                                                              ;
 ;     -- 7 input functions                    ; 113                                                                               ;
 ;     -- 6 input functions                    ; 759                                                                               ;
-;     -- 5 input functions                    ; 694                                                                               ;
+;     -- 5 input functions                    ; 696                                                                               ;
 ;     -- 4 input functions                    ; 1262                                                                              ;
-;     -- <=3 input functions                  ; 2964                                                                              ;
+;     -- <=3 input functions                  ; 2963                                                                              ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 779                                                                               ;
+; Dedicated logic registers                   ; 780                                                                               ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 77                                                                                ;
 ;                                             ;                                                                                   ;
@@ -319,8 +319,8 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 799                                                                               ;
-; Total fan-out                               ; 23610                                                                             ;
+; Maximum fan-out                             ; 800                                                                               ;
+; Total fan-out                               ; 23625                                                                             ;
 ; Average fan-out                             ; 3.51                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
@@ -330,7 +330,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Entity Name             ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |Car_Fighter                                            ; 5792 (1)            ; 779 (0)                   ; 0                 ; 1          ; 77   ; 0            ; |Car_Fighter                                                                                                                     ; Car_Fighter             ; work         ;
+; |Car_Fighter                                            ; 5793 (1)            ; 780 (0)                   ; 0                 ; 1          ; 77   ; 0            ; |Car_Fighter                                                                                                                     ; Car_Fighter             ; work         ;
 ;    |AUDIO:inst18|                                       ; 199 (0)             ; 139 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18                                                                                                        ; AUDIO                   ; work         ;
 ;       |ToneDecoder:inst4|                               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18|ToneDecoder:inst4                                                                                      ; ToneDecoder             ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|AUDIO:inst18|addr_counter:inst9                                                                                     ; addr_counter            ; work         ;
@@ -351,16 +351,16 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpf:inst5|                                    ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|TOP_KBD:inst16|KBDINTF:inst|lpf:inst5                                                                               ; lpf                     ; work         ;
 ;       |keyPad_decoder:inst2|                            ; 8 (8)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|TOP_KBD:inst16|keyPad_decoder:inst2                                                                                 ; keyPad_decoder          ; work         ;
 ;    |VGA_Controller:inst|                                ; 69 (69)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|VGA_Controller:inst                                                                                                 ; VGA_Controller          ; work         ;
-;    |ai_cars:inst19|                                     ; 531 (0)             ; 129 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19                                                                                                      ; ai_cars                 ; work         ;
+;    |ai_cars:inst19|                                     ; 533 (0)             ; 130 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19                                                                                                      ; ai_cars                 ; work         ;
 ;       |ai_bonus_car:inst|                               ; 194 (194)           ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_bonus_car:inst                                                                                    ; ai_bonus_car            ; work         ;
-;       |ai_car_controller:inst1|                         ; 97 (70)             ; 26 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1                                                                              ; ai_car_controller       ; work         ;
-;          |collision_detector:comb_3|                    ; 27 (27)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|collision_detector:comb_3                                                    ; collision_detector      ; work         ;
-;       |ai_car_red:inst2|                                ; 81 (43)             ; 8 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2                                                                                     ; ai_car_red              ; work         ;
-;          |collision_detector:comb_3|                    ; 38 (38)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|collision_detector:comb_3                                                           ; collision_detector      ; work         ;
+;       |ai_car_controller:inst1|                         ; 99 (70)             ; 26 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1                                                                              ; ai_car_controller       ; work         ;
+;          |collision_detector:comb_3|                    ; 29 (29)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_controller:inst1|collision_detector:comb_3                                                    ; collision_detector      ; work         ;
+;       |ai_car_red:inst2|                                ; 80 (43)             ; 8 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2                                                                                     ; ai_car_red              ; work         ;
+;          |collision_detector:comb_3|                    ; 37 (37)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|ai_car_red:inst2|collision_detector:comb_3                                                           ; collision_detector      ; work         ;
 ;       |random:inst14|                                   ; 25 (25)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|random:inst14                                                                                        ; random                  ; work         ;
-;       |truck:inst3|                                     ; 134 (76)            ; 25 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3                                                                                          ; truck                   ; work         ;
+;       |truck:inst3|                                     ; 135 (77)            ; 26 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3                                                                                          ; truck                   ; work         ;
 ;          |collision_detector:comb_3|                    ; 58 (58)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|ai_cars:inst19|truck:inst3|collision_detector:comb_3                                                                ; collision_detector      ; work         ;
-;    |background_controller:inst8|                        ; 432 (432)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|background_controller:inst8                                                                                         ; background_controller   ; work         ;
+;    |background_controller:inst8|                        ; 431 (431)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|background_controller:inst8                                                                                         ; background_controller   ; work         ;
 ;    |car_collision_manager:inst15|                       ; 11 (11)             ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|car_collision_manager:inst15                                                                                        ; car_collision_manager   ; work         ;
 ;    |finish_line_controller:inst14|                      ; 53 (18)             ; 17 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|finish_line_controller:inst14                                                                                       ; finish_line_controller  ; work         ;
 ;       |collision_detector:comb_3|                       ; 35 (35)             ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Car_Fighter|finish_line_controller:inst14|collision_detector:comb_3                                                             ; collision_detector      ; work         ;
@@ -779,9 +779,8 @@ Encoding Type:  One-Hot
 ; player_controller:inst12|player_y_offset[7]                                    ; Stuck at GND due to stuck port data_in                                   ;
 ; player_controller:inst12|player_y_offset[2..6]                                 ; Stuck at VCC due to stuck port data_in                                   ;
 ; player_controller:inst12|player_y_offset[0,1]                                  ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][8]                                ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][9]                                ; Stuck at GND due to stuck port data_in                                   ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][10]                               ; Stuck at GND due to stuck port data_in                                   ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][0]                                ; Stuck at GND due to stuck port data_in                                   ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][1]                                ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][0]                           ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][1]                           ; Stuck at GND due to stuck port data_in                                   ;
 ; ai_cars:inst19|ai_car_red:inst2|temp_car_state[1][2]                           ; Stuck at GND due to stuck port data_in                                   ;
@@ -894,7 +893,7 @@ Encoding Type:  One-Hot
 ; messageboard:inst9|fuel_num.bcd[1][2]                                          ; Stuck at GND due to stuck port data_in                                   ;
 ; messageboard:inst9|seg_7[9]                                                    ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4,5] ; Stuck at GND due to stuck port data_in                                   ;
-; Total Number of Removed Registers = 886                                        ;                                                                          ;
+; Total Number of Removed Registers = 885                                        ;                                                                          ;
 +--------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -1029,12 +1028,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 779   ;
+; Total registers                              ; 780   ;
 ; Number of registers using Synchronous Clear  ; 190   ;
 ; Number of registers using Synchronous Load   ; 101   ;
 ; Number of registers using Asynchronous Clear ; 456   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 512   ;
+; Number of registers using Clock Enable       ; 513   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1072,7 +1071,7 @@ Encoding Type:  One-Hot
 ; ai_cars:inst19|truck:inst3|temp_car_state[2][4]                  ; 5       ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[2][5]                  ; 5       ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[1][6]                  ; 3       ;
-; ai_cars:inst19|truck:inst3|temp_car_state[1][7]                  ; 4       ;
+; ai_cars:inst19|truck:inst3|temp_car_state[1][7]                  ; 3       ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[2][6]                  ; 5       ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[2][8]                  ; 5       ;
 ; ai_cars:inst19|truck:inst3|temp_car_state[2][7]                  ; 5       ;
@@ -1083,14 +1082,14 @@ Encoding Type:  One-Hot
 ; finish_line_controller:inst14|temp_fl_state[2][2]                ; 2       ;
 ; finish_line_controller:inst14|temp_fl_state[2][7]                ; 2       ;
 ; finish_line_controller:inst14|temp_fl_state[2][8]                ; 3       ;
-; ai_cars:inst19|random:inst14|dout[2]                             ; 2       ;
-; ai_cars:inst19|random:inst14|dout[1]                             ; 2       ;
-; ai_cars:inst19|random:inst14|dout[0]                             ; 1       ;
-; ai_cars:inst19|random:inst14|dout[4]                             ; 3       ;
-; ai_cars:inst19|random:inst14|dout[7]                             ; 3       ;
-; ai_cars:inst19|random:inst14|dout[6]                             ; 3       ;
-; ai_cars:inst19|random:inst14|dout[5]                             ; 3       ;
-; ai_cars:inst19|random:inst14|dout[3]                             ; 3       ;
+; ai_cars:inst19|random:inst14|dout[2]                             ; 5       ;
+; ai_cars:inst19|random:inst14|dout[1]                             ; 7       ;
+; ai_cars:inst19|random:inst14|dout[0]                             ; 6       ;
+; ai_cars:inst19|random:inst14|dout[4]                             ; 2       ;
+; ai_cars:inst19|random:inst14|dout[7]                             ; 2       ;
+; ai_cars:inst19|random:inst14|dout[6]                             ; 2       ;
+; ai_cars:inst19|random:inst14|dout[5]                             ; 2       ;
+; ai_cars:inst19|random:inst14|dout[3]                             ; 2       ;
 ; player_controller:inst12|temp_player_state[1][2]                 ; 7       ;
 ; player_controller:inst12|temp_player_state[1][6]                 ; 8       ;
 ; player_controller:inst12|temp_player_state[3][4]                 ; 3       ;
@@ -1100,7 +1099,7 @@ Encoding Type:  One-Hot
 ; progress_bar_controller:inst2|temp_pb_state[2][2]                ; 2       ;
 ; progress_bar_controller:inst2|temp_pb_state[2][3]                ; 2       ;
 ; ai_cars:inst19|random:inst14|dout[9]                             ; 1       ;
-; ai_cars:inst19|random:inst14|dout[8]                             ; 2       ;
+; ai_cars:inst19|random:inst14|dout[8]                             ; 1       ;
 ; player_controller:inst12|last_moved_direction[10]                ; 11      ;
 ; Total number of inverted registers = 58                          ;         ;
 +------------------------------------------------------------------+---------+
@@ -2095,12 +2094,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 779                         ;
+; arriav_ff             ; 780                         ;
 ;     CLR               ; 157                         ;
 ;     CLR SCLR          ; 55                          ;
 ;     CLR SCLR SLD      ; 18                          ;
 ;     CLR SLD           ; 30                          ;
-;     ENA               ; 261                         ;
+;     ENA               ; 262                         ;
 ;     ENA CLR           ; 81                          ;
 ;     ENA CLR SCLR      ; 83                          ;
 ;     ENA CLR SLD       ; 32                          ;
@@ -2108,23 +2107,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 21                          ;
 ;     plain             ; 7                           ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 5799                        ;
-;     arith             ; 2135                        ;
+; arriav_lcell_comb     ; 5800                        ;
+;     arith             ; 2134                        ;
 ;         0 data inputs ; 304                         ;
-;         1 data inputs ; 797                         ;
+;         1 data inputs ; 796                         ;
 ;         2 data inputs ; 95                          ;
 ;         3 data inputs ; 411                         ;
-;         4 data inputs ; 472                         ;
-;         5 data inputs ; 56                          ;
+;         4 data inputs ; 469                         ;
+;         5 data inputs ; 59                          ;
 ;     extend            ; 113                         ;
 ;         7 data inputs ; 113                         ;
-;     normal            ; 3459                        ;
+;     normal            ; 3461                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 53                          ;
-;         2 data inputs ; 758                         ;
-;         3 data inputs ; 459                         ;
-;         4 data inputs ; 790                         ;
-;         5 data inputs ; 638                         ;
+;         1 data inputs ; 49                          ;
+;         2 data inputs ; 761                         ;
+;         3 data inputs ; 460                         ;
+;         4 data inputs ; 793                         ;
+;         5 data inputs ; 637                         ;
 ;         6 data inputs ; 759                         ;
 ;     shared            ; 92                          ;
 ;         0 data inputs ; 22                          ;
@@ -2135,7 +2134,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 37.30                       ;
-; Average LUT depth     ; 18.31                       ;
+; Average LUT depth     ; 18.30                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2154,7 +2153,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Mon Jun  5 20:55:42 2023
+    Info: Processing started: Mon Jun  5 21:23:46 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1Demo -c Lab1Demo
 Warning (125092): Tcl Script File RTL/lpm_score_bcd_16bit_to_4digit.qip not found
     Info (125063): set_global_assignment -name QIP_FILE RTL/lpm_score_bcd_16bit_to_4digit.qip
@@ -2442,13 +2441,14 @@ Info (10041): Inferred latch for "new_car_state[0][0]" at ai_bonus_car.sv(79) Fi
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "car_bonus_sprite" into its bus
 Info (12128): Elaborating entity "ai_car_red" for hierarchy "ai_cars:inst19|ai_car_red:inst2"
 Warning (10036): Verilog HDL or VHDL warning at ai_car_red.sv(65): object "rand_x_location" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 65
-Warning (10230): Verilog HDL assignment warning at ai_car_red.sv(80): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 80
-Warning (10230): Verilog HDL assignment warning at ai_car_red.sv(84): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 84
+Warning (10036): Verilog HDL or VHDL warning at ai_car_red.sv(68): object "max_x" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 68
+Warning (10230): Verilog HDL assignment warning at ai_car_red.sv(82): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 82
+Warning (10230): Verilog HDL assignment warning at ai_car_red.sv(86): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/ai_car_red.sv Line: 86
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "car_sprite_red" into its bus
 Info (12128): Elaborating entity "truck" for hierarchy "ai_cars:inst19|truck:inst3"
 Warning (10036): Verilog HDL or VHDL warning at truck.sv(80): object "rand_x_location" assigned a value but never read File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 80
-Warning (10230): Verilog HDL assignment warning at truck.sv(95): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 95
-Warning (10230): Verilog HDL assignment warning at truck.sv(98): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 98
+Warning (10230): Verilog HDL assignment warning at truck.sv(101): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 101
+Warning (10230): Verilog HDL assignment warning at truck.sv(104): truncated value with size 33 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/truck.sv Line: 104
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "ai_truck" into its bus
 Info (12128): Elaborating entity "player_controller" for hierarchy "player_controller:inst12"
 Warning (10230): Verilog HDL assignment warning at player_controller.sv(155): truncated value with size 32 to match size of target (11) File: /home/arie/Desktop/Elec_labs_1/RoadFighterVL/RTL/VGA/player_controller.sv Line: 155
@@ -3075,18 +3075,18 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 6086 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6087 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 64 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 6007 logic cells
+    Info (21061): Implemented 6008 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 466 warnings
-    Info: Peak virtual memory: 592 megabytes
-    Info: Processing ended: Mon Jun  5 20:56:20 2023
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 467 warnings
+    Info: Peak virtual memory: 593 megabytes
+    Info: Processing ended: Mon Jun  5 21:24:24 2023
     Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:50
+    Info: Total CPU time (on all processors): 00:00:49
 
 
 +------------------------------------------+

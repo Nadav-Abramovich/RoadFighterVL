@@ -79,6 +79,12 @@ const logic [0:4] [0:10] default_car_state = {
 logic [0:4] [0:10] temp_car_state = default_car_state;
 const logic [0:3][0:9] rand_x_location  ={10'd180,10'd240,10'd300,10'd360};
 
+function int get_number(int input_num);
+    if (input_num < 0 || input_num > 7) begin
+        $error("Invalid number. Please enter a number between 0 and 7.");
+    end
+    return 166 + (input_num * ((434 - 166 + 1) / 8));
+endfunction
 
 
 
@@ -92,7 +98,7 @@ begin
 		
 		if(frame_start) begin //(random[4:10]*16 < 640) && (random[4:10]*16 >0)) begin
 			if(temp_car_state[2] == 480) begin
-				temp_car_state[1] <= random[2:9]*8;
+				temp_car_state[1] <= get_number(random%8);
 				temp_car_state[2] <= 0;
 			end
 			temp_car_state[2] <= temp_car_state[2] - 11'd6 + {1'd0, player_speed/32};

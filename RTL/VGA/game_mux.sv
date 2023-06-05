@@ -21,6 +21,8 @@ module	game_mux	(
 			output logic [7:0] RGB
 );
 
+
+
 const logic [0:10] min_x = 11'd166;
 const logic [0:10] max_x = min_x + 11'd248;
 

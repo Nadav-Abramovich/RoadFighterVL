@@ -65,6 +65,13 @@ logic [0:4] [0:10] temp_car_state = default_car_state;
 const logic [0:3][0:9] rand_x_location  ={10'd180,10'd240,10'd300,10'd360};
 
 
+function int get_number(int input_num);
+    if (input_num < 0 || input_num > 7) begin
+        $error("Invalid number. Please enter a number between 0 and 7.");
+    end
+    return 166 + (input_num * ((434 - 166 + 1) / 8));
+endfunction
+
 
 
 always_ff@(posedge clk or negedge resetN)
