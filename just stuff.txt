@@ -1,0 +1,49 @@
+
+reg [15:0] bcd_time_reg;
+int time_counter;
+
+
+always @(time_counter) begin
+	 temp = distance_drove/16;
+	 distnace_fix = {temp[13:0]}/4; // can be optimized later 
+    bcd_time_reg=0;		 	
+    for (int i=0;i<14;i=i+1) begin					//Iterate once for each bit in input number
+        if (bcd_time_reg[3:0] >= 5) bcd_time_reg[3:0] = bcd_time_reg[3:0] + 3;		//If any BCD digit is >= 5, add three
+	if (bcd_time_reg[7:4] >= 5) bcd_time_reg[7:4] = bcd_time_reg[7:4] + 3;
+	if (bcd_time_reg[11:8] >= 5) bcd_time_reg[11:8] = bcd_time_reg[11:8] + 3;
+	if (bcd_time_reg[15:12] >= 5) bcd_time_reg[15:12] = bcd_time_reg[15:12] + 3;
+	bcd_time_reg = {bcd_time_reg[14:0],distnace_fix[13-i]};				//Shift one bit, and shift in proper bit from input 
+    end
+end
+
+
+
+
+WORD word_time = '{{5'd19,5'd8,5'd12,5'd4,5'd17},550,400,2,4};
+
+NUMBER time_num = '{{4'b0,4'b0,4'b0,4'b0}, 550, 420, 2, 4};
+
+for(int i=0; i<5; i++) begin
+			if 	((word_time.y<= requested_y) 
+				&& ((word_time.y+8*word_time.mult) > requested_y) 
+				&& ((word_time.x +i*8*word_time.mult) <= requested_x) 
+				&& ((word_time.x+8*word_time.mult+i*8*word_time.mult) > requested_x )) begin
+					output_color <= letters[word_time.code[word_time.length-i]][(requested_y-word_time.y)/word_time.mult][(requested_x-word_time.x-(i*8*word_time.mult))/word_time.mult];
+				end
+		end
+
+
+
+
+
+
+
+time_num.bcd <= {bcd_time_reg[15:12],bcd_time_reg[11:8],bcd_time_reg[7:4],bcd_time_reg[3:0]};
+		for(int i=0; i<4; i++) begin
+			if 	((time_num.y<= requested_y) 
+				&& ((time_num.y+8*time_num.mult) > requested_y) 
+				&& ((time_num.x +i*8*time_num.mult) <= requested_x) 
+				&& ((time_num.x+8*time_num.mult+i*8*time_num.mult) > requested_x )) begin
+				output_color <= nums[time_num.bcd[i]][(requested_y-time_num.y)/time_num.mult][(requested_x-time_num.x-(i*8*time_num.mult))/time_num.mult];
+				end
+		end
