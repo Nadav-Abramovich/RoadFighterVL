@@ -78,7 +78,7 @@ begin
 			else if(background_color!=MASK_VALUE)
 				RGB<=background_color;
 			else 	
-				RGB <= 8'b01110110;
+				RGB <= 8'b01110110; //change later to black.
 			if(progress_bar_color != MASK_VALUE) begin
 				RGB <= progress_bar_color;
 			end
